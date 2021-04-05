@@ -1,0 +1,22 @@
+{% render 'shogun-products', content: product %}
+{% include 'shogun-products', content: product %}
+{{product.metafields.shogun.above}}
+{% comment %}
+  The contents of the product.liquid template can be found in /sections/product-template.liquid
+{% endcomment %}
+
+{% section 'product-template' %}
+
+{% section 'product-recommendations' %}
+
+{% render 'product__structured-data' %}
+
+{{product.metafields.shogun.below}}
+
+
+
+<!-- RYVIU APP :: WIDGET -->
+<div class="lt-block-reviews">
+<ryviu-widget product_id="{{product.id}}" handle="{{product.handle}}" title_product="{{product.title}}" image_product="{{ product.featured_image.src | img_url: "100x" }}"></ryviu-widget>
+</div>
+<!-- RYVIU APP -->

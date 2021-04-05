@@ -1,0 +1,11 @@
+{% comment %}
+  DO NOT MODIFY MANUALLY
+  This asset is generated automatically by Talkable Integration at 3/10/20 1:10AM
+{% endcomment %}
+{% if shop.customer_accounts_enabled %}
+  {% if customer %}
+    <div id="talkable-offer"></div>
+  {% else %}
+    {{ 'Log in' | customer_login_link }}
+  {% endif %}
+{% endif %}

@@ -1,0 +1,131 @@
+{% section 'size-guide-page-template' %}
+{% section 'image-text-size' %}
+{% section 'text-columns-with-images-size' %}
+{% section 'faq-section' %}
+
+
+<style>
+#shopify-section-image-text {
+    background: rgb(245, 246, 247);
+    padding-top: 45px;
+    padding-bottom: 15px;
+}
+
+h2.title {
+    font-size: 30px;
+    margin-bottom: 35px;
+}
+
+.feature_divider {
+    display: none;
+}
+.featured-link--half {
+    background-color: transparent;
+}
+.sticky_nav--stick {
+    border-bottom: 1px solid #f3f3f4;
+}
+.inline-flex {
+    display: flex;
+    justify-content: space-between;
+}
+
+.inline-flex dl.accordion {
+    width: 45%;
+}
+
+.inline-flex .accordion>dt>a {
+    font-size: 20px;
+    font-weight: 500;
+}
+#shopify-section-faq-section {
+    background: rgb(245, 246, 247);
+    padding-top: 10px;
+    padding-bottom: 15px;
+}
+
+@media only screen and (max-width: 798px) {
+
+.size-header h1 {
+    font-size: 28px;
+}
+
+ul.size-guides {
+    display: block;
+    overflow: hidden;
+}
+
+ul.size-guides li {
+    width: 42%;
+    float: left;
+    margin-left: 4%;
+    margin-right: 4%;
+}
+
+
+.featured-link--half .info.text-align--left {
+    text-align: center;
+}
+
+ul.icon-image {
+    margin: 0 auto;
+    text-align: center;
+    display: flex;
+    justify-content: center;
+}
+
+#shopify-section-size-guide-page-template .featured-link--text {
+    width: 100%;
+}
+
+h2.title {
+    font-size: 23px;
+    line-height: 1.3;
+}
+
+.inline-flex {
+    display: block;
+}
+
+.inline-flex dl.accordion {
+    width: 100%;
+    margin-bottom: 0px;
+}
+
+.inline-flex dl.accordion + dl.accordion {
+    margin-top: 0px;
+}
+
+h2.title {
+    padding: 0 20px;
+}
+
+.text-columns-with-images-section .gallery-cell {
+    width: 100% !IMPORTANT;
+    text-align: center;
+}
+.text-columns-with-images-section .gallery-cell .border-style--none.text-align--left, .text-columns-with-images-section .gallery-cell > div {
+    text-align: center;
+    padding: 0 30px;
+}
+.text-columns-with-images-section .gallery-cell img {max-width: 100%;}
+
+}
+</style>
+
+<script>
+
+var scroll = new SmoothScroll('a[href*="#"]', {
+	header: '.header', // Selector for fixed headers (must be a valid CSS selector)
+	topOnEmptyHash: false, // Scroll to the top of the page for links with href="#"
+
+	// Speed & Duration
+	speed: 500, // Integer. Amount of time in milliseconds it should take to scroll 1000px
+	speedAsDuration: false, // If true, use speed as the total duration of the scroll animation
+	durationMax: null, // Integer. The maximum amount of time the scroll animation should take
+	durationMin: null, // Integer. The minimum amount of time the scroll animation should take
+	clip: true, // If true, adjust scroll distance to prevent abrupt stops near the bottom of the page
+	offset: 25,
+});
+
+</script>

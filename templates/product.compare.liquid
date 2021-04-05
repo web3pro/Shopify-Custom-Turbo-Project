@@ -1,0 +1,124 @@
+{% layout "none" %}
+
+<div id="select">
+
+  {% if product.variants.size > 1 and product.options[0] != "Title" %}
+  {% for option in product.options %}
+  {% render 'product-select',
+                    option: option,
+  product: product
+  %}
+  {% endfor %}
+  {% endif %}
+
+  <div class="select">
+    <select name="selectCal">
+      {% for v in product.variants %}
+      <option {% if v == product.selected_or_first_available_variant %}selected="selected"{% endif %} value="{{ v.id }}" data-sku="{{ v.sku }}">{{ v.title }}</option>
+      {% endfor %}
+    </select>
+  </div>
+
+</div>
+
+<div id="main">
+  <div class="image-wrapper">
+    <img src="{{ product.featured_image | img_url: 'master' }}" alt="{{ product2.title }}">
+    {% if product.metafields.custom_fields["featured_title"] != blank %} 
+    <div class="badge-label">{{ product.metafields.custom_fields["featured_title"] }}</div>
+    {% endif %}
+  </div>
+	
+  <div class="price-compare">
+    From 
+    <span>{{ product.price_min | money }}</span>
+    <span class="was_price">
+      {% if product.price_min < product.compare_at_price_min %}
+      <span class="money">{{ product.compare_at_price_min | money }}</span>
+      {% endif %}
+    </span>
+  </div>
+
+  <a href="/products/{{ product.handle }}" class="action_button">Shop Now</a>
+</div>
+
+<div id="fmain">
+  {% if product.metafields.custom_fields["product_title"] != blank %}
+  	<h3 class="header-fixed">{{ product.metafields.custom_fields["product_title"] }}</h3>
+  {% else %}
+  	<h3 class="header-fixed">{{ product.title }}</h3>
+  {% endif %}
+  
+  <div class="price-compare">
+    From 
+    <span>{{ product.price_min | money }}</span>
+    <span class="was_price">
+      {% if product.price_min < product.compare_at_price_min %}
+      <span class="money">{{ product.compare_at_price_min | money }}</span>
+      {% endif %}
+    </span>
+  </div>
+
+  <a href="/products/{{ product.handle }}" class="action_button">Shop Now</a>
+</div>
+
+
+<div id="section1">
+{% if product.metafields.custom_fields["compare_section_1"] != blank %}
+	{{ product.metafields.custom_fields["compare_section_1"] }}
+{% endif %}
+</div>
+
+<div id="section2">
+{% if product.metafields.custom_fields["compare_section_2"] != blank %}
+	{{ product.metafields.custom_fields["compare_section_2"] }}
+{% endif %}
+</div>
+
+<div id="section3">
+{% if product.metafields.custom_fields["compare_section_3"] != blank %}
+	{{ product.metafields.custom_fields["compare_section_3"] }}
+{% endif %}
+</div>
+
+<div id="section4">
+{% if product.metafields.custom_fields["compare_section_4"] != blank %}
+	{{ product.metafields.custom_fields["compare_section_4"] }}
+{% endif %}
+</div>
+
+<div id="section5">
+{% if product.metafields.custom_fields["compare_section_5"] != blank %}
+	{{ product.metafields.custom_fields["compare_section_5"] }}
+{% endif %}
+</div>
+
+<div id="section6">
+{% if product.metafields.custom_fields["compare_section_6"] != blank %}
+	{{ product.metafields.custom_fields["compare_section_6"] }}
+{% endif %}
+</div>
+
+<div id="section7">
+{% if product.metafields.custom_fields["compare_section_7"] != blank %}
+	{{ product.metafields.custom_fields["compare_section_7"] }}
+{% endif %}
+</div>
+
+<div id="section8">
+{% if product.metafields.custom_fields["compare_section_8"] != blank %}
+	{{ product.metafields.custom_fields["compare_section_8"] }}
+{% endif %}
+</div>
+
+<div id="section9">
+{% if product.metafields.custom_fields["compare_section_9"] != blank %}
+	{{ product.metafields.custom_fields["compare_section_9"] }}
+{% endif %}
+</div>
+
+<div id="section10">
+{% if product.metafields.custom_fields["compare_section_10"] != blank %}
+	{{ product.metafields.custom_fields["compare_section_10"] }}
+{% endif %}
+</div>
