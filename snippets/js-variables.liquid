@@ -1,0 +1,116 @@
+{% capture js_variables %}
+
+Shopify = window.Shopify || {};
+
+{% comment %} /* # Theme settings
+================================================== */ {% endcomment %}
+Shopify.theme_settings = {};
+Currency = window.Currency || {};
+
+{% comment %} Cart {% endcomment %}
+Shopify.theme_settings.display_tos_checkbox = {{ settings.display_tos_checkbox | json }};
+Shopify.theme_settings.go_to_checkout = {{ settings.go_to_checkout | json }};
+Shopify.theme_settings.cart_action = {{ settings.cart_action | json }};
+Shopify.theme_settings.cart_shipping_calculator = {{ settings.show_shipping_calculator | json }};
+
+{% comment %} Collection {% endcomment %}
+Shopify.theme_settings.collection_swatches = {{ settings.collection_swatches | json }};
+Shopify.theme_settings.collection_secondary_image = {{ settings.collection_secondary_image | json }};
+
+{% comment %} Currency {% endcomment %}
+Currency.show_multiple_currencies = {{ settings.show_multiple_currencies | json }};
+Currency.shop_currency = {{ shop.currency | strip_html | json }};
+Currency.default_currency = {{ settings.default_currency | default: shop.currency | json }};
+Currency.display_format = {{ settings.currency_format | json }};
+Currency.money_format = {{ shop[settings.currency_format] | strip_html | json }};
+Currency.money_format_no_currency = {{ shop.money_format | strip_html | json }};
+Currency.money_format_currency = {{ shop.money_with_currency_format | strip_html | json }};
+Currency.native_multi_currency = {% if shop.enabled_currencies.size > 1 %}true{% else %}false{% endif %};
+
+{% comment %} Inventory {% endcomment %}
+Shopify.theme_settings.display_inventory_left = {{ settings.display_inventory_left | json }};
+Shopify.theme_settings.inventory_threshold = {{ settings.inventory_threshold | json }};
+Shopify.theme_settings.limit_quantity = {{ settings.limit_quantity | json }};
+
+{% comment %} Menu {% endcomment %}
+Shopify.theme_settings.menu_position = {{ settings.menu_position | json }};
+
+{% comment %} Newsletter {% endcomment %}
+Shopify.theme_settings.newsletter_popup = {{ settings.newsletter_popup | json }};
+Shopify.theme_settings.newsletter_popup_days = {{ settings.newsletter_popup_days | json }};
+Shopify.theme_settings.newsletter_popup_mobile = {{ settings.newsletter_popup_mobile | json }};
+Shopify.theme_settings.newsletter_popup_seconds = {{ settings.newsletter_popup_seconds | json }};
+
+{% comment %} Pagination {% endcomment %}
+Shopify.theme_settings.pagination_type = {{ settings.pagination_type | json }};
+Shopify.theme_settings.search_pagination_type = {{ settings.search_pagination_type | json }};
+
+{% comment %} Product {% endcomment %}
+Shopify.theme_settings.enable_shopify_review_comments = {{ settings.enable_shopify_review_comments | json }};
+Shopify.theme_settings.enable_shopify_collection_badges = {{ settings.enable_shopify_collection_badges | json }};
+Shopify.theme_settings.quick_shop_thumbnail_position = {{ settings.quick_shop_thumbnail_position | json }};
+Shopify.theme_settings.product_form_style = {{ settings.product_form_style | json }};
+Shopify.theme_settings.sale_banner_enabled = {{ settings.sale_banner_enabled | json }};
+Shopify.theme_settings.display_savings = {{ settings.display_savings | json }};
+Shopify.theme_settings.display_sold_out_price = {{ settings.display_price | json }};
+Shopify.theme_settings.sold_out_text = {{ settings.sold_out_text | json }};
+Shopify.theme_settings.free_text = {{ settings.free_price_text | json }};
+Shopify.theme_settings.video_looping = {{ settings.video_looping | json}};
+
+{% comment %} Images {% endcomment %}
+Shopify.theme_settings.image_loading_style = {{ settings.image_loading_style | json }};
+
+{% comment %} Search {% endcomment %}
+Shopify.theme_settings.search_option = {{ settings.search_option | json }};
+Shopify.theme_settings.search_items_to_display = {{ settings.search_to_display | json }};
+Shopify.theme_settings.enable_autocomplete = {{ settings.enable_autocomplete | json }};
+
+{% comment %} Slideshow {% endcomment %}
+Shopify.theme_settings.page_dots_enabled = {{ settings.slideshow_nav_buttons | json }};
+Shopify.theme_settings.slideshow_arrow_size = {{ settings.slideshow_arrow_size | json }};
+
+{% comment %} Quickshop {% endcomment %}
+Shopify.theme_settings.quick_shop_enabled = {{ settings.quick_shop_enabled | json }};
+
+{% comment %} /* # Translation
+================================================== */ {% endcomment %}
+Shopify.translation = Shopify.translation || {};
+
+{% comment %} Cart {% endcomment %}
+Shopify.translation.agree_to_terms_warning = "{{ 'cart.general.agree_to_terms_warning'| t | strip_newlines | escape }}";
+Shopify.translation.one_item_left = "{{ 'products.product.items_left_count.one' | t | strip_newlines | escape }}";
+Shopify.translation.items_left_text = "{{ 'products.product.items_left_count.other' | t | strip_newlines | escape }}";
+Shopify.translation.cart_savings_text = "{{ 'layout.general.savings'| t | strip_newlines | escape }}";
+Shopify.translation.cart_discount_text = "{{ 'cart.general.discount'| t | strip_newlines | escape }}";
+Shopify.translation.cart_subtotal_text = "{{ 'layout.general.subtotal'| t | strip_newlines | escape }}";
+Shopify.translation.cart_remove_text = "{{ 'cart.general.remove'| t | strip_newlines | escape }}";
+
+{% comment %} Newsletter {% endcomment %}
+Shopify.translation.newsletter_success_text = "{{ 'general.newsletter_form.success_text'| t | strip_newlines | escape }}";
+
+{% comment %} Notify Form {% endcomment %}
+Shopify.translation.notify_email = "{{ 'products.notify_form.email'| t | strip_newlines | escape }}";
+Shopify.translation.notify_email_value = "{{ 'contact.fields.email'| t | strip_newlines | escape }}";
+Shopify.translation.notify_email_send = "{{ 'products.notify_form.send'| t | strip_newlines | escape }}";
+Shopify.translation.notify_message_first = "{{ 'products.notify_form.message_content_first'| t | strip_newlines | escape }}";
+Shopify.translation.notify_message_last = "{{ 'products.notify_form.message_content_last'| t | strip_newlines | escape }}";
+Shopify.translation.notify_success_text = "{{ 'products.notify_form.post_success'| t | strip_newlines | escape }}";
+
+{% comment %} Product {% endcomment %}
+Shopify.translation.add_to_cart = "{{ 'products.product.add_to_cart' | t | strip_newlines | escape }}";
+Shopify.translation.coming_soon_text = "{{ 'collections.general.coming_soon' | t | strip_newlines | escape }}";
+Shopify.translation.sold_out_text = "{{ 'products.product.sold_out' | t | strip_newlines | escape }}";
+Shopify.translation.sale_text = "{{ 'collections.general.sale' | t | strip_newlines | escape }}";
+Shopify.translation.savings_text = "{{ 'products.product.savings' | t | strip_newlines | escape }}";
+Shopify.translation.free_price_text = "{{ 'settings.free_price_text' | t | strip_newlines | escape }}";
+Shopify.translation.from_text = "{{ 'products.general.from' | t | strip_newlines | escape }}";
+Shopify.translation.new_text = "{{ 'collections.general.new' | t | strip_newlines | escape }}";
+Shopify.translation.pre_order_text = "{{ 'collections.general.pre_order' | t | strip_newlines | escape }}";
+Shopify.translation.unavailable_text = "{{ 'products.product.unavailable' | t | strip_newlines | escape }}";
+
+{% comment %} Search {% endcomment %}
+Shopify.translation.all_results = "{{ 'general.search.all_results'| t | strip_newlines | escape }}";
+
+{% endcapture %}
+{%- assign js_variables = js_variables | split: 'Shopify.' -%}
+{%- for variable in js_variables -%}{%- assign variableblock = variable | strip -%}{% if forloop.first %}{{ variableblock }}{% else %}{{ variableblock | prepend: 'Shopify.' }}{% endif %}{%- endfor -%}

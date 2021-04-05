@@ -1,0 +1,40 @@
+<div class="product-details">
+  <span class="title" itemprop="name">{{ product.title }}</span>
+  {% if settings.display_vendor %}
+    <span class="brand">{{ product.vendor }}</span>
+  {% endif %}
+  {% if settings.enable_shopify_collection_badges %}
+    <div class="shopify-reviews reviewsVisibility--{{settings.enable_shopify_review_comments}}">
+      <span class="shopify-product-reviews-badge" data-id="{{ product.id }}"></span>
+    </div>
+  {% endif %}
+  {% if collection_handles contains 'coming-soon' %}
+    <span class="coming-soon">{{ 'collections.general.coming_soon' | t }}</span>
+  {% else %}
+    <span class="price {% if product.compare_at_price_max > product.price %}sale{% endif %}">
+      {% unless product.available == false and settings.display_price == false %}
+        <span class="current_price">
+          {% if product.price_varies and product.price_min > 0 %}
+            <small><em>{{ 'products.general.from' | t }}</em></small>
+          {% endif %}
+          {% if product.price_min > 0 %}
+            <span class="money">{% render 'price-element', price: product.price_min %}</span>
+          {% else %}
+            {{ settings.free_price_text }}
+          {% endif %}
+        </span>
+        {% assign variant = product.selected_or_first_available_variant %}
+        <span class="was_price">
+          {% if variant.price < variant.compare_at_price %}
+            <span class="money">{% render 'price-element', price: variant.compare_at_price %}</span>
+          {% endif %}
+        </span>
+      {% endunless %}
+      <div class="sold-out">
+        {% unless product.available %}
+          {{ settings.sold_out_text }}
+        {% endunless %}
+      </div>
+    </span>
+  {% endif %}
+</div>

@@ -1,0 +1,42 @@
+{% if settings.thumbnail_hover_enabled or settings.quick_shop_enabled and settings.quick_shop_style == 'popup' %}
+  <div class="thumbnail-overlay">
+    <a href="{{ product.url | within: collection }}" itemprop="url" class="hidden-product-link">
+      {{ product.title }}
+    </a>
+
+    <div class="info">
+      {% if settings.thumbnail_hover_enabled %}
+        {% render 'product-info',
+                product: product,
+                collection_handles: collection_handles
+        %}
+      {% endif %}
+
+      {% if settings.quick_shop_enabled and settings.quick_shop_style == 'popup' %}
+        {% render 'quick-shop-button', product: product %}
+      {% endif %}
+    </div>
+  </div>
+{% endif %}
+
+<div class="banner_holder">
+  {% if product.available %}
+    {% if settings.sale_banner_enabled and product.compare_at_price_max > product.price %}
+      <div class="sale_banner thumbnail_banner">
+        {{ 'collections.general.sale' | t }}
+      </div>
+    {% endif %}
+  {% endif %}
+
+  {% if collection_handles contains 'new' %}
+    <div class="new_banner thumbnail_banner">
+      {{ 'collections.general.new' | t }}
+    </div>
+  {% endif %}
+
+  {% if collection_handles contains 'pre-order' %}
+    <div class="preorder_banner thumbnail_banner">
+      {{ 'collections.general.pre_order' | t }}
+    </div>
+  {% endif %}
+</div>

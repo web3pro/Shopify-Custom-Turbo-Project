@@ -1,0 +1,11 @@
+{% comment %} Start Matcha code {% endcomment %}<script>
+(function(m,a,t,c,ha){if(!m[ha]){if(m.rr){m[ha]=m.rr;return}m[ha]=function(){(m[ha].q=m[ha].q||[]).push(arguments)}
+;m[ha].q=m[ha].q||[];m.rr=m[ha];var el=a.createElement(t);var scrTag=a.getElementsByTagName(t)[0];el.async=true
+;el.src=c+'?v='+Math.floor(Date.now()/864e5);scrTag.parentNode.insertBefore(el,scrTag)}})(window,document,'script',
+'https://mjs.getmatcha.com/dSB47yfiKfvt4Ma6yQW5gogv/matcha.min.js','matcha');
+matcha('config', 'channelToken', 'dSB47yfiKfvt4Ma6yQW5gogv');
+
+          {% if customer %}
+            matcha('identify', 'user', 'shopify', '{{ shop.permanent_domain }}', '{{ customer.id }}');
+          {% endif %}</script>
+        {% comment %} End Matcha code {% endcomment %}

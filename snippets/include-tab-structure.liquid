@@ -1,0 +1,447 @@
+
+{% assign top_header = block.settings.top_header %}
+{% assign top_content = block.settings.top_content %}
+
+{% assign tab_1_title = block.settings.tab_1_title %}
+{% assign tab_1_image = block.settings.tab_1_image %}
+{% assign section_2_text_alignment = block.settings.section_2_text_alignment %}
+
+{% assign tab_1_layerimage = block.settings.tab_1_layerimage %}
+{% assign tab_1_layerimage_1 = block.settings.tab_1_layerimage_1 %}
+{% assign tab_1_layerimage_2 = block.settings.tab_1_layerimage_2 %}
+{% assign tab_1_layerimage_3 = block.settings.tab_1_layerimage_3 %}
+{% assign tab_1_layerimage_4 = block.settings.tab_1_layerimage_4 %}
+{% assign tab_1_layerimage_5 = block.settings.tab_1_layerimage_5 %}
+{% assign tab_1_layerimage_6 = block.settings.tab_1_layerimage_6 %}
+{% assign tab_1_textheader = block.settings.tab_1_textheader %}
+{% assign tab_1_textcontent = block.settings.tab_1_textcontent %}
+
+{% assign section_1_text_alignment = block.settings.section_1_text_alignment %}
+{% assign tab_1_layerheader = block.settings.tab_1_layerheader %}
+{% assign tab_1_layer1_text1 = block.settings.tab_1_layer1_text1 %}
+{% assign tab_1_layer1_text2 = block.settings.tab_1_layer1_text2 %}
+{% assign tab_1_layer1_text3 = block.settings.tab_1_layer1_text3 %}
+{% assign tab_1_layer1_text4 = block.settings.tab_1_layer1_text4 %}
+{% assign tab_1_layer1_text5 = block.settings.tab_1_layer1_text5 %}
+{% assign tab_1_layer1_text6 = block.settings.tab_1_layer1_text6 %}
+
+{% assign tab_2_title = block.settings.tab_2_title %}
+{% assign tab_2_image_1 = block.settings.tab_2_image_1 %}
+{% assign tab_2_image_1_mobile = block.settings.tab_2_image_1_mobile %}
+
+{% assign tab_2_textheader_1 = block.settings.tab_2_textheader_1 %}
+{% assign tab_2_textcontent_1 = block.settings.tab_2_textcontent_1 %}
+{% assign tab_2_image_2 = block.settings.tab_2_image_2 %}
+{% assign tab_2_textheader_2 = block.settings.tab_2_textheader_2 %}
+{% assign tab_2_textcontent_2 = block.settings.tab_2_textcontent_2 %}
+
+
+<div id="shopify-section-1603404591b8eb4f54" class="shopify-section image-with-text-section">
+    <div class="container">
+        <div class="sixteen columns"> 
+            <div class="heading-section"> 
+                <h3>{{top_header}}</h3>
+                <p>{{top_content}}</p>
+            </div>
+        </div>
+    </div>
+    <ul class="tabsProduct"> 
+        <li class="active"> 
+            <a href="javascript:;" data-handle="structure">
+                <span>1</span> 
+                {{tab_1_title}}
+            </a>
+        </li> 
+        <li class=""> 
+            <a href="javascript:;" data-handle="spotlight">
+                <span>2</span> 
+                {{tab_2_title}}
+            </a>
+        </li>
+    </ul> 
+    <div class="container"> 
+        <div class="sixteen columns"> 
+            <div class="image-with-text featured_collections clearfix across-1 image-align--left full-width--false"> 
+                <section class="structure tabcontent featured-link--section featured-link--image section-2"> 
+                    <div class="featured-link--half featured-link--image featured-link--margin image-crop--none"> 
+                        <div class="featured-link--wrap"> 
+                            <a title="tab_1_textheader">
+                                <div class="image-element__wrap" style=" "> 
+                                {% comment %} <img alt="" src="//cdn.shopify.com/s/files/1/0051/6744/8152/files/pexels-tatiana-syrikova-3975634_0878c38f-844f-49c0-8637-6ee54a251e61_1600x.jpg?v=1602670023"  sizes="572px"> {% endcomment %}
+                                    
+                                    <img src="{{tab_1_image | img_url: 'master'}}" >
+                                </div>
+                                <noscript> 
+                                    <img src="{{tab_1_image | img_url: 'master'}}" >
+                                    {% comment %} {% if tab_1_image %}
+                                        {% render 'image-element',
+                                                image: tab_1_image,
+                                                alt: tab_1_image.alt
+                                        %}
+                                    {% endif %}                                 {% endcomment %}
+                                </noscript>
+                            </a>
+                        </div>
+                    </div> 
+                    <div class="featured-link--half block--1603404591b8eb4f54-1"  {% if tab_1_section_style == true %} style="display:none !important;" {% endif %}> 
+                        <div class="info text-align--left"> 
+                            <a class="heading-section text-align--{{section_2_text_alignment}}" ><h3>{{tab_1_textheader}}</h3></a> 
+                                <div class="description text-align--{{section_2_text_alignment}}" >
+                                    <p>{{tab_1_textcontent}}</p>
+                                </div>
+                        </div>
+                    </div>
+                </section>
+                <section class="structure tabcontent featured-link--section featured-link--image section-1" > 
+                    <div class="shopify-section lookColumn" > 
+                        <div class="container"> 
+                            <div class="textWrapper heading-section" style="max-width: 850px;">
+                                <h2 class="title mobile_only">{{tab_1_layerheader}}</h2> 
+                                <h3 class="title desktop_only">{{tab_1_layerheader}}</h3> 
+                                <div class="looks" data-id="1"> 
+                                    <p>{{tab_1_layer1_text1}}</p>
+                                </div> 
+                                <div class="looks" data-id="2" style="display: none;"> 
+                                    <p>{{tab_1_layer1_text2}}</p>
+                                </div> 
+                                <div class="looks" data-id="3" style="display: none;"> 
+                                    <p>{{tab_1_layer1_text3}}</p>
+                                </div> 
+                                <div class="looks" data-id="4" style="display: none;"> 
+                                        <p>{{tab_1_layer1_text4}}</p>
+                                </div>
+                                {% if tab_1_layer1_text5 != blank%}
+                                <div class="looks" data-id="5" style="display: none;"> 
+                                        <p>{{tab_1_layer1_text5}}</p>
+                                </div>
+                                {% endif %}
+                                
+                                {% if tab_1_layer1_text6 != blank%}
+                                <div class="looks" data-id="6" style="display: none;"> 
+                                        <p>{{tab_1_layer1_text6}}</p>
+                                </div>
+                                {% endif %}
+                            </div>
+                            <div class="imageWrapper"> 
+                                <img src="{{tab_1_layerimage | img_url: 'master'}}" class="placeholderImage">
+                                    {% comment %} {% render 'image-element',
+                                                image: tab_1_layerimage,
+                                                alt: tab_1_layerimage.alt
+                                        %}  {% endcomment %}
+                                <div class="layerWrapper"> 
+                                    <div class="layer1 layerClick active" data-index="1"> 
+                                        <img alt="Hybrid mattress top layer render" class="layerImg layerMain" src="{{tab_1_layerimage_1 | img_url: 'master'}}"> 
+                                        
+                                        <img alt="Hybrid mattress top layer render" class="layerImg layerHover" src="{{tab_1_layerimage_1 | img_url: 'master'}}"> 
+                                        <div class="layerPointer active">
+                                            <button aria-label="Layer 1" aria-pressed="true" role="button" class="layerButton">1</button>
+                                        </div>
+                                    </div> 
+                                    <div class="layer2 layerClick" data-index="2"> 
+                                        <img alt="Hybrid mattress second layer render" class="layerImg layerMain" src="{{tab_1_layerimage_2 | img_url: 'master'}}"> 
+                                        <img alt="Hybrid mattress second layer render" class="layerImg layerHover" src="{{tab_1_layerimage_2 | img_url: 'master'}}"> 
+                                        <div class="layerPointer">
+                                            <button aria-label="Layer 2" aria-pressed="false" role="button" class="layerButton">2</button>
+                                        </div>
+                                    </div> 
+                                    <div class="layer3 layerClick" data-index="3"> 
+                                        <img alt="Hybrid mattress third layer render" class="layerImg layerMain" src="{{tab_1_layerimage_3 | img_url: 'master'}}"> 
+                                        <img alt="Hybrid mattress third layer render" class="layerImg layerHover" src="{{tab_1_layerimage_3 | img_url: 'master'}}"> 
+                                        <div class="layerPointer">  
+                                            <button aria-label="Layer 3" aria-pressed="false" role="button" class="layerButton">3</button>
+                                        </div>
+                                    </div>
+                                    <div class="layer4 layerClick" data-index="4"> 
+                                        <img alt="Hybrid mattress bottom layer render" class="layerImg layerMain" src="{{tab_1_layerimage_4 | img_url: 'master'}}"> 
+                                        <img alt="Hybrid mattress bottom layer render" class="layerImg layerHover" src="{{tab_1_layerimage_4 | img_url: 'master'}}"> 
+                                        <div class="layerPointer">
+                                            <button aria-label="Layer 4" aria-pressed="false" role="button" class="layerButton">4</button>
+                                        </div>
+                                    </div>
+                                    {% if tab_1_layerimage_5 != blank %}
+                                    <div class="layer5 layerClick" data-index="5"> 
+                                        <img alt="Hybrid mattress bottom layer render" class="layerImg layerMain" src="{{tab_1_layerimage_5 | img_url: 'master'}}"> 
+                                        <img alt="Hybrid mattress bottom layer render" class="layerImg layerHover" src="{{tab_1_layerimage_5 | img_url: 'master'}}"> 
+                                        <div class="layerPointer">
+                                            <button aria-label="Layer 5" aria-pressed="false" role="button" class="layerButton">5</button>
+                                        </div>
+                                    </div>
+                                    {% endif %}
+                                    {% if tab_1_layerimage_6 != blank %}
+                                    <div class="layer6 layerClick" data-index="6"> 
+                                        <img alt="Hybrid mattress bottom layer render" class="layerImg layerMain" src="{{tab_1_layerimage_6 | img_url: 'master'}}"> 
+                                        <img alt="Hybrid mattress bottom layer render" class="layerImg layerHover" src="{{tab_1_layerimage_6 | img_url: 'master'}}"> 
+                                        <div class="layerPointer">
+                                            <button aria-label="Layer 6" aria-pressed="false" role="button" class="layerButton">6</button>
+                                        </div>
+                                    </div>
+                                    {% endif %}
+                                </div>
+                            </div> 
+                            
+                        </div>
+                    </div>
+                </section> 
+                
+                <section style="" class="spotlight tabcontent featured-link--section featured-link--image section-3" style="display:none;"> 
+                    <div class="section-3-image"> 
+                        <div class="featured-link--wrap"> 
+                            <a title="Your headline">
+                                <div class="image-element__wrap" style=" "> 
+                                    {% comment %} <img alt="" src="//cdn.shopify.com/s/files/1/0051/6744/8152/files/Screenshot_2020-10-23_at_5.04.18_AM_1600x.png?v=1603407878"  sizes="572px"> {% endcomment %}
+                                    <div class="hide_mobile">
+                                    <img alt="" src="{{tab_2_image_1 | img_url: 'master'}}"  sizes="572px">
+                                    </div>
+                                    <div class="hide_desktop">
+                                    {% if tab_2_image_1_mobile !=blank %}
+                                    <img alt="" src="{{tab_2_image_1_mobile | img_url: 'master'}}"  >
+                                    {% else %}
+                                    <img alt="" src="{{tab_2_image_1 | img_url: 'master'}}"  sizes="572px">
+                                    {% endif %}
+                                    </div>
+                                </div>
+                                <noscript> 
+                                    <img src="{{tab_2_image_1 | img_url: 'master'}}" alt="" class=" noscript">
+                                </noscript>
+                            </a>
+                        </div>
+                    </div> 
+                    <div class="section-3-text"> 
+                        <div class="info text-align--center"> 
+                            <a class="heading-section" >
+                            <h3>{{tab_2_textheader_1}}</h3>
+                            </a> 
+                            <div class="description">
+                                {{tab_2_textcontent_1}}
+                            </div>
+                        </div>
+                    </div>
+                </section> 
+                <section style="" class="spotlight tabcontent featured-link--section featured-link--image section-4" style="display:none;"> 
+                    <div class="featured-link--half featured-link--image featured-link--margin image-crop--none"> 
+                        <div class="featured-link--wrap"> 
+                            <a title="Motion Isolation">
+                                <div class="image-element__wrap" style=" "> 
+                                    {% comment %} <img alt="" src="//cdn.shopify.com/s/files/1/0051/6744/8152/files/Screenshot_2020-10-23_at_5.04.18_AM_1600x.png?v=1603407878" sizes="572px"> {% endcomment %}
+                                    <img alt="" src="{{tab_2_image_2 | img_url: 'master'}}"  sizes="572px"> 
+                                </div>
+                                <noscript> 
+                                    {% comment %} <img src="//cdn.shopify.com/s/files/1/0051/6744/8152/files/Screenshot_2020-10-23_at_5.04.18_AM_2000x.png?v=1603407878" alt="" class=" noscript"> {% endcomment %}
+                                    <img alt="" src="{{tab_2_image_2 | img_url: 'master'}}"  sizes="572px"> 
+                                </noscript>
+                            </a>
+                        </div>
+                    </div> 
+                    <div class="featured-link--half block--949a9175-3838-4060-b2da-f80e50767e5a"> 
+                        <div class="info text-align--left"> 
+                            <a class="heading-section" >
+                                <h3>{{tab_2_textheader_2}}</h3>
+                            </a> 
+                            <div class="description">
+                                {{tab_2_textcontent_2}}
+                            </div>
+                        </div>
+                    </div>
+                </section>
+            </div>
+        </div>
+    </div>
+<style>
+.shopify-section.lookColumn .textWrapper{
+    text-align: {{section_1_text_alignment}};
+}
+    .section-3, .section-4{
+        display: none;
+    }
+    .section-3-image, .section-3-text{
+        width:100% !important;
+        text-align:center !important;    
+    }
+    .section-3-text{
+        margin-top: 30px;
+        margin-bottom: 50px;    }
+    .block--1603404591b8eb4f54-0 {
+      background-color: rgba(0,0,0,0);
+    }
+
+    .block--1603404591b8eb4f54-0 .heading-section,
+    .block--1603404591b8eb4f54-0 p {
+      color: #343d65;
+    }
+
+    .block--1603404591b8eb4f54-0 a.button {
+      color: #343d65;
+      border-color: #343d65;
+    }
+
+    .block--1603404591b8eb4f54-0 a.button:hover {
+      color: rgba(0,0,0,0);
+      border-color: #343d65;
+      background-color: #343d65;
+    }
+  
+    .block--1603404591b8eb4f54-1 {
+      background-color: rgba(0,0,0,0);
+    }
+
+    .block--1603404591b8eb4f54-1 .heading-section,
+    .block--1603404591b8eb4f54-1 p {
+      color: #343d65;
+    }
+
+    .block--1603404591b8eb4f54-1 a.button {
+      color: #343d65;
+      border-color: #343d65;
+    }
+
+    .block--1603404591b8eb4f54-1 a.button:hover {
+      color: rgba(0,0,0,0);
+      border-color: #343d65;
+      background-color: #343d65;
+    }
+  
+    .block--90f93406-8da5-4a6a-937c-eb8dd0771323 {
+      background-color: rgba(0,0,0,0);
+    }
+
+    .block--90f93406-8da5-4a6a-937c-eb8dd0771323 .heading-section,
+    .block--90f93406-8da5-4a6a-937c-eb8dd0771323 p {
+      color: #343d65;
+    }
+
+    .block--90f93406-8da5-4a6a-937c-eb8dd0771323 a.button {
+      color: #343d65;
+      border-color: #343d65;
+    }
+
+    .block--90f93406-8da5-4a6a-937c-eb8dd0771323 a.button:hover {
+      color: rgba(0,0,0,0);
+      border-color: #343d65;
+      background-color: #343d65;
+    }
+  
+    .block--949a9175-3838-4060-b2da-f80e50767e5a {
+      background-color: rgba(0,0,0,0);
+    }
+
+    .block--949a9175-3838-4060-b2da-f80e50767e5a .heading-section,
+    .block--949a9175-3838-4060-b2da-f80e50767e5a p {
+      color: #343d65;
+    }
+
+    .block--949a9175-3838-4060-b2da-f80e50767e5a a.button {
+      color: #343d65;
+      border-color: #343d65;
+    }
+
+    .block--949a9175-3838-4060-b2da-f80e50767e5a a.button:hover {
+      color: rgba(0,0,0,0);
+      border-color: #343d65;
+      background-color: #343d65;
+    }
+  
+
+  
+      #shopify-section-1603404591b8eb4f54 .featured-link--section {
+        margin-bottom: 3%;
+      }
+      @media only screen and (max-width: 480px) {
+        #shopify-section-1603404591b8eb4f54 .featured-link--section {
+          margin-bottom: 10%;
+        }
+      
+
+      #shopify-section-1603404591b8eb4f54 .featured-link--half {
+        width: 100%;
+      }
+    }
+      #shopify-section-1603404591b8eb4f54 .featured-link--margin {
+        
+          margin-left: 0;
+          margin-right: 3%;
+        
+      }
+
+      #shopify-section-1603404591b8eb4f54 .featured-link--section:nth-child(even) .featured-link--margin {
+        
+          margin-left: 3%;
+          margin-right: 0;
+        
+      }
+
+    
+@media only screen and (max-width: 798px) {
+#shopify-section-1603404591b8eb4f54 .featured-link--half .info.text-align--left {
+    margin: 0;
+    width: 100%;
+}
+
+}
+
+#shopify-section-1603404591b8eb4f54 .tabcontent .shopify-section.lookColumn {
+    background: none !important;
+    padding: 0px;
+}
+@media only screen and (max-width: 798px) {
+#shopify-section-1603404591b8eb4f54 .shopify-section.lookColumn .container {
+    display: flex;
+    position: relative;
+    padding-top: 80px;
+    flex-flow: wrap-reverse;
+}
+#shopify-section-1603404591b8eb4f54 .shopify-section.lookColumn .imageWrapper {
+    position: relative;
+    left:50px;
+}
+#shopify-section-1603404591b8eb4f54 .shopify-section.lookColumn .textWrapper {
+    margin-top: 0;
+}
+#shopify-section-1603404591b8eb4f54 .featured-link--half .info.text-align--left {
+    padding-bottom: 0;
+}
+#shopify-section-1603404591b8eb4f54 .featured-link--section .featured-link--margin {
+    margin: 0 !important;
+    margin-top: 10px !important;
+}
+}
+
+@media only screen and (max-width: 550px) {
+#shopify-section-1603404591b8eb4f54 .layerWrapper {
+    width: 380px;
+    position: absolute;
+    top: 0;
+}
+}
+@media only screen and (max-width: 479px) {
+#shopify-section-1603404591b8eb4f54 .shopify-section.lookColumn h2.title {
+    text-align: left;
+    width: 100%;
+    top: 0;
+    left: 0;
+}
+#shopify-section-1603404591b8eb4f54 .layerClick.active .layerPointer:after {
+    width: 1px;
+    left:10px;
+    transition: height 0.25s ease-out 0s !important;
+}
+.layer1.layerClick.active .layerPointer:after {
+    height: 280px;
+}
+.layer2.layerClick.active .layerPointer:after {
+    height: 230px;
+}
+.layer3.layerClick.active .layerPointer:after {
+    height: 210px;
+}
+.layer4.layerClick.active .layerPointer:after {
+    height: 160px;
+}
+.layer5.layerClick.active .layerPointer:after {
+    height: 100px;
+}
+.layer6.layerClick.active .layerPointer:after {
+    height: 60px;
+}
+}
+</style>
+</div>

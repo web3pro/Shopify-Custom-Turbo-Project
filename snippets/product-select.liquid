@@ -1,0 +1,25 @@
+{% assign swatch = option %}
+{% assign found_option = false %}
+{% assign option_index = 0 %}
+
+{% for option in product.options %}
+  {% if option == swatch %}
+    {% assign found_option = true %}
+    {% assign option_index = forloop.index0 %}
+  {% endif %}
+{% endfor %}
+
+<select name="selectorCal{{ option_index }}">
+  {% assign values = '' %}
+  {% for variant in product.variants %}
+    {% assign value = variant.options[option_index] %}
+    {% unless values contains value %}
+      {% assign values = values | join: ',' %}
+      {% assign values = values | append: ',' | append: value %}
+      {% assign values = values | split: ',' %}
+  
+  	  <option value="{{ value | escape }}">{{ value }}</option>
+
+    {% endunless %}
+  {% endfor %}
+</select>

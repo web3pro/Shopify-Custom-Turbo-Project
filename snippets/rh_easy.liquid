@@ -1,0 +1,34 @@
+{% if template == 'product' or template == 'cart' %}<script>
+if (window.RhEasy === undefined) {
+    window.RhEasy = {
+  "platform" : "SHOPIFY",
+  "conversionId" : 684725663,
+  "conversionLabel" : "IeJrCJy9luEBEJ-rwMYC"
+}
+}
+{% if template == 'product' %}
+    window.RhEasy.pageType = 'product';
+    window.RhEasy.product = {
+        productId: '{{ product.id }}',
+        variantId: '{{ product.selected_or_first_available_variant.id }}',
+        productName: '{{ product.title  | replace: "'", "\\'"}}',
+        price: {{ product.price | money_without_currency | remove: '.' | remove: ','  | divided_by: 100.0 }},
+        currency: '{{ shop.currency }}'
+    };
+{% endif %}
+
+{% if template == 'cart' %}
+    window.RhEasy.pageType = 'cart';
+    window.RhEasy.cart = {
+        currency: '{{ shop.currency }}',
+        totalValue: {{ cart.total_price | money_without_currency | remove: '.' | remove: ','  | divided_by: 100.0 }},
+    };
+    window.RhEasy.cart.items = [{% for item in cart.items %}{
+        productId: '{{ item.product.id }}',
+        variantId: '{{ item.variant.id }}',
+        productName: '{{ item.title  | replace: "'", "\\'"}}',
+        price: {{ item.price | money_without_currency | remove: '.' | remove: ','  | divided_by: 100.0 }},
+        quantity: {{ item.quantity }}
+    },{% endfor %}];
+{% endif %}
+</script>{% endif %}
