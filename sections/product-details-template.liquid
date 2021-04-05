@@ -1,0 +1,2768 @@
+{% comment %}
+** Product with additional details - custom view **
+- Product template
+- Uses blocks
+{% endcomment %}
+
+
+{% comment %} ================Customized by Hoppe {% endcomment %}
+{% style %}
+{% comment %} -------------------Three Columns Image text {% endcomment %}
+a.heading-section.text-align--left{
+  text-align:left;
+}
+a.heading-section.text-align--center{
+  text-align: center;
+}
+a.heading-section.text-align--right{
+  text-align:right;
+}
+{% comment %} ----------------------------Three Column icons {% endcomment %}
+  .block__three_columns_icon{
+    background: {{block.settings.three_icons_backcolor}} !important;
+    padding-top:{{block.settings.icons_padding_top}}px;
+    padding-bottom:{{block.settings.icons_padding_bottom}}px;
+  }
+{% comment %} --------------------swatches {% endcomment %}
+  .select .selector-wrapper:first-child {
+    display: none !important;
+  }
+  .swatch.clearfix:nth-child(2) {
+    display: none;
+  }
+  .swatch .swatch-element {
+    border: .125rem solid #e6e6e6;
+    padding: .5625rem 1.875rem .75rem;
+    font-size: 1rem;
+    line-height: 1.333;
+    text-align: center;
+    color: #2a2a2a;
+    background-color: #fff;
+    cursor: pointer;
+    margin-right: -2px;
+    border-radius: .25rem;
+    }
+
+  .swatch_options input:checked+.swatch-element {
+    z-index: 1;
+    border-color: #6d80b4;
+    border-top-right-radius: 0;
+    border-bottom-right-radius: 0;
+    box-shadow: none;
+  }
+
+  .swatch_options input:checked+.swatch-element:last-child {
+    border-top-right-radius: .25rem;
+    border-bottom-right-radius: .25rem;
+    border-top-left-radius: 0;
+    border-bottom-left-radius: 0;
+  }
+
+  .swatch .swatch-element:focus {
+    outline: none;
+  }
+  select {
+    font-weight: bold;
+    font-size: 15px;
+    color: #2a2a2a;
+  }
+
+
+    .block--1603404591b8eb4f54-0 {
+      background-color: rgba(0,0,0,0);
+    }
+
+    .block--1603404591b8eb4f54-0 .collection_title,
+    .block--1603404591b8eb4f54-0 p {
+      color: #343d65;
+    }
+
+    .block--1603404591b8eb4f54-0 a.button {
+      color: #343d65;
+      border-color: #343d65;
+    }
+
+    .block--1603404591b8eb4f54-0 a.button:hover {
+      color: rgba(0,0,0,0);
+      border-color: #343d65;
+      background-color: #343d65;
+    }
+  
+    .block--1603404591b8eb4f54-1 {
+      background-color: rgba(0,0,0,0);
+    }
+
+    .block--1603404591b8eb4f54-1 .collection_title,
+    .block--1603404591b8eb4f54-1 p {
+      color: #343d65;
+    }
+
+    .block--1603404591b8eb4f54-1 a.button {
+      color: #343d65;
+      border-color: #343d65;
+    }
+
+    .block--1603404591b8eb4f54-1 a.button:hover {
+      color: rgba(0,0,0,0);
+      border-color: #343d65;
+      background-color: #343d65;
+    }
+  
+    .block--90f93406-8da5-4a6a-937c-eb8dd0771323 {
+      background-color: rgba(0,0,0,0);
+    }
+
+    .block--90f93406-8da5-4a6a-937c-eb8dd0771323 .collection_title,
+    .block--90f93406-8da5-4a6a-937c-eb8dd0771323 p {
+      color: #343d65;
+    }
+
+    .block--90f93406-8da5-4a6a-937c-eb8dd0771323 a.button {
+      color: #343d65;
+      border-color: #343d65;
+    }
+
+    .block--90f93406-8da5-4a6a-937c-eb8dd0771323 a.button:hover {
+      color: rgba(0,0,0,0);
+      border-color: #343d65;
+      background-color: #343d65;
+    }
+  
+    .block--949a9175-3838-4060-b2da-f80e50767e5a {
+      background-color: rgba(0,0,0,0);
+    }
+
+    .block--949a9175-3838-4060-b2da-f80e50767e5a .collection_title,
+    .block--949a9175-3838-4060-b2da-f80e50767e5a p {
+      color: #343d65;
+    }
+
+    .block--949a9175-3838-4060-b2da-f80e50767e5a a.button {
+      color: #343d65;
+      border-color: #343d65;
+    }
+
+    .block--949a9175-3838-4060-b2da-f80e50767e5a a.button:hover {
+      color: rgba(0,0,0,0);
+      border-color: #343d65;
+      background-color: #343d65;
+    }
+  
+
+  
+      #shopify-section-1603404591b8eb4f54 .featured-link--section {
+        margin-bottom: 3%;
+      }
+      @media only screen and (max-width: 480px) {
+        #shopify-section-1603404591b8eb4f54 .featured-link--section {
+          margin-bottom: 10%;
+        }
+      }
+
+      #shopify-section-1603404591b8eb4f54 .featured-link--half {
+        width: 45%;
+      }
+
+      #shopify-section-1603404591b8eb4f54 .featured-link--margin {
+        
+          margin-left: 0;
+          margin-right: 3%;
+        
+      }
+
+      #shopify-section-1603404591b8eb4f54 .featured-link--section:nth-child(even) .featured-link--margin {
+        
+          margin-left: 3%;
+          margin-right: 0;
+        
+      }
+
+    
+@media only screen and (max-width: 798px) {
+#shopify-section-1603404591b8eb4f54 .featured-link--half .info.text-align--left {
+    margin: 0;
+    width: 100%;
+}
+#shopify-section-1603404591b8eb4f54 .featured-link--half{
+   width:100%;
+}
+#shopify-section-1603404591b8eb4f54 .heading-section {
+    padding-top: 40px;
+}
+
+}
+
+#shopify-section-1603404591b8eb4f54 .tabcontent .shopify-section.lookColumn {
+    background: none !important;
+    padding: 0px;
+}
+@media only screen and (max-width: 798px) {
+  #shopify-section-1603404591b8eb4f54 .shopify-section.lookColumn .container {
+      display: flex;
+      flex-flow: wrap-reverse;
+      position: relative;
+      padding-top: 80px;
+  }
+  #shopify-section-1603404591b8eb4f54 .shopify-section.lookColumn .imageWrapper {
+      position: relative;
+      left: 50px;
+  }
+  #shopify-section-1603404591b8eb4f54 .shopify-section.lookColumn .textWrapper {
+      margin-top: 0;
+  }
+  #shopify-section-1603404591b8eb4f54 .featured-link--half .info.text-align--left {
+      padding-bottom: 0;
+  }
+  #shopify-section-1603404591b8eb4f54 .featured-link--section .featured-link--margin {
+      margin: 0 !important;
+      margin-top: 10px !important;
+  }
+}
+
+@media only screen and (max-width: 550px) {
+  #shopify-section-1603404591b8eb4f54 .layerWrapper {
+      width: 380px;
+      position: absolute;
+      top: 0;
+  }
+}
+@media only screen and (max-width: 479px) {
+  #shopify-section-1603404591b8eb4f54 .shopify-section.lookColumn h2.title {
+      text-align: left;
+      width: 100%;
+      top: 0;
+      left: 0;
+  }
+  .container.main.content {
+    width: 100%;
+    padding-top: 0;
+  }
+  .seven.columns {
+    padding: 0 20px;
+  }
+}
+
+
+{% endstyle %}
+
+
+{% assign sidebar = false %}
+
+<a name="pagecontent" id="pagecontent"></a>
+
+<div class="container main content product-name--{{ product.handle }}" style="max-width:1500px;">
+  <div class="sixteen columns">
+    {% if collection.previous_product or collection.next_product or section.settings.product_breadcrumb %}
+      <div class="clearfix breadcrumb-collection">
+        {% if collection.previous_product or collection.next_product %}
+          <div class="nav_arrows breadcrumb_text">
+            {% if collection.previous_product %}
+              <a href="{{ collection.previous_product }}" title="{{ 'products.general.previous_product_html' | t }}" class="breadcrumb_link"><span class="icon-left-arrow"> {{ 'products.general.previous_product_html' | t }}</span></a>
+            {% endif %}
+            {% if collection.previous_product and collection.next_product %}<span class="breadcrumb-divider"> | </span>{% endif %}
+
+            {% if collection.next_product %}
+              <a href="{{collection.next_product}}" title="{{ 'products.general.next_product_html' | t }}" class="breadcrumb_link">{{ 'products.general.next_product_html' | t }} <span class="icon-right-arrow"></span></a>
+            {% endif %}
+          </div>
+        {% endif %}
+
+        {% if section.settings.product_breadcrumb %}
+          {% render 'product__breadcrumb' %}
+        {% endif %}
+      </div>
+    {% endif %}
+  </div>
+
+  {% comment %}Check to see if sidebar should be enabled{% endcomment %}
+  {% assign sidebar = false %}
+
+  <div class="product clearfix">
+    <div class="sixteen columns">
+
+      <div class="product-{{ product.id }}"
+            data-free-text="{{ settings.free_price_text }}">
+        <div class="section product_section clearfix js-product_section {% if section.settings.product_images_position == 'right' %}align_right--images{% endif %}" data-rv-handle="{{ product.handle }}">
+
+          <div class="nine columns medium-down--one-whole {% if section.settings.product_images_position == 'left' %}alpha{% else %}omega{% endif %}">
+          {% render 'product-images',
+                  product: product,
+                  video_looping: section.settings.video_looping,
+                  set_product_height: section.settings.set_product_height
+          %}
+          </div>
+
+          <div class="seven columns medium-down--one-whole {% if section.settings.product_images_position == 'left' %}omega{% else %}alpha{% endif %}">
+
+            {% assign collection_handles = product.collections | map: 'handle' %}
+            {% assign variant = product.selected_or_first_available_variant %}
+
+            {% if product.available %}
+              {% if settings.sale_banner_enabled and product.compare_at_price_max > product.price %}
+                <div class="sale_banner_product">{{ 'collections.general.sale' | t }}</div>
+              {% endif %}
+            {% endif %}
+            {% if collection_handles contains 'new' %}
+              <div class="new_banner_product">{{ 'collections.general.new' | t }}</div>
+            {% endif %}
+            {% if collection_handles contains 'pre-order' %}
+              <div class="preorder_banner_product">{{ 'collections.general.pre_order' | t }}</div>
+            {% endif %}
+
+            {% if section.settings.display_vendor %}
+              <p class="vendor">
+                <span class="vendor">{{ product.vendor | link_to_vendor }}</span>
+              </p>
+            {% endif %}
+
+            {% if variant.sku != blank and section.settings.display_sku %}
+              <p class="sku">
+                <span>{{ variant.sku }}</span>
+              </p>
+            {% endif %}
+            <h1 class="product_name">{{ product.title }}</h1>
+            {% if section.settings.enable_shopify_product_badges and settings.enable_shopify_review_comments %}
+              <span class="shopify-product-reviews-badge" data-id="{{ product.id }}"></span>
+            {% endif %}
+
+                              <!-- RYVIU APP :: WIDGET-TOTAL -->
+          <div class="relative">
+            <div class="review-widget">
+              <ryviu-widget-total
+                                  reviews_data="{{product.metafields.ryviu.product_reviews_info  | escape  }}" 
+                                  product_id="{{product.id}}" handle="{{product.handle}}">
+              </ryviu-widget-total>
+            </div>
+
+            {% assign product_tags = product.tags | join: ' ' %}
+            {% if product_tags contains 'meta-size-chart-' %}
+            {% for tag in product.tags %}
+              {% if tag contains 'meta-size-chart-' %}
+              	<a href="javascript:;" class="size_chart" data-fancybox data-src="#size-chart{{product.id}}" data-type="inline" data-no-instant>{{ 'products.product.size_chart' | t }} <span class="icon-right-arrow"></span></a>
+              	{% render 'popup-size-chart', product_id: product.id %}
+              {% endif %}
+            {% endfor %}
+            {% elsif settings.size_chart != blank %}
+            	<a href="javascript:;" class="size_chart" data-fancybox data-src="#size-chart{{product.id}}" data-type="inline" data-no-instant>{{ 'products.product.size_chart' | t }} <span class="icon-right-arrow"></span></a>
+            {% else %}
+            	<a target="blank" href="/pages/size-guide" class="size_chart">{{ 'products.product.size_chart' | t }} <span class="icon-right-arrow"></span></a>
+            {% endif %}
+          </div>
+          <!-- / RYVIU APP -->
+
+            {% comment %} <div class="feature_divider"></div> {% endcomment %}
+
+            {% comment %} {% assign product_tags = product.tags | join: ' ' %}
+            {% if product_tags contains 'meta-size-chart-' %}
+              {% for tag in product.tags %}
+                {% if tag contains 'meta-size-chart-' %}
+                  <a href="javascript:;" class="size_chart" data-fancybox data-src="#size-chart{{product.id}}" data-type="inline" data-no-instant>{{ 'products.product.size_chart' | t }} <span class="icon-right-arrow"></span></a>
+                  {% render 'popup-size-chart', product_id: product.id %}
+                {% endif %}
+              {% endfor %}
+            {% elsif settings.size_chart != blank %}
+              <a href="javascript:;" class="size_chart" data-fancybox data-src="#size-chart{{product.id}}" data-type="inline" data-no-instant>{{ 'products.product.size_chart' | t }} <span class="icon-right-arrow"></span></a>
+            {% endif %} {% endcomment %}
+
+{% comment %} Customized by Hoppe {% endcomment %}
+            {% comment %} {% if collection_handles contains 'coming-soon' %}
+              <p class="modal_price">{{ 'collections.general.coming_soon' | t }}</p>
+            {% else %}
+              <div class="modal_price">
+                {% unless product.available == false and settings.display_price == false %}
+                  <div class="price__container price__container--display-price-{{ settings.display_price }} {% if settings.display_price %}has-margin-right{% endif %}">
+                    <span content="{{ variant.price | money_without_currency | remove: "," }}" class="{% if variant.compare_at_price > variant.price %}sale{% endif %}">
+                    <span class="current_price">
+                      {% if variant.price > 0 %}
+                        <span class="money">{% render 'price-element', price: variant.price %}</span>
+                      {% else %}
+                        {{ settings.free_price_text }}
+                      {% endif %}
+                    </span>
+                  </span>
+                  <span class="was_price">
+                    {% if variant.price < variant.compare_at_price %}
+                      {% render 'price-element', price: variant.compare_at_price %}
+                    {% endif %}
+                  </span>
+                  {% if section.settings.display_savings %}
+                    <span class="sale savings">
+                      {% if variant.price < variant.compare_at_price %}
+                        {{ 'products.product.savings' | t }}  {{ variant.compare_at_price | minus: variant.price | times: 100 | divided_by: variant.compare_at_price }}% (<span class="money">{% assign compare_at = variant.compare_at_price | minus: variant.price %}{% render 'price-element', price: compare_at %}</span>)
+                      {% endif %}
+                    </span>
+                  {% endif %}
+                  </div>
+                {% endunless %}
+                <div class="sold-out__container">
+                  <span class="sold_out">{% if variant.available == false %}{{ settings.sold_out_text }}{% endif %}</span>
+                </div>
+              </div>
+            {% endif %} {% endcomment %}
+{% comment %} ====================== {% endcomment %}
+            {% if section.settings.product_description_position == "top" %}
+              {% if product.description != blank %}
+                <div class="description">
+                  {{ product.description | split: '<!-- split -->' | first }}
+                </div>
+              {% endif %}
+            {% endif %}
+
+            {% unless collection_handles contains 'coming-soon' %}
+              {% render 'product-form',
+                      context: 'product',
+                      collection_handles: collection_handles
+              %}
+              {% render 'product-notify-me', product: product %}
+            {% endunless %}
+
+            {% if section.settings.product_description_position == "bottom" %}
+              {% if product.description != blank %}
+                <div class="description bottom">
+                  {{ product.description | split: '<!-- split -->' | first }}
+                </div>
+              {% endif %}
+            {% endif %}
+
+            {% if section.settings.enable_reviews_in_description %}
+              {% render 'include-reviews', type: 'block' %}
+            {% endif %}
+
+            {% if section.settings.display_collections or section.settings.display_tags or section.settings.display_type %}
+              <div class="product_links">
+                {% if section.settings.display_collections %}
+                  <p>
+                    <span class="label">{{ 'products.product.collections' | t }}:</span>
+                    <span>
+                      {% for col in product.collections %}
+                        <a href="{{ col.url }}" title="{{ col.title }}">{{ col.title }}</a>{% unless forloop.last %},{% endunless %}
+                      {% endfor %}
+                    </span>
+                  </p>
+                {% endif %}
+
+                {% if section.settings.display_type %}
+                  <p>
+                    <span class="label">{{ 'products.product.product_types' | t }}:</span>
+                    <span>{{ product.type | link_to_type }}</span>
+                  </p>
+                {% endif %}
+
+                {% if section.settings.display_tags %}
+                  <p>
+                    {% for tag in product.tags %}
+                      {% if forloop.first %}
+                        <span class="label">{{ 'products.product.tags' | t }}:</span>
+                      {% endif %}
+
+                      {% unless tag contains 'meta-' %}
+                        <span>
+                          <a href="{{ routes.collections_url }}/{% if collection %}{{ collection.handle }}{% else %}all{% endif %}/{{ tag | handle }}" title="{{ 'products.product.products_tagged' | t: tag: tag }}">{{ tag }}</a>{% unless forloop.last %},{% endunless %}
+                          </span>
+                      {% endunless %}
+                    {% endfor %}
+                  </p>
+                {% endif %}
+              </div>
+            {% endif %}
+
+            <div class="meta">
+              {% if section.settings.display_social_buttons %}
+                {% render 'social-buttons', context: 'product' %}
+              {% endif %}
+            </div>
+          </div>
+        </div>
+
+        {% if product.description contains "<!-- split -->"  %}
+          <br class="clear" />
+          <div class="section clearfix">
+            <div class="description">
+              {{ product.description | split: '<!-- split -->' | last }}
+            </div>
+          </div>
+        {% endif %}
+      </div>
+    </div>
+  </div>
+</div>
+
+  <div class="product-details__blocks clearfix">
+    {% if section.blocks.size > 0 %}
+      {% for block in section.blocks %}
+
+        <div {{ block.shopify_attributes }} class="block__{{ block.type }} block__{{ block.id }}
+        {% if block.type == 'featured_collection' %}
+          featured-collection-section
+        {% endif %}
+        ">
+
+          {% if block.type == "blog_posts" %}
+            <!-- Blog posts -->
+            {% include 'include-featured-blog', type: 'block' %}
+
+          {% elsif block.type == "contact_form" %}
+            <!-- Contact form -->
+            {% include 'include-contact-form', type: 'block' %}
+
+          {% elsif block.type == "featured_video" %}
+            <!-- Featured video -->
+            {% include 'include-video', type: 'block' %}
+{% comment %} ===============================Customized by Hoppe {% endcomment %}
+
+          {% elsif block.type == "text_tab" %}
+
+            {% include 'include-tab-structure', type: 'block' %}
+
+          {% elsif block.type == "faq" %}
+
+            {% include 'include-product-faq', type: 'block' %}
+
+{% comment %} ====================================== {% endcomment %}
+          {% elsif block.type == 'image_gallery' %}
+            <!-- Image gallery -->
+            {% include 'include-gallery', type: 'block' %}
+
+          {% elsif block.type == "image_with_text" %}
+            <!-- Image with text -->
+            {% if block.settings.layout == false %}
+              <div class="container standard--width">
+            {% endif %}
+            <div class="image-with-text
+              featured_collections
+              clearfix across-1 image-align--{{ block.settings.frontpage_image_position }}">
+              <section class="featured-link--section featured-link--image section-{{ forloop.index }}">
+                <div class="featured-link--half featured-link--image {% if block.settings.layout == false %}featured-link--margin{% endif %} image-crop--{{ block.settings.image_crop }}">
+                  <div class="featured-link--wrap">
+                    <a {% if block.settings.link != blank %}href="{{ block.settings.link }}"{% endif %} title="{{ block.settings.title }}">
+                      {% if block.settings.image %}
+                        {% render 'image-element',
+                                image: block.settings.image,
+                                alt: block.settings.image.alt
+                        %}
+                      {% else %}
+                        {% capture i %}{% cycle "1", "2", "3", "4", "5", "6" %}{% endcapture %}
+                        {{ 'collection-' | append: i | placeholder_svg_tag: 'placeholder-svg placeholder-svg--promotions' }}
+                      {% endif %}
+                    </a>
+                  </div>
+                </div>
+                <div class="featured-link--half">
+                  <div class="info text-align--{{block.settings.frontpage_text_align}}">
+                    <a {% if block.settings.link != blank %}href="{{ block.settings.link }}"{% endif %} class="collection_title">
+                      {{ block.settings.title }}
+                    </a>
+                    {% if block.settings.text != blank %}
+                      <div class="description">{{ block.settings.text }}</div>
+                    {% endif %}
+                    {% if block.settings.button_label != blank %}
+                      <a {% if block.settings.link != blank %}href="{{ block.settings.link }}"{% endif %} class="button">
+                        {{ block.settings.button_label }}
+                      </a>
+                    {% endif %}
+                  </div>
+                </div>
+              </section>
+            </div>
+            {% if block.settings.layout == false %}
+              </div>
+            {% endif %}
+
+            {% if block.settings.layout == false %}
+              <style>
+                .standard--width .featured-link--margin {
+                  margin-left: 0%;
+                  margin-right: 3%;
+                }
+
+                .standard--width .image-align--right .featured-link--margin {
+                  margin-left: 3%;
+                  margin-right: 0%;
+                }
+
+                .standard--width .featured-link--half {
+                  width: 45%;
+                }
+              </style>
+            {% endif %}
+{% comment %} ============================== Customized By Hoppe{% endcomment %} 
+          {% elsif block.type == "three_columns" %}
+            <!-- Image with text -->
+            <div class="hide_desktop" style="background: {{block.settings.backcolor}} !important;
+                        ">
+              <div class="js-product-slider">
+                <div class="slider-gallery products-slider products-length-3"
+                    data-products-per-slide="1"
+                    data-products-limit="3"
+                    data-products-available="3">
+                  <div class="gallery-cell visible-1 text-column" style="width: 75% !important; margin:3% !important; padding:15px !important; background:white;">
+                      <section class="featured-link--image">
+                        <div class="three-columns-row-text">
+                          <div class="info text-align--{{block.settings.frontpage_text_align}}">
+                            <a {% if block.settings.link != blank %}href="{{ block.settings.link }}"{% endif %} class="heading-section">
+                              <h3>{{ block.settings.title-1 }}</h3>
+                            </a>
+                            {% if block.settings.text-1 != blank %}
+                              <div class="description">{{ block.settings.text-1 }}</div>
+                            {% endif %}
+                            
+                          </div>
+                        </div>
+                        <div class="three-columns-row--image featured-link--margin">
+                          <div class="featured-link--wrap">
+                            <a {% if block.settings.link != blank %}href="{{ block.settings.link }}"{% endif %} title="{{ block.settings.title }}">
+                              {% if block.settings.image-1 %}
+                                {% render 'image-element',
+                                        image: block.settings.image-1,
+                                        alt: block.settings.image-1.alt
+                                %}
+                              {% else %}
+                                {% capture i %}{% cycle "1", "2", "3", "4", "5", "6" %}{% endcapture %}
+                                {{ 'collection-' | append: i | placeholder_svg_tag: 'placeholder-svg placeholder-svg--promotions' }}
+                              {% endif %}
+                            </a>
+                          </div>
+                        </div>           
+                      </section>
+                  </div>
+                  <div class="gallery-cell visible-1 text-column" style="width: 75% !important; margin:3% !important; padding:15px !important;background:white;">
+                      <section class="featured-link--image">
+                        <div class="three-columns-row-text">
+                          <div class="info text-align--{{block.settings.frontpage_text_align}}">
+                            <a {% if block.settings.link != blank %}href="{{ block.settings.link }}"{% endif %} class="heading-section">
+                              <h3>{{ block.settings.title-2 }}</h3>
+                            </a>
+                            {% if block.settings.text-2 != blank %}
+                              <div class="description">{{ block.settings.text-2 }}</div>
+                            {% endif %}
+                            
+                          </div>
+                        </div>
+                        <div class="three-columns-row--image featured-link--margin">
+                          <div class="featured-link--wrap">
+                            <a {% if block.settings.link != blank %}href="{{ block.settings.link }}"{% endif %} title="{{ block.settings.title }}">
+                              {% if block.settings.image-2 %}
+                                {% render 'image-element',
+                                        image: block.settings.image-2,
+                                        alt: block.settings.image-2.alt
+                                %}
+                              {% else %}
+                                {% capture i %}{% cycle "1", "2", "3", "4", "5", "6" %}{% endcapture %}
+                                {{ 'collection-' | append: i | placeholder_svg_tag: 'placeholder-svg placeholder-svg--promotions' }}
+                              {% endif %}
+                            </a>
+                          </div>
+                        </div>                
+                      </section>
+                  </div>
+                  <div class="gallery-cell visible-1 text-column" style="width: 75% !important; margin:3% !important; padding:15px !important;background:white;">
+                      <section class="featured-link--image">
+                        <div class="three-columns-row-text">
+                          <div class="info text-align--{{block.settings.frontpage_text_align}}">
+                            <a {% if block.settings.link != blank %}href="{{ block.settings.link }}"{% endif %} class="heading-section">
+                              <h3>{{ block.settings.title-3 }}</h3>
+                            </a>
+                            {% if block.settings.text-3 != blank %}
+                              <div class="description">{{ block.settings.text-3 }}</div>
+                            {% endif %}
+                            
+                          </div>
+                        </div>
+                        <div class="three-columns-row--image featured-link--margin">
+                          <div class="featured-link--wrap">
+                            <a {% if block.settings.link != blank %}href="{{ block.settings.link }}"{% endif %} title="{{ block.settings.title }}">
+                              {% if block.settings.image-3 %}
+                                {% render 'image-element',
+                                        image: block.settings.image-3,
+                                        alt: block.settings.image-3.alt
+                                %}
+                              {% else %}
+                                {% capture i %}{% cycle "1", "2", "3", "4", "5", "6" %}{% endcapture %}
+                                {{ 'collection-' | append: i | placeholder_svg_tag: 'placeholder-svg placeholder-svg--promotions' }}
+                              {% endif %}
+                            </a>
+                          </div>
+                        </div>
+                        
+                      </section>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            <div class="hide_mobile" style="background: {{block.settings.backcolor}} !important;
+                        padding-top:{{block.settings.padding_top}}px;
+                        padding-bottom:{{block.settings.padding_bottom}}px;">
+              <div class="container standard--width three-columns-container">
+                <div class="three-columns-row">
+                  <section class="featured-link--image">
+                    <div class="three-columns-row-text">
+                      <div class="info text-align--{{block.settings.frontpage_text_align}}" style="min-height: 350px; max-width: 355px;
+    margin-left: auto;
+    margin-right: auto;">
+                        <a {% if block.settings.link != blank %}href="{{ block.settings.link }}"{% endif %} class="heading-section text-align--{{block.settings.frontpage_text_align}}">
+                          <h3>{{ block.settings.title-1 }}</h3>
+                        </a>
+                        {% if block.settings.text-1 != blank %}
+                          <div class="description">{{ block.settings.text-1 }}</div>
+                        {% endif %}
+                        
+                      </div>
+                    </div>
+                    <div class="three-columns-row--image featured-link--margin">
+                      <div class="featured-link--wrap">
+                        <a {% if block.settings.link != blank %}href="{{ block.settings.link }}"{% endif %} title="{{ block.settings.title }}">
+                          {% if block.settings.image-1 %}
+                            {% render 'image-element',
+                                    image: block.settings.image-1,
+                                    alt: block.settings.image-1.alt
+                            %}
+                          {% else %}
+                            {% capture i %}{% cycle "1", "2", "3", "4", "5", "6" %}{% endcapture %}
+                            {{ 'collection-' | append: i | placeholder_svg_tag: 'placeholder-svg placeholder-svg--promotions' }}
+                          {% endif %}
+                        </a>
+                      </div>
+                    </div>           
+                  </section>
+                </div>
+                <div class="three-columns-row">
+                  <section class="featured-link--image">
+                    <div class="three-columns-row-text">
+                      <div class="info text-align--{{block.settings.frontpage_text_align}}" style="min-height: 350px;max-width: 355px;
+    margin-left: auto;
+    margin-right: auto;">
+                        <a {% if block.settings.link != blank %}href="{{ block.settings.link }}"{% endif %} class="heading-section text-align--{{block.settings.frontpage_text_align}}">
+                          <h3>{{ block.settings.title-2 }}</h3>
+                        </a>
+                        {% if block.settings.text-2 != blank %}
+                          <div class="description">{{ block.settings.text-2 }}</div>
+                        {% endif %}
+                        
+                      </div>
+                    </div>
+                    <div class="three-columns-row--image featured-link--margin">
+                      <div class="featured-link--wrap">
+                        <a {% if block.settings.link != blank %}href="{{ block.settings.link }}"{% endif %} title="{{ block.settings.title }}">
+                          {% if block.settings.image-2 %}
+                            {% render 'image-element',
+                                    image: block.settings.image-2,
+                                    alt: block.settings.image-2.alt
+                            %}
+                          {% else %}
+                            {% capture i %}{% cycle "1", "2", "3", "4", "5", "6" %}{% endcapture %}
+                            {{ 'collection-' | append: i | placeholder_svg_tag: 'placeholder-svg placeholder-svg--promotions' }}
+                          {% endif %}
+                        </a>
+                      </div>
+                    </div>                
+                  </section>
+                </div>
+                <div class="three-columns-row">
+                  <section class="featured-link--image">
+                    <div class="three-columns-row-text">
+                      <div class="info text-align--{{block.settings.frontpage_text_align}}" style="min-height: 350px;max-width: 355px;
+    margin-left: auto;
+    margin-right: auto;">
+                        <a {% if block.settings.link != blank %}href="{{ block.settings.link }}"{% endif %} class="heading-section text-align--{{block.settings.frontpage_text_align}}">
+                          <h3>{{ block.settings.title-3 }}</h3>
+                        </a>
+                        {% if block.settings.text-3 != blank %}
+                          <div class="description">{{ block.settings.text-3 }}</div>
+                        {% endif %}
+                        
+                      </div>
+                    </div>
+                    <div class="three-columns-row--image featured-link--margin">
+                      <div class="featured-link--wrap">
+                        <a {% if block.settings.link != blank %}href="{{ block.settings.link }}"{% endif %} title="{{ block.settings.title }}">
+                          {% if block.settings.image-3 %}
+                            {% render 'image-element',
+                                    image: block.settings.image-3,
+                                    alt: block.settings.image-3.alt
+                            %}
+                          {% else %}
+                            {% capture i %}{% cycle "1", "2", "3", "4", "5", "6" %}{% endcapture %}
+                            {{ 'collection-' | append: i | placeholder_svg_tag: 'placeholder-svg placeholder-svg--promotions' }}
+                          {% endif %}
+                        </a>
+                      </div>
+                    </div>
+                    
+                  </section>
+                </div>
+              </div>
+            </div>
+
+              <style>
+                .standard--width .featured-link--margin {
+                  margin-left: 0%;
+                  margin-right: 3%;
+                }
+
+                .standard--width .image-align--right .featured-link--margin {
+                  margin-left: 3%;
+                  margin-right: 0%;
+                }
+                .three-columns-row{
+                  background: white;
+                  margin: 2%;
+                   padding: 15px 15px 25px 15px;
+
+                }
+                @media screen and (min-width: 768px) {
+                  .three-columns-row {
+                    width: 30%;
+                    background: white;
+                    margin: 2%;
+
+                  }
+                  .three-columns-container{
+                    display:flex;
+                  }
+                }
+              </style>
+  {% comment %} ============================================ {% endcomment %}
+  {% comment %} ============================== Customized By Hoppe{% endcomment %}
+          {% elsif block.type == "three_columns_icon" %}
+            <!-- Icon with text -->
+
+            {% style %}
+              .block__three_columns_icon {
+                background: {{block.settings.three_icons_backcolor}} !important;
+              }
+            {% endstyle %}
+            <div class="container standard--width three-columns-container" 
+            style="padding-top:{{block.settings.icons_padding_top}}px;
+                  padding-bottom:{{block.settings.icons_padding_bottom}}px;">
+            <div class="three-columns-row-icon">
+              <section class="featured-link--image section-{{ forloop.index }}">
+                <div class="three-columns-row--image featured-link--margin">
+                  <div class="featured-link--wrap">
+                    <a {% if block.settings.link != blank %}href="{{ block.settings.link }}"{% endif %} title="{{ block.settings.title }}">
+                      {% if block.settings.icon-1 %}
+                        {% render 'image-element',
+                                image: block.settings.icon-1,
+                                alt: block.settings.icon-1.alt
+                        %}
+                      {% else %}
+                        {% capture i %}{% cycle "1", "2", "3", "4", "5", "6" %}{% endcapture %}
+                        {{ 'collection-' | append: i | placeholder_svg_tag: 'placeholder-svg placeholder-svg--promotions' }}
+                      {% endif %}
+                    </a>
+                  </div>
+                </div>
+                <div class="three-columns-row-text">
+                  <div class="info text-align--{{block.settings.frontpage_text_align}}">
+                    <a {% if block.settings.link != blank %}href="{{ block.settings.link }}"{% endif %} class="heading-section">
+                      <h3>{{ block.settings.icon-title-1 }}</h3>
+                    </a>
+                    {% if block.settings.icon-text-1 != blank %}
+                      <div class="description">{{ block.settings.icon-text-1 }}</div>
+                    {% endif %}
+                    
+                  </div>
+                </div>
+              </section>
+            </div>
+            <div class="three-columns-row-icon">
+              <section class="featured-link--image section-{{ forloop.index }}">
+                <div class="three-columns-row--image featured-link--margin">
+                  <div class="featured-link--wrap">
+                    <a {% if block.settings.link != blank %}href="{{ block.settings.link }}"{% endif %} title="{{ block.settings.title }}">
+                      {% if block.settings.icon-2 %}
+                        {% render 'image-element',
+                                image: block.settings.icon-2,
+                                alt: block.settings.icon-2.alt
+                        %}
+                      {% else %}
+                        {% capture i %}{% cycle "1", "2", "3", "4", "5", "6" %}{% endcapture %}
+                        {{ 'collection-' | append: i | placeholder_svg_tag: 'placeholder-svg placeholder-svg--promotions' }}
+                      {% endif %}
+                    </a>
+                  </div>
+                </div>
+
+                <div class="three-columns-row-text">
+                  <div class="info text-align--{{block.settings.frontpage_text_align}}">
+                    <a {% if block.settings.link != blank %}href="{{ block.settings.link }}"{% endif %} class="heading-section">
+                      <h3>{{ block.settings.icon-title-2 }}</h3>
+                    </a>
+                    {% if block.settings.icon-text-2 != blank %}
+                      <div class="description">{{ block.settings.icon-text-2 }}</div>
+                    {% endif %}
+                    
+                  </div>
+                </div>                                
+              </section>
+            </div>
+            <div class="three-columns-row-icon">
+              <section class="featured-link--image section-{{ forloop.index }}">
+                <div class="three-columns-row--image featured-link--margin">
+                  <div class="featured-link--wrap">
+                    <a {% if block.settings.link != blank %}href="{{ block.settings.link }}"{% endif %} title="{{ block.settings.title }}">
+                      {% if block.settings.icon-3 %}
+                        {% render 'image-element',
+                                image: block.settings.icon-3,
+                                alt: block.settings.icon-3.alt
+                        %}
+                      {% else %}
+                        {% capture i %}{% cycle "1", "2", "3", "4", "5", "6" %}{% endcapture %}
+                        {{ 'collection-' | append: i | placeholder_svg_tag: 'placeholder-svg placeholder-svg--promotions' }}
+                      {% endif %}
+                    </a>
+                  </div>
+                </div>
+                <div class="three-columns-row-text">
+                  <div class="info text-align--{{block.settings.frontpage_text_align}}">
+                    <a {% if block.settings.link != blank %}href="{{ block.settings.link }}"{% endif %} class="heading-section">
+                      <h3>{{ block.settings.icon-title-3 }}</h3>
+                    </a>
+                    {% if block.settings.icon-text-3 != blank %}
+                      <div class="description">{{ block.settings.icon-text-3 }}</div>
+                    {% endif %}
+                    
+                  </div>
+                </div>
+              </section>
+            </div>
+            </div>
+
+              <style>
+                .standard--width .featured-link--margin {
+                  margin-left: 0%;
+                  margin-right: 3%;
+                }
+
+                .standard--width .image-align--right .featured-link--margin {
+                  margin-left: 3%;
+                  margin-right: 0%;
+                }
+                
+                @media screen and (min-width: 768px) {
+                  .three-columns-row-icon {
+                    width: 24%;
+                    margin-left:5%;
+                    margin-right:5%;
+                  }
+                  .three-columns-container{
+                    display:flex;
+                  }
+                }
+              </style>
+{% comment %} ============================================ {% endcomment %}
+          {% elsif block.type == 'map' %}
+            <!-- Map -->
+            {% include 'include-map', type: 'block' %}
+
+          {% elsif block.type == "page" %}
+            <!-- Page -->
+            {% include 'include-content-page', type: 'block' %}
+
+          {% elsif block.type == 'quote' %}
+            <!-- Quote -->
+            {% include 'include-quote', type: 'block' %}
+
+          {% elsif block.type == "rich_text_and_image" %}
+            <!-- Rich text and image -->
+            {% include 'include-featured-text', type: 'block' %}
+
+          {% elsif block.type == 'product_reviews' %}
+            <!-- Reviews -->
+            <div class="container">
+              {% include 'include-reviews', type: 'block' %}
+            </div>
+
+          {% elsif block.type == 'divider' %}
+            <!-- Divider -->
+            {% include 'include-divider', type: 'block' %}
+
+          {% elsif block.type == "featured_collection" %}
+            <!-- Featured collection -->
+            {% include 'include-featured-collection', type: 'block' %}
+
+          {% elsif block.type == "image_with_text_overlay" %}
+            <!-- Image with text overlay -->
+            {% include 'include-image-with-text-overlay', type: 'block' %}
+
+          {% elsif block.type == "recently_viewed_products" %}
+            <!-- Recently Viewed Products -->
+            {% include 'include-recently-viewed', type: 'block' %}
+
+          {% elsif block.type == "recommended_products" %}
+            <!-- Recommended Products -->
+            <div class="product-recommendations-block" data-product-recommendations-container></div>
+          {% elsif block.type == "custom_html" %}
+            <!--Custom HTML -->
+            {% include 'include-custom-html', type: 'block' %}
+
+          {% endif %}
+        </div>
+      {% endfor %}
+    {% endif %}
+  </div>
+
+    </div><!-- closes <div class="container main content"> -->
+
+
+</div>
+</div>
+<!-- RYVIU APP :: WIDGET -->
+<div class="lt-block-reviews"> 
+	<ryviu-widget  
+	    handle="{{product.handle}}"
+	    product_id="{{product.id}}"
+	    title_product="{{product.title}}"
+	    total_meta="{{ product.metafields.ryviu.r_count }}"
+		image_product="{{ product.featured_image.src | img_url: '800x' }}"></ryviu-widget>
+</div>
+<!-- / RYVIU APP -->
+{% if section.settings.set_product_height %}
+  {% style %}
+    .gallery-wrap model-viewer {
+      min-height: {{ section.settings.product_height }}px;
+    }
+
+    .gallery-wrap .product_gallery img,
+    .gallery-wrap .product_gallery .plyr--html5 video,
+    .gallery-wrap .product_gallery .plyr--youtube {
+      max-height: {{ section.settings.product_height }}px;
+    }
+  {% endstyle %}
+{% endif %}
+
+{% comment %} Shopify-XR {% endcomment %}
+{% if product.media %}
+<script>
+  window.ShopifyXR=window.ShopifyXR||function(){(ShopifyXR.q=ShopifyXR.q||[]).push(arguments)}
+    {% assign models = product.media | where: 'media_type', 'model' | json %}
+    ShopifyXR('addModels', {{ models }});
+</script>
+{% endif %}
+
+{% schema %}
+
+{
+  "name": "Product | details",
+  "class": "product-template product-details-section",
+  "max_blocks": 20,
+  "settings": [
+    {
+      "type": "header",
+      "content": "Product gallery"
+    },
+    {
+      "type": "checkbox",
+      "id": "product_thumbs",
+      "label": "Show thumbnails",
+      "default": true
+    },
+    {
+      "type": "checkbox",
+      "id": "gallery_arrows",
+      "label": "Show arrows",
+      "default": true
+    },
+    {
+      "type": "checkbox",
+      "id": "enable_product_lightbox",
+      "label": "Enable lightbox",
+      "default": true
+    },
+    {
+      "type": "checkbox",
+      "id": "activate_zoom",
+      "label": "Magnify product images on hover"
+    },
+    {
+      "type": "range",
+      "id": "slideshow_speed",
+      "label": "Gallery speed",
+      "min": 0,
+      "max": 6,
+      "unit": "sec",
+      "default": 0,
+      "info": "Set to 0 to disable autoplay."
+    },
+    {
+      "type": "select",
+      "id": "slideshow_animation",
+      "label": "Transition",
+      "options": [
+        {
+          "value": "slide",
+          "label": "Slide"
+        },
+        {
+          "value": "fade",
+          "label": "Fade"
+        }
+      ],
+      "default": "slide"
+    },
+    {
+      "type": "select",
+      "id": "thumbnail_position",
+      "label": "Thumbnails",
+      "default": "bottom",
+      "options": [
+        {
+          "value": "bottom",
+          "label": "Bottom"
+        },
+        {
+          "value": "left",
+          "label": "Left"
+        },
+        {
+          "value": "right",
+          "label": "Right"
+        }
+      ]
+    },
+    {
+      "type": "checkbox",
+      "id": "enable_thumbnail_slider",
+      "label": "Enable thumbnail slider",
+      "default": true
+    },
+    {
+      "type": "header",
+      "content": "Product information"
+    },
+    {
+      "type": "checkbox",
+      "id": "display_vendor",
+      "label": "Show vendor"
+    },
+    {
+      "type": "checkbox",
+      "id": "product_breadcrumb",
+      "label": "Show breadcrumb links"
+    },
+    {
+      "type": "checkbox",
+      "id": "display_sku",
+      "label": "Show SKU"
+    },
+    {
+      "type": "checkbox",
+      "id": "display_collections",
+      "label": "Show collections"
+    },
+    {
+      "type": "checkbox",
+      "id": "display_type",
+      "label": "Show type"
+    },
+    {
+      "type": "checkbox",
+      "id": "display_tags",
+      "label": "Show tags"
+    },
+    {
+      "type": "checkbox",
+      "id": "display_social_buttons",
+      "label": "Show social media share icons",
+      "default": true
+    },
+    {
+      "type": "radio",
+      "id": "product_description_position",
+      "label": "Description position",
+      "options": [
+        {
+          "value": "top",
+          "label": "Above product form"
+        },
+        {
+          "value": "bottom",
+          "label": "Below product form"
+        }
+      ]
+    },
+    {
+      "type": "checkbox",
+      "id": "display_savings",
+      "label": "Show price savings",
+      "default": true
+    },
+    {
+      "type": "header",
+      "content": "Dynamic checkout button"
+    },
+    {
+      "type": "checkbox",
+      "id": "show_payment_button",
+      "label": "Show dynamic checkout button",
+      "default": true,
+      "info": "Each customer will see their preferred payment method from those available on your store, such as PayPal or Apple Pay. [Learn more](https://help.shopify.com/manual/using-themes/change-the-layout/dynamic-checkout)"
+    },
+    {
+      "type": "header",
+      "content": "Media",
+      "info": "Learn more about [media types](https://help.shopify.com/en/manual/products/product-media)"
+    },
+    {
+      "type": "radio",
+      "id": "product_images_position",
+      "label": "Media position",
+      "options": [
+        {
+          "value": "left",
+          "label": "Left"
+        },
+        {
+          "value": "right",
+          "label": "Right"
+        }
+      ]
+    },
+    {
+      "type": "checkbox",
+      "id": "set_product_height",
+      "label": "Set height of product media",
+      "default": false
+    },
+    {
+      "type": "range",
+      "id": "product_height",
+      "label": "Product media height",
+      "min": 200,
+      "max": 800,
+      "step": 10,
+      "default": 500,
+      "unit": "px"
+    },
+    {
+      "type": "checkbox",
+      "id": "video_looping",
+      "label": "Enable video looping",
+      "default": false
+    },
+    {
+      "type": "header",
+      "content": "Product reviews"
+    },
+    {
+      "type": "paragraph",
+      "content": "Reviews app must be enabled. [Learn More](https://help.outofthesandbox.com/hc/en-us/articles/360008549274#section2)"
+    },
+    {
+      "type": "checkbox",
+      "id": "enable_shopify_product_badges",
+      "label": "Display star rating on product",
+      "default": false
+    },
+    {
+      "type": "checkbox",
+      "id": "enable_reviews_in_description",
+      "label": "Show reviews in product description area",
+      "default": false
+    }
+  ],
+  "blocks": [
+    {
+      "type": "blog_posts",
+      "name": "Blog posts",
+      "settings": [
+        {
+          "type": "text",
+          "id": "title",
+          "label": "Heading",
+          "default": "Blog posts"
+        },
+        {
+          "type": "blog",
+          "id": "blog_widget_select",
+          "label": "Blog"
+        },
+        {
+          "type": "range",
+          "id": "home_page_articles",
+          "label": "Posts",
+          "min": 2,
+          "max": 4,
+          "step": 1,
+          "default": 3
+        },
+        {
+          "type": "checkbox",
+          "id": "blog_tags",
+          "label": "Show blog post tags"
+        },
+        {
+          "type": "checkbox",
+          "id": "blog_author",
+          "label": "Show author"
+        },
+        {
+          "type": "checkbox",
+          "id": "read_time",
+          "label": "Show estimated read time",
+          "default": true
+        },
+        {
+          "type": "checkbox",
+          "id": "blog_date",
+          "label": "Show date",
+          "default": true
+        },
+        {
+          "type": "checkbox",
+          "id": "blog_comment_count",
+          "label": "Show comment count",
+          "default": true
+        },
+        {
+          "type": "checkbox",
+          "id": "read_more_link",
+          "label": "Show continue reading link for blog post excerpts",
+          "default": true
+        }
+      ]
+    },
+    {
+      "type": "contact_form",
+      "name": "Contact form",
+      "settings": [
+        {
+          "type": "text",
+          "id": "contact_heading",
+          "label": "Heading",
+          "default": "Get in touch"
+        },
+        {
+          "type": "text",
+          "id": "contact_subheading",
+          "label": "Subheading",
+          "default": "Leave a message"
+        },
+        {
+          "type": "richtext",
+          "id": "contact_content",
+          "label": "Text",
+          "default": "<p>Use this text to include important information that you'd like your customers to be aware of when contacting you. You could include shop hours, email response times, other ways to contact you, or just some friendly text to encourage your customers to reach out.</p>"
+        },
+        {
+          "type": "select",
+          "id": "contact_text_position",
+          "label": "Text position",
+          "default": "left",
+          "options": [
+            {
+              "value": "left",
+              "label": "Left"
+            },
+            {
+              "value": "center",
+              "label": "Center"
+            },
+            {
+              "value": "right",
+              "label": "Right"
+            }
+          ]
+        },
+        {
+          "type": "select",
+          "id": "contact_text_alignment",
+          "label": "Text alignment",
+          "default": "left",
+          "options": [
+            {
+              "value": "left",
+              "label": "Left"
+            },
+            {
+              "value": "center",
+              "label": "Center"
+            },
+            {
+              "value": "right",
+              "label": "Right"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "type": "custom_html",
+      "name": "Custom HTML",
+      "settings": [
+        {
+          "type": "textarea",
+          "id": "custom_html",
+          "label": "Custom HTML"
+        }
+      ]
+    },
+    {
+      "type": "divider",
+      "name": "Divider",
+      "settings": [
+        {
+          "type": "range",
+          "id": "divider_spacing",
+          "min": 0,
+          "max": 30,
+          "step": 5,
+          "unit": "px",
+          "label": "Space",
+          "default": 20
+        },
+        {
+          "type": "checkbox",
+          "id": "divider_border",
+          "label": "Show border",
+          "default": false
+        }
+      ]
+    },
+    {
+      "type": "product_reviews",
+      "name": "Product reviews",
+      "settings": [
+        {
+          "type": "paragraph",
+          "content": "Reviews app must be enabled. [Learn more](https://help.outofthesandbox.com/hc/en-us/articles/360008549274#section2)"
+        }
+      ]
+    },
+    {
+      "type": "featured_collection",
+      "name": "Featured collection",
+      "settings": [
+        {
+          "type": "text",
+          "id": "title",
+          "label": "Heading",
+          "default": "Featured collection"
+        },
+        {
+          "type": "checkbox",
+          "id": "collection_description",
+          "label": "Show collection description",
+          "default": false
+        },
+        {
+          "type": "collection",
+          "id": "collection",
+          "label": "Collection"
+        },
+        {
+          "type": "radio",
+          "id": "collection_style",
+          "label": "Collection layout",
+          "default": "grid",
+          "options": [
+            {
+              "value": "slider",
+              "label": "Slider"
+            },
+            {
+              "value": "grid",
+              "label": "Grid"
+            }
+          ]
+        },
+        {
+          "type": "range",
+          "id": "products_per",
+          "label": "Products per row",
+          "min": 2,
+          "max": 7,
+          "step": 1,
+          "default": 3
+        },
+        {
+          "type": "range",
+          "id": "products_limit",
+          "label": "Limit products",
+          "min": 2,
+          "max": 50,
+          "step": 1,
+          "default": 48
+        }
+      ]
+    },
+    {
+      "type": "image_gallery",
+      "name": "Image gallery",
+      "settings": [
+        {
+          "type": "checkbox",
+          "id": "wide_display",
+          "label": "Wide display",
+          "default": true
+        },
+        {
+          "type": "image_picker",
+          "id": "detail_image_1",
+          "label": "Image 1",
+          "info": "760 x 500px recommended"
+        },
+        {
+          "type": "image_picker",
+          "id": "detail_image_2",
+          "label": "Image 2",
+          "info": "760 x 500px recommended"
+        },
+        {
+          "type": "image_picker",
+          "id": "detail_image_3",
+          "label": "Image 3",
+          "info": "760 x 500px recommended"
+        }
+      ]
+    },
+    {
+      "type": "three_columns",
+      "name": "Three Columns Content",
+      "settings": [
+        {
+          "type": "select",
+          "id": "frontpage_text_align",
+          "label": "Text alignment",
+          "options": [
+            {
+              "value": "left",
+              "label": "Left"
+            },
+            {
+              "value": "center",
+              "label": "Center"
+            },
+            {
+              "value": "right",
+              "label": "Right"
+            }
+          ]
+        },
+        {
+          "type": "color",
+          "id": "backcolor",
+          "label": "Background Color",
+          "default": "#e5e5e5"
+        },
+        {
+          "type": "range",
+          "id": "padding_top",
+          "min": 0,
+          "max": 100,
+          "step": 5,
+          "unit": "px",
+          "label": "Padding Top",
+          "default": 30
+        },
+        {
+          "type": "range",
+          "id": "padding_bottom",
+          "min": 0,
+          "max": 100,
+          "step": 5,
+          "unit": "px",
+          "label": "Padding Bottom",
+          "default": 30
+        },
+        {
+          "type": "image_picker",
+          "id": "image-1",
+          "label": "Image-1",
+          "info": "1024 x 1024px recommended"
+        },
+        {
+          "type": "image_picker",
+          "id": "image-2",
+          "label": "Image-2",
+          "info": "1024 x 1024px recommended"
+        },
+        {
+          "type": "image_picker",
+          "id": "image-3",
+          "label": "Image-3",
+          "info": "1024 x 1024px recommended"
+        },
+        {
+          "type": "text",
+          "id": "title-1",
+          "label": "Heading-1",
+          "default": "Your headline"
+        },
+        {
+          "type": "richtext",
+          "id": "text-1",
+          "label": "Text-1",
+          "default": "<p>Promotion description appears here.</p>"
+        },
+        {
+          "type": "text",
+          "id": "title-2",
+          "label": "Heading-2",
+          "default": "Your headline"
+        },
+        {
+          "type": "richtext",
+          "id": "text-2",
+          "label": "Text-2",
+          "default": "<p>Promotion description appears here.</p>"
+        },
+        {
+          "type": "text",
+          "id": "title-3",
+          "label": "Heading-3",
+          "default": "Your headline"
+        },
+        {
+          "type": "richtext",
+          "id": "text-3",
+          "label": "Text-3",
+          "default": "<p>Promotion description appears here.</p>"
+        }
+      ]
+    },
+    {
+      "type": "three_columns_icon",
+      "name": "Three Columns Icon",
+      "settings": [
+        {
+          "type": "select",
+          "id": "frontpage_text_align",
+          "label": "Text alignment",
+          "options": [
+            {
+              "value": "left",
+              "label": "Left"
+            },
+            {
+              "value": "center",
+              "label": "Center"
+            },
+            {
+              "value": "right",
+              "label": "Right"
+            }
+          ]
+        },
+        {
+          "type": "color",
+          "id": "three_icons_backcolor",
+          "label": "Background Color",
+          "default": "#e5e5e5"
+        },
+        {
+          "type": "range",
+          "id": "icons_padding_top",
+          "min": 0,
+          "max": 100,
+          "step": 5,
+          "unit": "px",
+          "label": "Padding Top",
+          "default": 30
+        },
+        {
+          "type": "range",
+          "id": "icons_padding_bottom",
+          "min": 0,
+          "max": 100,
+          "step": 5,
+          "unit": "px",
+          "label": "Padding Bottom",
+          "default": 30
+        },
+        {
+          "type": "image_picker",
+          "id": "icon-1",
+          "label": "Icon-1",
+          "info": "122 x 122px recommended"
+        },
+        {
+          "type": "image_picker",
+          "id": "icon-2",
+          "label": "Icon-2",
+          "info": "122 x 122px recommended"
+        },
+        {
+          "type": "image_picker",
+          "id": "icon-3",
+          "label": "Icon-3",
+          "info": "122 x 122px recommended"
+        },
+        {
+          "type": "text",
+          "id": "icon-title-1",
+          "label": "Heading-1",
+          "default": "Your headline"
+        },
+        {
+          "type": "richtext",
+          "id": "icon-text-1",
+          "label": "Text-1",
+          "default": "<p>Promotion description appears here.</p>"
+        },
+        {
+          "type": "text",
+          "id": "icon-title-2",
+          "label": "Heading-2",
+          "default": "Your headline"
+        },
+        {
+          "type": "richtext",
+          "id": "icon-text-2",
+          "label": "Text-2",
+          "default": "<p>Promotion description appears here.</p>"
+        },
+        {
+          "type": "text",
+          "id": "icon-title-3",
+          "label": "Heading-3",
+          "default": "Your headline"
+        },
+        {
+          "type": "richtext",
+          "id": "icon-text-3",
+          "label": "Text-3",
+          "default": "<p>Promotion description appears here.</p>"
+        }
+      ]
+    },
+    {
+      "type": "image_with_text",
+      "name": "Image with text",
+      "settings": [
+        {
+          "type": "checkbox",
+          "id": "layout",
+          "label": "Wide display"
+        },
+        {
+          "type": "select",
+          "id": "frontpage_text_align",
+          "label": "Text alignment",
+          "options": [
+            {
+              "value": "left",
+              "label": "Left"
+            },
+            {
+              "value": "center",
+              "label": "Center"
+            },
+            {
+              "value": "right",
+              "label": "Right"
+            }
+          ]
+        },
+        {
+          "type": "select",
+          "id": "frontpage_image_position",
+          "label": "Image position",
+          "options": [
+            {
+              "value": "left",
+              "label": "Left"
+            },
+            {
+              "value": "right",
+              "label": "Right"
+            }
+          ]
+        },
+        {
+          "type": "image_picker",
+          "id": "image",
+          "label": "Image",
+          "info": "1024 x 1024px recommended"
+        },
+        {
+          "type": "select",
+          "id": "image_crop",
+          "label": "Image cropping",
+          "default": "none",
+          "info": "Only applied when text area is taller than image.",
+          "options": [
+            {
+              "value": "left",
+              "label": "Left"
+            },
+            {
+              "value": "right",
+              "label": "Right"
+            },
+            {
+              "value": "center",
+              "label": "Center"
+            },
+            {
+              "value": "none",
+              "label": "None"
+            }
+          ]
+        },
+        {
+          "type": "text",
+          "id": "title",
+          "label": "Heading",
+          "default": "Your headline"
+        },
+        {
+          "type": "richtext",
+          "id": "text",
+          "label": "Text",
+          "default": "<p>Promotion description appears here.</p>"
+        },
+        {
+          "type": "url",
+          "id": "link",
+          "label": "Link"
+        },
+        {
+          "type": "text",
+          "id": "button_label",
+          "label": "Button label",
+          "default": "View all"
+        }
+      ]
+    },
+    {
+      "type": "image_with_text_overlay",
+      "name": "Image with text overlay",
+      "settings": [
+        {
+          "type": "checkbox",
+          "id": "wide_display",
+          "label": "Wide display",
+          "default": true
+        },
+        {
+          "type": "image_picker",
+          "id": "image",
+          "label": "Image",
+          "info": "1800 x 1000px recommended"
+        },
+        {
+          "type": "image_picker",
+          "id": "mobile_image",
+          "label": "Mobile Image",
+          "info": "800 x 800px recommended"
+        },
+        {
+          "type": "richtext",
+          "id": "pretext",
+          "label": "Preheading",
+          "default": "<p>This is</p>"
+        },
+        {
+          "type": "text",
+          "id": "title",
+          "label": "Heading",
+          "default": "Your headline"
+        },
+        {
+          "type": "richtext",
+          "id": "subtitle",
+          "label": "Text",
+          "default": "<p>Customize this section</p>"
+        },
+        {
+          "type": "checkbox",
+          "id": "caption_background",
+          "label": "Display solid text background",
+          "default": false
+        },
+        {
+          "type": "checkbox",
+          "id": "caption_background_transparency",
+          "label": "Enable background transparency"
+        },
+        {
+          "type": "select",
+          "id": "text_position",
+          "label": "Text position",
+          "options": [
+            {
+              "value": "left",
+              "label": "Left"
+            },
+            {
+              "value": "center",
+              "label": "Center"
+            },
+            {
+              "value": "right",
+              "label": "Right"
+            }
+          ]
+        },
+        {
+          "type": "select",
+          "id": "text_align",
+          "label": "Text alignment",
+          "options": [
+            {
+              "value": "left",
+              "label": "Left"
+            },
+            {
+              "value": "center",
+              "label": "Center"
+            },
+            {
+              "value": "right",
+              "label": "Right"
+            }
+          ]
+        },
+        {
+          "type": "text",
+          "id": "button1",
+          "label": "First button label",
+          "default": "Button"
+        },
+        {
+          "type": "url",
+          "id": "button1_link",
+          "label": "First link"
+        },
+        {
+          "type": "checkbox",
+          "id": "button1_highlight",
+          "label": "Highlight first button"
+        },
+        {
+          "type": "text",
+          "id": "button2",
+          "label": "Second button label"
+        },
+        {
+          "type": "url",
+          "id": "button2_link",
+          "label": "Second link"
+        },
+        {
+          "type": "checkbox",
+          "id": "button2_highlight",
+          "label": "Highlight second button"
+        },
+        {
+          "type": "header",
+          "content": "Mobile"
+        },
+        {
+          "type": "select",
+          "id": "mobile_image_crop",
+          "label": "Image cropping",
+          "options": [
+            {
+              "value": "none",
+              "label": "None"
+            },
+            {
+              "value": "left",
+              "label": "Left"
+            },
+            {
+              "value": "center",
+              "label": "Center"
+            },
+            {
+              "value": "right",
+              "label": "Right"
+            }
+          ]
+        },
+        {
+          "type": "checkbox",
+          "id": "mobile_text_below_image",
+          "label": "Show text below image",
+          "default": true
+        },
+        {
+          "type": "color",
+          "id": "desktop_text_color",
+          "label": "Desktop Text Color", 
+          "default": "#363F68"
+        },
+        {
+          "type": "color",
+          "id": "mobile_text_color",
+          "label": "Mobile Text Color",
+          "default": "#363F68"
+        }
+      ]
+    },
+    {
+      "type": "map",
+      "name": "Map",
+      "settings": [
+        {
+          "type": "checkbox",
+          "id": "wide_display",
+          "label": "Wide display",
+          "default": true
+        },
+        {
+          "type": "text",
+          "id": "map_address",
+          "label": "Address",
+          "info": "Google Maps will find the exact location"
+        },
+        {
+          "type": "range",
+          "id": "map_height",
+          "min": 300,
+          "max": 600,
+          "step": 10,
+          "unit": "px",
+          "label": "Map height",
+          "default": 400
+        },
+        {
+          "type": "range",
+          "id": "zoom_level",
+          "min": 1,
+          "max": 20,
+          "step": 1,
+          "unit": "x",
+          "label": "Map zoom level",
+          "default": 16
+        },
+        {
+          "type": "image_picker",
+          "id": "map_image",
+          "label": "Image",
+          "info": "Displayed when map isn't loaded"
+        },
+        {
+          "type": "header",
+          "content": "API key"
+        },
+        {
+          "type": "text",
+          "id": "api_key",
+          "label": "Google Maps API key",
+          "info": "You’ll need to [register a Google Maps API Key](https://help.shopify.com/manual/using-themes/troubleshooting/map-section-api-key) to display the map"
+        },
+        {
+          "type": "checkbox",
+          "id": "show_pin",
+          "label": "Show pin",
+          "info": "Requires use of API key",
+          "default": true
+        },
+        {
+          "type": "select",
+          "id": "map_style",
+          "label": "Map color scheme",
+          "options": [
+            {
+              "value": "default",
+              "label": "Default"
+            },
+            {
+              "value": "aubergine",
+              "label": "Aubergine"
+            },
+            {
+              "value": "night",
+              "label": "Night"
+            },
+            {
+              "value": "retro",
+              "label": "Retro"
+            },
+            {
+              "value": "silver",
+              "label": "Silver"
+            }
+          ],
+          "default": "default",
+          "info": "Requires use of API key"
+        }
+      ]
+    },
+    {
+      "type": "page",
+      "name": "Page",
+      "settings": [
+        {
+          "type": "page",
+          "id": "content_page",
+          "label": "Content page"
+        }
+      ]
+    },
+    {
+      "type": "quote",
+      "name": "Quote",
+      "settings": [
+        {
+          "type": "text",
+          "id": "quote_text",
+          "label": "Text",
+          "default": "40% of online shoppers abandon a site that takes more than 3 seconds to load"
+        },
+        {
+          "type": "url",
+          "id": "quote_link",
+          "label": "Link"
+        }
+      ]
+    },
+    {
+      "type": "recently_viewed_products",
+      "name": "Recently viewed products",
+      "settings": [
+        {
+          "type": "paragraph",
+          "content": "To test the recently viewed products, view your online store outside of the Editor and visit multiple product pages. [Learn more](https:\/\/help.outofthesandbox.com\/hc\/en-us\/articles\/115008765228)"
+        },
+        {
+          "type": "text",
+          "id": "rv_title",
+          "label": "Heading",
+          "default": "Recently viewed products"
+        },
+        {
+          "type": "radio",
+          "id": "rv_products_style",
+          "label": "Layout",
+          "default": "grid",
+          "options": [
+            {
+              "value": "slider",
+              "label": "Slider"
+            },
+            {
+              "value": "grid",
+              "label": "Grid"
+            }
+          ]
+        },
+        {
+          "type": "range",
+          "id": "rv_max_display",
+          "label": "Products limit",
+          "min": 3,
+          "max": 12,
+          "step": 1,
+          "default": 6
+        },
+        {
+          "type": "range",
+          "id": "rv_per",
+          "label": "Products per row",
+          "min": 3,
+          "max": 5,
+          "step": 1,
+          "default": 4
+        }
+      ]
+    },
+    {
+      "type": "recommended_products",
+      "name": "Recommended products",
+      "limit": 1,
+      "settings": [
+        {
+         "type": "paragraph",
+         "content": "This block can be configured using the Recommended Products section settings. [Learn more](https://help.outofthesandbox.com/hc/en-us/articles/360024073093-Recommended-Products)"
+        }
+      ]
+    },
+    {
+      "type": "text_tab",
+      "name": "Text and Tab structure",
+      "settings": [
+        {
+          "type": "text",
+          "id": "top_header",
+          "label": "Heading",
+          "default": "Top Header"
+        },
+        {
+          "type": "richtext",
+          "id": "top_content",
+          "label": "Text",
+          "default": "<p>Use this text to share information about your brand with your customers.</p><p>Describe a product, share announcements, or welcome customers to your store.</p>"
+        },
+        {
+          "type": "text",
+          "id": "tab_1_title",
+          "label": "Tab Title",
+          "default": "Structure"
+        },
+        {
+          "type": "image_picker",
+          "id": "tab_1_image",
+          "label": "Tab-1 Image"
+        },
+        {
+          "type": "checkbox",
+          "id": "tab_1_section_style",
+          "label": "Wide display"
+        },
+        {
+          "type": "select",
+          "id": "section_2_text_alignment",
+          "label": "Text alignment",
+          "options": [
+            {
+              "value": "left",
+              "label": "Left"
+            },
+            {
+              "value": "center",
+              "label": "Center"
+            },
+            {
+              "value": "right",
+              "label": "Right"
+            }
+          ],
+          "default": "center"
+        },
+        {
+          "type": "text",
+          "id": "tab_1_textheader",
+          "label": "Text Heading",
+          "default": "Structure"
+        },
+        {
+          "type": "richtext",
+          "id": "tab_1_textcontent",
+          "label": "Text Content",
+          "default": "<p>Excellent support with plush comfort</p><p>Individual pocket coil slring a peaceful sleeping environment without</p><p>disturb and different flexibility coil makes this mattress 5 zones disturbing to</p><p>better adapt every part of your body.</p>"
+        },
+        {
+          "type": "image_picker",
+          "id": "tab_1_layerimage",
+          "label": "Layer Image"
+        },
+        {
+          "type": "image_picker",
+          "id": "tab_1_layerimage_1",
+          "label": "Layer Image-1"
+        },
+        {
+          "type": "image_picker",
+          "id": "tab_1_layerimage_2",
+          "label": "Layer Image-2"
+        },
+        {
+          "type": "image_picker",
+          "id": "tab_1_layerimage_3",
+          "label": "Layer Image-3"
+        },
+        {
+          "type": "image_picker",
+          "id": "tab_1_layerimage_4",
+          "label": "Layer Image-4"
+        },
+        {
+          "type": "image_picker",
+          "id": "tab_1_layerimage_5",
+          "label": "Layer Image-5"
+        },
+        {
+          "type": "image_picker",
+          "id": "tab_1_layerimage_6",
+          "label": "Layer Image-6"
+        },
+        {
+          "type": "select",
+          "id": "section_1_text_alignment",
+          "label": "Layer Text alignment",
+          "options": [
+            {
+              "value": "left",
+              "label": "Left"
+            },
+            {
+              "value": "center",
+              "label": "Center"
+            },
+            {
+              "value": "right",
+              "label": "Right"
+            }
+          ],
+          "default": "center"
+        },
+        {
+          "type": "text",
+          "id": "tab_1_layerheader",
+          "label": "Layer Heading",
+          "default": "See what is designed in each layer"
+        },
+        {
+          "type": "richtext",
+          "id": "tab_1_layer1_text1",
+          "label": "Layer Text-1",
+          "default": "<p>1、First layer.<br> Gel-infused ventilated memory foam creates a plush and cool sleeping surface for a more restful night's sleep. This layer reduces sweat and perspiration during hot or humid weather.<p>"
+        },
+        {
+          "type": "richtext",
+          "id": "tab_1_layer1_text2",
+          "label": "Layer Text-2",
+          "default": "<p>2、Second layer.<br>Gel-infused ventilated memory foam creates a plush and cool sleeping surface for a more restful night's sleep. This layer reduces sweat and perspiration during hot or humid weather.<p>"
+        },
+        {
+          "type": "richtext",
+          "id": "tab_1_layer1_text3",
+          "label": "Layer Text-3",
+          "default": "<p>3、Third layer.<br>Gel-infused ventilated memory foam creates a plush and cool sleeping surface for a more restful night's sleep. This layer reduces sweat and perspiration during hot or humid weather.<p>"
+        },
+        {
+          "type": "richtext",
+          "id": "tab_1_layer1_text4",
+          "label": "Layer Text-4",
+          "default": "<p>4、Fourth layer.<br>Gel-infused ventilated memory foam creates a plush and cool sleeping surface for a more restful night's sleep. This layer reduces sweat and perspiration during hot or humid weather.<p>"
+        },
+        {
+          "type": "richtext",
+          "id": "tab_1_layer1_text5",
+          "label": "Layer Text-5",
+          "default": "<p>5、<br>Gel-infused ventilated memory foam creates a plush and cool sleeping surface for a more restful night's sleep. This layer reduces sweat and perspiration during hot or humid weather.<p>"
+        },
+        {
+          "type": "richtext",
+          "id": "tab_1_layer1_text6",
+          "label": "Layer Text-6",
+          "default": "<p>6、<br>Gel-infused ventilated memory foam creates a plush and cool sleeping surface for a more restful night's sleep. This layer reduces sweat and perspiration during hot or humid weather.<p>"
+        },
+        {
+          "type": "text",
+          "id": "tab_2_title",
+          "label": "Tab Title",
+          "default": "Spotlight"
+        },
+        {
+          "type": "image_picker",
+          "id": "tab_2_image_1",
+          "label": "Tab-2 Image-1"
+        },
+        {
+          "type": "image_picker",
+          "id": "tab_2_image_1_mobile",
+          "label": "Tab-2 Image-1-Mobile"
+        },
+        {
+          "type": "text",
+          "id": "tab_2_textheader_1",
+          "label": "Text Heading-1",
+          "default": "Tab-2 Header-1"
+        },
+        {
+          "type": "richtext",
+          "id": "tab_2_textcontent_1",
+          "label": "Text Content-1",
+          "default": "<p>Use this text to share information about your brand with your customers.</p><p>Describe a product, share announcements, or welcome customers to your store.</p>"
+        },
+        {
+          "type": "image_picker",
+          "id": "tab_2_image_2",
+          "label": "Tab-2 Image-2"
+        },
+        {
+          "type": "text",
+          "id": "tab_2_textheader_2",
+          "label": "Text Heading-2",
+          "default": "Tab-2 Header-2"
+        },
+        {
+          "type": "richtext",
+          "id": "tab_2_textcontent_2",
+          "label": "Text Content-2",
+          "default": "<p>Use this text to share information about your brand with your customers.</p><p>Describe a product, share announcements, or welcome customers to your store.</p>"
+        }
+      ]
+    },
+    {
+      "type": "faq",
+      "name": "faq",
+      "settings": [
+        {
+          "type": "text",
+          "id": "title",
+          "label": "FAQ Title",
+          "default": "Product Details"
+        }
+          
+      ]
+
+    },
+    {
+      "type": "rich_text_and_image",
+      "name": "Rich text and image",
+      "settings": [
+        {
+          "type": "color",
+          "id": "backcolor",
+          "label": "Background Color",
+          "default": "#e5e5e5"
+        },
+        {
+          "type": "range",
+          "id": "padding_top",
+          "min": 0,
+          "max": 100,
+          "step": 5,
+          "unit": "px",
+          "label": "Padding Top",
+          "default": 30
+        },
+        {
+          "type": "range",
+          "id": "padding_bottom",
+          "min": 0,
+          "max": 100,
+          "step": 5,
+          "unit": "px",
+          "label": "Padding Bottom",
+          "default": 30
+        },
+        {
+          "type": "image_picker",
+          "id": "image",
+          "label": "Image"
+        },
+        
+        {
+          "type": "image_picker",
+          "id": "mobile_image",
+          "label": "Mobile Image"
+        },
+        {
+          "type": "text",
+          "id": "title",
+          "label": "Heading",
+          "default": "Talk about your brand"
+        },
+        {
+          "type": "richtext",
+          "id": "content",
+          "label": "Text",
+          "default": "<p>Use this text to share information about your brand with your customers.</p><p>Describe a product, share announcements, or welcome customers to your store.</p>"
+        },
+        {
+          "type": "select",
+          "id": "text_size",
+          "label": "Text size",
+          "options": [
+            {
+              "value": "regular_text",
+              "label": "Regular"
+            },
+            {
+              "value": "featured_text",
+              "label": "Large"
+            }
+          ],
+          "default": "featured_text"
+        },
+        {
+          "type": "select",
+          "id": "text_alignment",
+          "label": "Text alignment",
+          "options": [
+            {
+              "value": "align_left",
+              "label": "Left"
+            },
+            {
+              "value": "center",
+              "label": "Center"
+            }
+          ],
+          "default": "center"
+        },
+        {
+          "type": "text",
+          "id": "button_label",
+          "label": "Button label"
+        },
+        {
+          "type": "url",
+          "id": "button_link",
+          "label": "Button link"
+        }
+      ]
+    },
+    {
+      "type": "featured_video",
+      "name": "Video",
+      "settings": [
+        {
+          "type": "checkbox",
+          "id": "wide_display",
+          "label": "Wide display",
+          "default": true
+        },
+        {
+          "type": "select",
+          "id": "aspect_ratio",
+          "label": "Aspect ratio",
+          "options": [
+            {
+              "value": "16:9",
+              "label": "16:9"
+            },
+            {
+              "value": "4:3",
+              "label": "4:3"
+            }
+          ],
+          "default": "16:9"
+        },
+        {
+          "type": "checkbox",
+          "id": "autoplay",
+          "label": "Autoplay video",
+          "default": false,
+          "info": "Limited browser support for autoplaying video. [Learn more](https:\/\/help.outofthesandbox.com\/hc\/en-us\/articles\/360000661568-Why-won-t-my-video-autoplay-)"
+        },
+        {
+          "type": "checkbox",
+          "id": "autoloop",
+          "label": "Autoloop video",
+          "default": true
+        },
+        {
+          "type": "checkbox",
+          "id": "mute_video",
+          "label": "Mute video",
+          "default": false
+        },
+        {
+          "type": "checkbox",
+          "id": "show_controls",
+          "label": "Show video controls",
+          "default": true
+        },
+        {
+          "type": "checkbox",
+          "id": "video_dark_overlay",
+          "label": "Darken video"
+        },
+        {
+          "type": "video_url",
+          "id": "iframe_video",
+          "label": "Video link",
+          "accept": ["youtube", "vimeo"],
+          "default": "https://www.youtube.com/watch?v=_9VUPq3SxOc"
+        },
+        {
+          "type": "text",
+          "id": "html5_video",
+          "label": "HTML5 MP4/OGV File URL"
+        },
+        {
+          "type": "header",
+          "content": "Content"
+        },
+        {
+          "type": "image_picker",
+          "id": "image",
+          "label": "Image",
+          "info": "1600 x 900px recommended"
+        },
+        {
+          "type": "checkbox",
+          "id": "display_text_over_video",
+          "label": "Show text when video is playing",
+          "default": false
+        },
+        {
+          "type": "richtext",
+          "id": "pretext",
+          "label": "Preheading"
+        },
+        {
+          "type": "text",
+          "id": "title",
+          "label": "Heading"
+        },
+        {
+          "type": "richtext",
+          "id": "subtitle",
+          "label": "Subheading"
+        },
+        {
+          "type": "select",
+          "id": "text_position",
+          "label": "Text position",
+          "options": [
+            {
+              "value": "left",
+              "label": "Left"
+            },
+            {
+              "value": "center",
+              "label": "Center"
+            },
+            {
+              "value": "right",
+              "label": "Right"
+            }
+          ],
+          "default": "center"
+        },
+        {
+          "type": "select",
+          "id": "text_align",
+          "label": "Text alignment",
+          "options": [
+            {
+              "value": "left",
+              "label": "Left"
+            },
+            {
+              "value": "center",
+              "label": "Center"
+            },
+            {
+              "value": "right",
+              "label": "Right"
+            }
+          ],
+          "default": "center"
+        },
+        {
+          "type": "checkbox",
+          "id": "caption_background",
+          "label": "Display solid text background"
+        },
+        {
+          "type": "checkbox",
+          "id": "caption_background_transparency",
+          "label": "Enable background transparency"
+        },
+        {
+          "type": "text",
+          "id": "button1_label",
+          "label": "First button label",
+          "default": "Play Video"
+        },
+        {
+          "type": "url",
+          "id": "button1_link",
+          "label": "First link"
+        },
+        {
+          "type": "checkbox",
+          "id": "button1_highlight",
+          "label": "Highlight first button"
+        },
+        {
+          "type": "text",
+          "id": "button2_label",
+          "label": "Second button label"
+        },
+        {
+          "type": "url",
+          "id": "button2_link",
+          "label": "Second link"
+        },
+        {
+          "type": "checkbox",
+          "id": "button2_highlight",
+          "label": "Highlight second button"
+        },
+        {
+          "type": "header",
+          "content": "Mobile"
+        },
+        {
+          "type": "checkbox",
+          "id": "mobile_text_below_image",
+          "label": "Show text below image",
+          "default": true
+        },
+        {
+          "type": "color",
+          "id": "mobile_text_color",
+          "label": "Text"
+        }
+      ]
+    }
+  ],
+  "default": {
+    "settings": {
+    },
+    "blocks": [
+      {
+        "type": "rich_text_and_image",
+        "settings": {
+          "title": "This is an example headline",
+          "content": "<p>Vestibulum fringilla pede sit amet augue. Pellentesque habitant morbi tristique senectus et netus et malesuada fames ac turpis egestas. Integer tincidunt. Vestibulum turpis sem, aliquet eget, lobortis pellentesque, rutrum eu, nisl. Suspendisse potenti.</p>",
+          "text_alignment": "center",
+          "button_label": "Button"
+        }
+      },
+      {
+        "type": "divider",
+        "settings": {
+          "divider_spacing": 0
+        }
+      },
+      {
+        "type": "image_gallery",
+        "settings": {
+        }
+      },
+      {
+        "type": "divider",
+        "settings": {
+        }
+      },
+      {
+        "type": "image_with_text_overlay",
+        "settings": {
+          "pretext": "<p>This is</p>",
+          "title": "Your Headline",
+          "subtitle": "<p>Customize this section</p>",
+          "button1": "Button"
+        }
+      },
+      {
+        "type": "image_with_text",
+        "settings": {
+          "layout": "right",
+          "title": "Headline",
+          "text": "<p>Vestibulum fringilla pede sit amet augue. Pellentesque habitant morbi tristique senecrutrum eu, nisl.</p>",
+          "button_label": "Button",
+          "frontpage_text_align": "left"
+        }
+      },
+      {
+        "type": "image_with_text",
+        "settings": {
+          "layout": "left",
+          "title": "Headline",
+          "text": "<p>Vestibulum fringilla pede sit amet augue. Pellentesque habitant morbi tristique senecrutrum eu, nisl.</p>",
+          "button_label": "Button",
+          "frontpage_text_align": "left"
+        }
+      },
+      {
+        "type": "image_with_text_overlay",
+        "settings": {
+          "pretext": "<p>This is</p>",
+          "title": "Your Headline",
+          "subtitle": "<p>Customize this section</p>",
+          "button1": "Button",
+          "text_position": "right"
+        }
+      },
+      {
+        "type": "contact_form",
+        "settings": {
+        }
+      }
+    ]
+  }
+}
+
+{% endschema %}

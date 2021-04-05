@@ -1,0 +1,323 @@
+{% comment %}
+** Featured promotions - homepage partial **
+- Draggable section
+- Uses blocks
+{% endcomment %}
+
+{% style %}
+
+  .custom-mosaic>figure>.feature-inner>figcaption>.feature-wrap>.feature-details>.description>p{
+    color: {{section.settings.first_back_color}};
+  }
+  .custom-mosaic>figure>.feature-inner>figcaption>.feature-wrap>.feature-details>.button{
+    background: {{section.settings.first_back_color}};
+    color: {{section.settings.first_color}};
+    border-color:{{section.settings.first_back_color}};
+  }
+  .custom-mosaic>figure>.feature-inner>figcaption>.feature-wrap>.feature-details>.button:hover{
+    background: #4a57a9;
+    border-color: #4a57a9;
+  } 
+  .custom-mosaic>:nth-child(4)>.feature-inner>figcaption>.feature-wrap>.title{
+    color: {{section.settings.second_back_color}} !important;
+  }
+  .custom-mosaic>:nth-child(4)>.feature-inner>figcaption>.feature-wrap>.feature-details>.description{
+    color: {{section.settings.second_back_color}} !important;
+  }
+  .custom-mosaic>:nth-child(4)>.feature-inner>figcaption>.feature-wrap>.feature-details>.button{
+    background: {{section.settings.second_back_color}};
+    color: {{section.settings.second_color}} !important;
+    border-color:{{section.settings.second_back_color}};
+  }
+  .custom-mosaic>:nth-child(4)>h2{
+    color: {{section.settings.second_color}} !important;
+  } 
+  #shopify-section-{{ section.id }}{
+    background-image: url({{section.settings.background_image | img_url: 'master'}});
+    background-repeat: no-repeat;
+    padding-top:{{section.settings.padding_top}}px;
+    padding-bottom:{{section.settings.padding_bottom}}px;
+    background-position: right top; 
+  }
+@media screen and (min-width: 720px){
+  .custom-mosaic>:nth-child(1)>.feature-inner>figcaption>.feature-wrap>.feature-details>.button{
+    margin-top:50px;
+  }
+  .custom-mosaic>:nth-child(4)>.feature-inner>figcaption>.feature-wrap>.feature-details>.button{
+    margin-top:50px;
+  }
+  
+}
+@media screen and (max-width: 720px){
+
+  .custom-mosaic>figure>.feature-inner>figcaption>.feature-wrap>.feature-details>.button{
+    font-size:16px;
+  }
+}
+{% endstyle %}
+
+
+{% if section.settings.section_title != blank %}
+    {% comment %} <div class="sixteen columns title"> {% endcomment %}
+      <h2 class="title center">{{ section.settings.section_title | escape }}</h2>
+    {% comment %} </div> {% endcomment %}
+{% endif %}
+
+{% assign featured_promos_per_row = section.settings.featured_promos_per_row | minus: 0 %}
+{% assign title_on_image = section.settings.promo_text_on_image_enabled %}
+
+{% if section.blocks.size > 0 %}
+  <div class="featured-promotions custom-promotions container  full-width--{{ section.settings.featured_promos_grid }}">
+    <div  class="js-featured-promotions custom-featured-promotions custom-mosaic clearfix"
+          data-promo-animation="{{ section.settings.featured_links_animation }}">
+        {% for block in section.blocks %}
+          <figure class="feature-section section-{{ forloop.index }} promo-{{ forloop.index }}  {% if section.settings.featured_links_animation != blank %}promo-animation--true{% endif %}" {{ block.shopify_attributes }}>
+              <div class="feature-inner feature-style--{{ section.settings.feature_style }} ">
+                {% if block.settings.image != nil %}
+                  {% render 'image-element',
+                          image: block.settings.image,
+                          alt: block.settings.image.alt,
+                          stretch_width: true
+                  %}
+                {% else %}
+                  {% capture i %}{% cycle "1", "2", "3", "4", "5", "6" %}{% endcapture %}
+                  {{ 'collection-' | append: i | placeholder_svg_tag: 'placeholder-svg placeholder-svg--promotions' }}
+                {% endif %}
+                {% if block.settings.text != blank or block.settings.button_label != blank or block.settings.title != blank and title_on_image != blank %}
+                  <figcaption class="feature-overlay custom-overlay">
+                    <a {% if block.settings.link != blank %}href="{{ block.settings.link }}"{% endif %}class="link-promo"></a>
+                      <div class="feature-wrap">
+                        {% if block.settings.title != blank %}
+                          <h2 class="title">{{ block.settings.title }}</h2>
+                        {% endif %}
+                        <div class="feature-details">
+                          {% if block.settings.text != blank %}
+                            <div class="description">{{ block.settings.text }}</div>
+                          {% endif %}
+
+                          {% if block.settings.button_label != blank %}
+                            <div class="button">{{ block.settings.button_label }}</div>
+                          {% endif %}
+                        </div>
+                      </div>
+                  </figcaption>
+                {% elsif block.settings.link != blank %}
+                  <a {% if block.settings.link != blank %}href="{{ block.settings.link }}"{% endif %}class="link-promo"></a>
+                {% endif %}
+              </div>
+            {% if title_on_image == blank %}
+              {% if block.settings.title != blank %}
+                <a {% if block.settings.link != blank %}href="{{ block.settings.link }}"{% endif %}>
+                  <h2 class="title title-below">{{ block.settings.title }}</h2>
+                </a>
+              {% endif %}
+            {% endif %}
+          </figure>
+        {% endfor %}
+    </div>
+  </div>
+{% endif %}
+
+{% schema %}
+{
+  "name": "Custom Mosaic Galley",
+  "class": "featured-promotions-section",
+  "max_blocks": 12,
+  "settings": [
+    {
+        "type": "text",
+        "id": "section_title",
+        "label": "Heading",
+        "default": "Custom-Mosaic-Gallery"
+    },
+    {
+      "type": "checkbox",
+      "id": "featured_promos_grid",
+      "label": "Wide display",
+      "default": true
+    },
+    {
+      "type": "checkbox",
+      "id": "promo_text_on_image_enabled",
+      "label": "Show title on image",
+      "default": true
+    },
+    {
+      "type": "range",
+      "id": "padding_top",
+      "min": 0,
+      "max": 100,
+      "step": 5,
+      "unit": "px",
+      "label": "Padding Top",
+      "default": 30
+    },
+    {
+      "type": "range",
+      "id": "padding_bottom",
+      "min": 0,
+      "max": 100,
+      "step": 5,
+      "unit": "px",
+      "label": "Padding Bottom",
+      "default": 30
+    },
+    {
+      "type": "image_picker",
+      "id": "background_image",
+      "label": "Background Image",
+      "info": "1024 x 1024px recommended"
+    },
+    {
+      "type": "color",
+      "id": "first_color",
+      "label": "First Color",
+      "default": "#FFFFFF"
+
+    },
+    {
+      "type": "color",
+      "id": "first_back_color",
+      "label": "First Background Color",
+      "default": "#343D65"
+
+    },
+    {
+      "type": "color",
+      "id": "second_color",
+      "label": "Second Color",
+      "default": "#343D65"
+
+    },
+    {
+      "type": "color",
+      "id": "second_back_color",
+      "label": "Second Background Color",
+      "default": "#FFFFFF"
+
+    },
+    {
+      "type": "select",
+      "id": "featured_links_animation",
+      "label": "Promotions animation",
+      "options": [
+        {
+          "value": "fadeIn",
+          "label": "Fade In"
+        },
+        {
+          "value": "fadeInUp",
+          "label": "Fade Up"
+        },
+        {
+          "value": "fadeInDown",
+          "label": "Fade Down"
+        },
+        {
+          "value": "",
+          "label": "None"
+        }
+      ],
+      "default": "fadeInDown"
+    },
+    {
+      "type": "select",
+      "id": "feature_style",
+      "label": "Promotions style",
+      "options": [
+        {
+          "value": "circle",
+          "label": "Circle"
+        },
+        {
+          "value": "square",
+          "label": "Square"
+        },
+        {
+          "value": "rounded",
+          "label": "Rounded"
+        }
+      ],
+      "default": "square"
+    }
+  ],
+  "blocks": [
+    {
+      "type": "image",
+      "name": "Promotion",
+      "settings": [
+        {
+          "type": "image_picker",
+          "id": "image",
+          "label": "Image",
+          "info": "840 x 840px recommended"
+        },
+        {
+          "type": "url",
+          "id": "link",
+          "label": "Link"
+        },
+        {
+          "type": "text",
+          "id": "title",
+          "label": "Header",
+          "default": "Heading"
+        },
+        {
+          "type": "text",
+          "id": "text",
+          "label": "Text",
+          "default": "<p>Promotion description details.</p>"
+        },
+        {
+          "type": "text",
+          "id": "button_label",
+          "label": "Button label"
+        }
+      ]
+    }
+  ],
+  "presets": [{
+    "name": "Custom Mosaic Gallery",
+    "category": "Image",
+    "settings": {
+      "featured_promos_grid": true
+    },
+    "blocks": [
+      {
+        "type": "image",
+        "settings": {
+
+        }
+      },
+      {
+        "type": "image",
+        "settings": {
+
+        }
+      },
+      {
+        "type": "image",
+        "settings": {
+
+        }
+      },
+      {
+        "type": "image",
+        "settings": {
+
+        }
+      },
+      {
+        "type": "image",
+        "settings": {
+
+        }
+      }
+      
+      
+    ]
+  }]
+}
+
+{% endschema %}

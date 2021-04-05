@@ -1,0 +1,1022 @@
+{% if section.blocks.size > 0 %}
+{% for block in section.blocks %}
+	{% if forloop.index == 1 %}
+		{% assign handle1 =  block.settings.product %}
+		{% assign sale_text1 =  block.settings.sale_text %}
+		{% assign feature1 =  block.settings.feature %}
+		{% assign feature_title1 =  block.settings.feature_title %}
+		{% assign feature_text1 =  block.settings.feature_text %}
+	{% elsif forloop.index == 2 %}
+		{% assign handle2 =  block.settings.product %}
+		{% assign sale_text2 =  block.settings.sale_text %}
+		{% assign feature2 =  block.settings.feature %}
+		{% assign feature_title2 =  block.settings.feature_title %}
+		{% assign feature_text2 =  block.settings.feature_text %}
+	{% elsif forloop.index ==3 %}
+		{% assign handle3 =  block.settings.product %}
+		{% assign sale_text3 =  block.settings.sale_text %}
+		{% assign feature3 =  block.settings.feature %}
+		{% assign feature_title3 =  block.settings.feature_title %}
+		{% assign feature_text3 =  block.settings.feature_text %}
+	{% elsif forloop.index ==4 %}
+        {% assign handle4 =  block.settings.product %}
+        {% assign sale_text4 =  block.settings.sale_text %}
+        {% assign feature4 =  block.settings.feature %}
+        {% assign feature_title4 =  block.settings.feature_title %}
+        {% assign feature_text4 =  block.settings.feature_text %}
+    {% elsif forloop.index ==5 %}
+        {% assign handle5 =  block.settings.product %}
+        {% assign sale_text5 =  block.settings.sale_text %}
+        {% assign feature5 =  block.settings.feature %}
+        {% assign feature_title5 =  block.settings.feature_title %}
+        {% assign feature_text5 =  block.settings.feature_text %}
+    {% elsif forloop.index ==6 %}
+        {% assign handle6 =  block.settings.product %}
+        {% assign sale_text6 =  block.settings.sale_text %}
+        {% assign feature6 =  block.settings.feature %}
+        {% assign feature_title6 =  block.settings.feature_title %}
+        {% assign feature_text6 =  block.settings.feature_text %}
+    {% endif %}
+{% endfor %}
+
+{% assign product1 = all_products[handle1] %}
+{% assign product2 = all_products[handle2] %}
+{% assign product3 = all_products[handle3] %}
+{% assign product4 = all_products[handle4] %}
+{% assign product5 = all_products[handle5] %}
+{% assign product6 = all_products[handle6] %}
+
+<a name="pagecontent" id="pagecontent"></a>
+<div class="full-header">
+  <div class="container">
+    
+    <div class="sixteen columns page clearfix">
+
+      <div class="page-header">
+        <p class="top-heading">{{section.settings.topheading }}</p>
+        <h1>{{section.settings.heading }}</h1>
+        <p>{{section.settings.subheading }}</p>
+      </div>
+
+    </div>
+  </div>
+</div>
+
+<div class="container">
+	<div class="sixteen columns page clearfix">
+      {%- if section.blocks.size == 6 -%}
+        {% if handle1 %}
+        <div class="one-third column alpha productBlock">
+          {% if feature1 %} 
+          <div class="feature-label">{{ feature1 }}</div>
+          {% endif %}
+          {% if feature_title1 %} 
+          <h3 class="feature-title">{{ feature_title1 }}</h3>
+          {% endif %}
+          {% if feature_text1 %} 
+          <p class="feature-text">{{ feature_text1 }}</p>
+          {% endif %}
+          <div class="image-wrapper">
+            <img src="{{ product1.featured_image | img_url: 'master' }}" alt="{{ product1.title }}">
+            {% if sale_text1 %} 
+            <div class="badge-label">{{ sale_text1 }}</div>
+            {% endif %}
+
+          </div>
+          <div class="price-compare">
+            Starting at 
+            <span>{{ product1.price_min | money }}</span>
+            <span class="compare_price">
+              {% if product1.price_min < product1.compare_at_price_min %}
+              <del><span class="money">{{ product1.compare_at_price_min | money }}</span></del>
+              <span class="money">Save {{ product1.compare_at_price_min | minus:product1.price_min | money }}</span>
+              {% endif %}
+            </span>
+          </div>
+
+          <a href="/products/{{ product1.handle }}" class="action_button">Shop Now</a>
+        </div>
+        {% endif %}
+        {% if handle2 %}
+        <div class="one-third column productBlock">
+          {% if feature2 %} 
+          <div class="feature-label">{{ feature2 }}</div>
+          {% endif %}
+          {% if feature_title2 %} 
+          <h3 class="feature-title">{{ feature_title2 }}</h3>
+          {% endif %}
+          {% if feature_text2 %} 
+          <p class="feature-text">{{ feature_text2 }}</p>
+          {% endif %}
+          <div class="image-wrapper">
+            <img src="{{ product2.featured_image | img_url: 'master' }}" alt="{{ product2.title }}">
+            {% if sale_text2 %} 
+            <div class="badge-label">{{ sale_text2 }}</div>
+            {% endif %}
+
+          </div>
+          <div class="price-compare">
+            Starting at 
+            <span>{{ product2.price_min | money }}</span>
+            <span class="compare_price">
+              {% if product2.price_min < product2.compare_at_price_min %}
+              <del><span class="money">{{ product2.compare_at_price_min | money }}</span></del>
+              <span class="money">Save {{ product2.compare_at_price_min | minus:product2.price_min | money }}</span>
+              {% endif %}
+            </span>
+          </div>
+
+          <a href="/products/{{ product2.handle }}" class="action_button">Shop Now</a>
+        </div>
+        {% endif %}
+        {% if handle3 %}
+        <div class="one-third column omega productBlock">
+          {% if feature3 %} 
+          <div class="feature-label">{{ feature3 }}</div>
+          {% endif %}
+          {% if feature_title3 %} 
+          <h3 class="feature-title">{{ feature_title3 }}</h3>
+          {% endif %}
+          {% if feature_text3 %} 
+          <p class="feature-text">{{ feature_text3 }}</p>
+          {% endif %}
+          <div class="image-wrapper">
+            <img src="{{ product3.featured_image | img_url: 'master' }}" alt="{{ product3.title }}">
+            {% if sale_text3 %} 
+            <div class="badge-label">{{ sale_text3 }}</div>
+            {% endif %}
+
+          </div>
+          <div class="price-compare">
+            Starting at 
+            <span>{{ product3.price_min | money }}</span>
+            <span class="compare_price">
+              {% if product3.price_min < product3.compare_at_price_min %}
+              <del><span class="money">{{ product3.compare_at_price_min | money }}</span></del>
+              <span class="money">Save {{ product3.compare_at_price_min | minus:product3.price_min | money }}</span>
+              {% endif %}
+            </span>
+          </div>
+
+          <a href="/products/{{ product3.handle }}" class="action_button">Shop Now</a>
+        </div>
+        {% endif %}
+      {% elsif section.blocks.size == 5 %}
+      	{% if handle1 %}
+        <div class="one-half column alpha productBlock">
+          {% if feature1 %} 
+          <div class="feature-label">{{ feature1 }}</div>
+          {% endif %}
+          {% if feature_title1 %} 
+          <h3 class="feature-title">{{ feature_title1 }}</h3>
+          {% endif %}
+          {% if feature_text1 %} 
+          <p class="feature-text">{{ feature_text1 }}</p>
+          {% endif %}
+          <div class="image-wrapper">
+            <img src="{{ product1.featured_image | img_url: 'master' }}" alt="{{ product1.title }}">
+            {% if sale_text1 %} 
+            <div class="badge-label">{{ sale_text1 }}</div>
+            {% endif %}
+
+          </div>
+          <div class="price-compare">
+            Starting at 
+            <span>{{ product1.price_min | money }}</span>
+            <span class="compare_price">
+              {% if product1.price_min < product1.compare_at_price_min %}
+              <del><span class="money">{{ product1.compare_at_price_min | money }}</span></del>
+              <span class="money">Save {{ product1.compare_at_price_min | minus:product1.price_min | money }}</span>
+              {% endif %}
+            </span>
+          </div>
+
+          <a href="/products/{{ product1.handle }}" class="action_button">Shop Now</a>
+        </div>
+        {% endif %}
+        {% if handle2 %}
+        <div class="one-half column omega productBlock">
+          {% if feature2 %} 
+          <div class="feature-label">{{ feature2 }}</div>
+          {% endif %}
+          {% if feature_title2 %} 
+          <h3 class="feature-title">{{ feature_title2 }}</h3>
+          {% endif %}
+          {% if feature_text2 %} 
+          <p class="feature-text">{{ feature_text2 }}</p>
+          {% endif %}
+          <div class="image-wrapper">
+            <img src="{{ product2.featured_image | img_url: 'master' }}" alt="{{ product2.title }}">
+            {% if sale_text2 %} 
+            <div class="badge-label">{{ sale_text2 }}</div>
+            {% endif %}
+
+          </div>
+          <div class="price-compare">
+            Starting at 
+            <span>{{ product2.price_min | money }}</span>
+            <span class="compare_price">
+              {% if product2.price_min < product2.compare_at_price_min %}
+              <del><span class="money">{{ product2.compare_at_price_min | money }}</span></del>
+              <span class="money">Save {{ product2.compare_at_price_min | minus:product2.price_min | money }}</span>
+              {% endif %}
+            </span>
+          </div>
+
+          <a href="/products/{{ product2.handle }}" class="action_button">Shop Now</a>
+        </div>
+        {% endif %}
+      {%- else -%}
+        {% if handle1 %}
+        <div class="one-half column alpha productBlock">
+          {% if feature1 %} 
+          <div class="feature-label">{{ feature1 }}</div>
+          {% endif %}
+          {% if feature_title1 %} 
+          <h3 class="feature-title">{{ feature_title1 }}</h3>
+          {% endif %}
+          {% if feature_text1 %} 
+          <p class="feature-text">{{ feature_text1 }}</p>
+          {% endif %}
+          <div class="image-wrapper">
+            <img src="{{ product1.featured_image | img_url: 'master' }}" alt="{{ product1.title }}">
+            {% if sale_text1 %} 
+            <div class="badge-label">{{ sale_text1 }}</div>
+            {% endif %}
+
+          </div>
+          <div class="price-compare">
+            Starting at 
+            <span>{{ product1.price_min | money }}</span>
+            <span class="compare_price">
+              {% if product1.price_min < product1.compare_at_price_min %}
+              <del><span class="money">{{ product1.compare_at_price_min | money }}</span></del>
+              <span class="money">Save {{ product1.compare_at_price_min | minus:product1.price_min | money }}</span>
+              {% endif %}
+            </span>
+          </div>
+
+          <a href="/products/{{ product1.handle }}" class="action_button">Shop Now</a>
+        </div>
+        {% endif %}
+        {% if handle2 %}
+        <div class="one-half column productBlock">
+          {% if feature2 %} 
+          <div class="feature-label">{{ feature2 }}</div>
+          {% endif %}
+          {% if feature_title2 %} 
+          <h3 class="feature-title">{{ feature_title2 }}</h3>
+          {% endif %}
+          {% if feature_text2 %} 
+          <p class="feature-text">{{ feature_text2 }}</p>
+          {% endif %}
+          <div class="image-wrapper">
+            <img src="{{ product2.featured_image | img_url: 'master' }}" alt="{{ product2.title }}">
+            {% if sale_text2 %} 
+            <div class="badge-label">{{ sale_text2 }}</div>
+            {% endif %}
+
+          </div>
+          <div class="price-compare">
+            Starting at 
+            <span>{{ product2.price_min | money }}</span>
+            <span class="compare_price">
+              {% if product2.price_min < product2.compare_at_price_min %}
+              <del><span class="money">{{ product2.compare_at_price_min | money }}</span></del>
+              <span class="money">Save {{ product2.compare_at_price_min | minus:product2.price_min | money }}</span>
+              {% endif %}
+            </span>
+          </div>
+
+          <a href="/products/{{ product2.handle }}" class="action_button">Shop Now</a>
+        </div>
+        {% endif %}
+      {%- endif -%}
+    </div>
+</div>
+
+{% if section.settings.bundle != '' %}
+<div class="section-header">
+  <div class="container">
+  	<h3>{{ section.settings.bundle }}</h3>
+  </div>
+</div>
+
+
+<div class="container">
+    <div class="sixteen columns page clearfix">
+      {%- if section.blocks.size == 6 -%}
+
+      <div class="hide_desktop product_slider">
+        <div class="js-product-slider">
+          <div class="slider-gallery products-slider"
+               data-products-per-slide="1"
+               data-products-limit="3"
+               data-products-available="3">
+
+            {% if handle4 %}
+            <div class="gallery-cell visible-1 one-third column alpha productBlock">
+              {% if feature4 %} 
+              <div class="feature-label">{{ feature4 }}</div>
+              {% endif %}
+              {% if feature_title4 %} 
+              <h3 class="feature-title">{{ feature_title4 }}</h3>
+              {% endif %}
+              {% if feature_text4 %} 
+              <p class="feature-text">{{ feature_text4 }}</p>
+              {% endif %}
+              <div class="image-wrapper">
+                <img src="{{ product4.featured_image | img_url: 'master' }}" alt="{{ product4.title }}">
+                {% if sale_text4 %} 
+                <div class="badge-label">{{ sale_text4 }}</div>
+                {% endif %}
+
+              </div>
+              <div class="price-compare">
+                Starting at 
+                <span>{{ product4.price_min | money }}</span>
+                <span class="compare_price">
+                  {% if product4.price_min < product4.compare_at_price_min %}
+                  <del><span class="money">{{ product4.compare_at_price_min | money }}</span></del>
+                  <span class="money">Save {{ product4.compare_at_price_min | minus:product4.price_min | money }}</span>
+                  {% endif %}
+                </span>
+              </div>
+
+              <a href="/products/{{ product4.handle }}" class="action_button">Shop Now</a>
+            </div>
+            {% endif %}
+            {% if handle5 %}
+            <div class="gallery-cell visible-1 one-third column productBlock">
+              {% if feature5 %} 
+              <div class="feature-label">{{ feature5 }}</div>
+              {% endif %}
+              {% if feature_title5 %} 
+              <h3 class="feature-title">{{ feature_title5 }}</h3>
+              {% endif %}
+              {% if feature_text5 %} 
+              <p class="feature-text">{{ feature_text5 }}</p>
+              {% endif %}
+              <div class="image-wrapper">
+                <img src="{{ product5.featured_image | img_url: 'master' }}" alt="{{ product5.title }}">
+                {% if sale_text5 %} 
+                <div class="badge-label">{{ sale_text5 }}</div>
+                {% endif %}
+
+              </div>
+              <div class="price-compare">
+                Starting at 
+                <span>{{ product5.price_min | money }}</span>
+                <span class="compare_price">
+                  {% if product5.price_min < product5.compare_at_price_min %}
+                  <del><span class="money">{{ product5.compare_at_price_min | money }}</span></del>
+                  <span class="money">Save {{ product5.compare_at_price_min | minus:product5.price_min | money }}</span>
+                  {% endif %}
+                </span>
+              </div>
+
+              <a href="/products/{{ product5.handle }}" class="action_button">Shop Now</a>
+            </div>
+            {% endif %}
+            {% if handle6 %}
+            <div class="gallery-cell visible-1 one-third column omega productBlock">
+              {% if feature6 %} 
+              <div class="feature-label">{{ feature6 }}</div>
+              {% endif %}
+              {% if feature_title6 %} 
+              <h3 class="feature-title">{{ feature_title6 }}</h3>
+              {% endif %}
+              {% if feature_text6 %} 
+              <p class="feature-text">{{ feature_text6 }}</p>
+              {% endif %}
+              <div class="image-wrapper">
+                <img src="{{ product6.featured_image | img_url: 'master' }}" alt="{{ product6.title }}">
+                {% if sale_text6 %} 
+                <div class="badge-label">{{ sale_text6 }}</div>
+                {% endif %}
+
+              </div>
+              <div class="price-compare">
+                Starting at 
+                <span>{{ product6.price_min | money }}</span>
+                <span class="compare_price">
+                  {% if product6.price_min < product6.compare_at_price_min %}
+                  <del><span class="money">{{ product6.compare_at_price_min | money }}</span></del>
+                  <span class="money">Save {{ product6.compare_at_price_min | minus:product6.price_min | money }}</span>
+                  {% endif %}
+                </span>
+              </div>
+
+              <a href="/products/{{ product6.handle }}" class="action_button">Shop Now</a>
+            </div>
+            {% endif %}
+
+          </div>
+        </div>
+      </div>
+
+      <div class="hide_mobile">
+        {% if handle4 %}
+        <div class="one-third column alpha productBlock">
+          {% if feature4 %} 
+          <div class="feature-label">{{ feature4 }}</div>
+          {% endif %}
+          {% if feature_title4 %} 
+          <h3 class="feature-title">{{ feature_title4 }}</h3>
+          {% endif %}
+          {% if feature_text4 %} 
+          <p class="feature-text">{{ feature_text4 }}</p>
+          {% endif %}
+          <div class="image-wrapper">
+            <img src="{{ product4.featured_image | img_url: 'master' }}" alt="{{ product4.title }}">
+            {% if sale_text4 %} 
+            <div class="badge-label">{{ sale_text4 }}</div>
+            {% endif %}
+
+          </div>
+          <div class="price-compare">
+            Starting at 
+            <span>{{ product4.price_min | money }}</span>
+            <span class="compare_price">
+              {% if product4.price_min < product4.compare_at_price_min %}
+              <del><span class="money">{{ product4.compare_at_price_min | money }}</span></del>
+              <span class="money">Save {{ product4.compare_at_price_min | minus:product4.price_min | money }}</span>
+              {% endif %}
+            </span>
+          </div>
+
+          <a href="/products/{{ product4.handle }}" class="action_button">Shop Now</a>
+        </div>
+        {% endif %}
+        {% if handle5 %}
+        <div class="one-third column productBlock">
+          {% if feature5 %} 
+          <div class="feature-label">{{ feature5 }}</div>
+          {% endif %}
+          {% if feature_title5 %} 
+          <h3 class="feature-title">{{ feature_title5 }}</h3>
+          {% endif %}
+          {% if feature_text5 %} 
+          <p class="feature-text">{{ feature_text5 }}</p>
+          {% endif %}
+          <div class="image-wrapper">
+            <img src="{{ product5.featured_image | img_url: 'master' }}" alt="{{ product5.title }}">
+            {% if sale_text5 %} 
+            <div class="badge-label">{{ sale_text5 }}</div>
+            {% endif %}
+
+          </div>
+          <div class="price-compare">
+            Starting at 
+            <span>{{ product5.price_min | money }}</span>
+            <span class="compare_price">
+              {% if product5.price_min < product5.compare_at_price_min %}
+              <del><span class="money">{{ product5.compare_at_price_min | money }}</span></del>
+              <span class="money">Save {{ product5.compare_at_price_min | minus:product5.price_min | money }}</span>
+              {% endif %}
+            </span>
+          </div>
+
+          <a href="/products/{{ product5.handle }}" class="action_button">Shop Now</a>
+        </div>
+        {% endif %}
+        {% if handle6 %}
+        <div class="one-third column omega productBlock">
+          {% if feature6 %} 
+          <div class="feature-label">{{ feature6 }}</div>
+          {% endif %}
+          {% if feature_title6 %} 
+          <h3 class="feature-title">{{ feature_title6 }}</h3>
+          {% endif %}
+          {% if feature_text6 %} 
+          <p class="feature-text">{{ feature_text6 }}</p>
+          {% endif %}
+          <div class="image-wrapper">
+            <img src="{{ product6.featured_image | img_url: 'master' }}" alt="{{ product6.title }}">
+            {% if sale_text6 %} 
+            <div class="badge-label">{{ sale_text6 }}</div>
+            {% endif %}
+
+          </div>
+          <div class="price-compare">
+            Starting at 
+            <span>{{ product6.price_min | money }}</span>
+            <span class="compare_price">
+              {% if product6.price_min < product6.compare_at_price_min %}
+              <del><span class="money">{{ product6.compare_at_price_min | money }}</span></del>
+              <span class="money">Save {{ product6.compare_at_price_min | minus:product6.price_min | money }}</span>
+              {% endif %}
+            </span>
+          </div>
+
+          <a href="/products/{{ product6.handle }}" class="action_button">Shop Now</a>
+        </div>
+        {% endif %}
+      </div>
+
+      {% elsif section.blocks.size == 5 %}
+
+      <div class="hide_desktop product_slider">
+        <div class="js-product-slider">
+          <div class="slider-gallery products-slider"
+               data-products-per-slide="1"
+               data-products-limit="3"
+               data-products-available="3">
+			{% if handle3 %}
+            <div class="gallery-cell visible-1 one-third column alpha productBlock">
+              {% if feature3 %} 
+              <div class="feature-label">{{ feature3 }}</div>
+              {% endif %}
+              {% if feature_title3 %} 
+              <h3 class="feature-title">{{ feature_title3 }}</h3>
+              {% endif %}
+              {% if feature_text3 %} 
+              <p class="feature-text">{{ feature_text3 }}</p>
+              {% endif %}
+              <div class="image-wrapper">
+                <img src="{{ product3.featured_image | img_url: 'master' }}" alt="{{ product3.title }}">
+                {% if sale_text3 %} 
+                <div class="badge-label">{{ sale_text3 }}</div>
+                {% endif %}
+
+              </div>
+              <div class="price-compare">
+                Starting at 
+                <span>{{ product3.price_min | money }}</span>
+                <span class="compare_price">
+                  {% if product3.price_min < product3.compare_at_price_min %}
+                  <del><span class="money">{{ product3.compare_at_price_min | money }}</span></del>
+                  <span class="money">Save {{ product3.compare_at_price_min | minus:product3.price_min | money }}</span>
+                  {% endif %}
+                </span>
+              </div>
+
+              <a href="/products/{{ product3.handle }}" class="action_button">Shop Now</a>
+            </div>
+            {% endif %}
+            {% if handle4 %}
+            <div class="gallery-cell visible-1 one-third column productBlock">
+              {% if feature4 %} 
+              <div class="feature-label">{{ feature4 }}</div>
+              {% endif %}
+              {% if feature_title4 %} 
+              <h3 class="feature-title">{{ feature_title4 }}</h3>
+              {% endif %}
+              {% if feature_text4 %} 
+              <p class="feature-text">{{ feature_text4 }}</p>
+              {% endif %}
+              <div class="image-wrapper">
+                <img src="{{ product4.featured_image | img_url: 'master' }}" alt="{{ product4.title }}">
+                {% if sale_text4 %} 
+                <div class="badge-label">{{ sale_text4 }}</div>
+                {% endif %}
+
+              </div>
+              <div class="price-compare">
+                Starting at 
+                <span>{{ product4.price_min | money }}</span>
+                <span class="compare_price">
+                  {% if product4.price_min < product4.compare_at_price_min %}
+                  <del><span class="money">{{ product4.compare_at_price_min | money }}</span></del>
+                  <span class="money">Save {{ product4.compare_at_price_min | minus:product4.price_min | money }}</span>
+                  {% endif %}
+                </span>
+              </div>
+
+              <a href="/products/{{ product4.handle }}" class="action_button">Shop Now</a>
+            </div>
+            {% endif %}
+            {% if handle5 %}
+            <div class="gallery-cell visible-1 one-third column omega productBlock">
+              {% if feature5 %} 
+              <div class="feature-label">{{ feature5 }}</div>
+              {% endif %}
+              {% if feature_title5 %} 
+              <h3 class="feature-title">{{ feature_title5 }}</h3>
+              {% endif %}
+              {% if feature_text5 %} 
+              <p class="feature-text">{{ feature_text5 }}</p>
+              {% endif %}
+              <div class="image-wrapper">
+                <img src="{{ product5.featured_image | img_url: 'master' }}" alt="{{ product5.title }}">
+                {% if sale_text5 %} 
+                <div class="badge-label">{{ sale_text5 }}</div>
+                {% endif %}
+
+              </div>
+              <div class="price-compare">
+                Starting at 
+                <span>{{ product5.price_min | money }}</span>
+                <span class="compare_price">
+                  {% if product5.price_min < product5.compare_at_price_min %}
+                  <del><span class="money">{{ product5.compare_at_price_min | money }}</span></del>
+                  <span class="money">Save {{ product5.compare_at_price_min | minus:product5.price_min | money }}</span>
+                  {% endif %}
+                </span>
+              </div>
+
+              <a href="/products/{{ product5.handle }}" class="action_button">Shop Now</a>
+            </div>
+            {% endif %}
+
+          </div>
+        </div>
+      </div>
+
+      <div class="hide_mobile">
+        {% if handle3 %}
+        <div class="one-third column alpha productBlock">
+          {% if feature3 %} 
+          <div class="feature-label">{{ feature3 }}</div>
+          {% endif %}
+          {% if feature_title3 %} 
+          <h3 class="feature-title">{{ feature_title3 }}</h3>
+          {% endif %}
+          {% if feature_text3 %} 
+          <p class="feature-text">{{ feature_text3 }}</p>
+          {% endif %}
+          <div class="image-wrapper">
+            <img src="{{ product3.featured_image | img_url: 'master' }}" alt="{{ product3.title }}">
+            {% if sale_text3 %} 
+            <div class="badge-label">{{ sale_text3 }}</div>
+            {% endif %}
+
+          </div>
+          <div class="price-compare">
+            Starting at 
+            <span>{{ product3.price_min | money }}</span>
+            <span class="compare_price">
+              {% if product3.price_min < product3.compare_at_price_min %}
+              <del><span class="money">{{ product3.compare_at_price_min | money }}</span></del>
+              <span class="money">Save {{ product3.compare_at_price_min | minus:product3.price_min | money }}</span>
+              {% endif %}
+            </span>
+          </div>
+
+          <a href="/products/{{ product3.handle }}" class="action_button">Shop Now</a>
+        </div>
+        {% endif %}
+        {% if handle4 %}
+        <div class="one-third column productBlock">
+          {% if feature4 %} 
+          <div class="feature-label">{{ feature4 }}</div>
+          {% endif %}
+          {% if feature_title4 %} 
+          <h3 class="feature-title">{{ feature_title4 }}</h3>
+          {% endif %}
+          {% if feature_text4 %} 
+          <p class="feature-text">{{ feature_text4 }}</p>
+          {% endif %}
+          <div class="image-wrapper">
+            <img src="{{ product4.featured_image | img_url: 'master' }}" alt="{{ product4.title }}">
+            {% if sale_text4 %} 
+            <div class="badge-label">{{ sale_text4 }}</div>
+            {% endif %}
+
+          </div>
+          <div class="price-compare">
+            Starting at 
+            <span>{{ product4.price_min | money }}</span>
+            <span class="compare_price">
+              {% if product4.price_min < product4.compare_at_price_min %}
+              <del><span class="money">{{ product4.compare_at_price_min | money }}</span></del>
+              <span class="money">Save {{ product4.compare_at_price_min | minus:product4.price_min | money }}</span>
+              {% endif %}
+            </span>
+          </div>
+
+          <a href="/products/{{ product4.handle }}" class="action_button">Shop Now</a>
+        </div>
+        {% endif %}
+        {% if handle5 %}
+        <div class="one-third column omega productBlock">
+          {% if feature5 %} 
+          <div class="feature-label">{{ feature5 }}</div>
+          {% endif %}
+          {% if feature_title5 %} 
+          <h3 class="feature-title">{{ feature_title5 }}</h3>
+          {% endif %}
+          {% if feature_text5 %} 
+          <p class="feature-text">{{ feature_text5 }}</p>
+          {% endif %}
+          <div class="image-wrapper">
+            <img src="{{ product5.featured_image | img_url: 'master' }}" alt="{{ product5.title }}">
+            {% if sale_text5 %} 
+            <div class="badge-label">{{ sale_text5 }}</div>
+            {% endif %}
+
+          </div>
+          <div class="price-compare">
+            Starting at 
+            <span>{{ product5.price_min | money }}</span>
+            <span class="compare_price">
+              {% if product5.price_min < product5.compare_at_price_min %}
+              <del><span class="money">{{ product5.compare_at_price_min | money }}</span></del>
+              <span class="money">Save {{ product5.compare_at_price_min | minus:product5.price_min | money }}</span>
+              {% endif %}
+            </span>
+          </div>
+
+          <a href="/products/{{ product5.handle }}" class="action_button">Shop Now</a>
+        </div>
+        {% endif %}
+      </div>
+
+      {%- else -%}
+
+      <div class="hide_desktop product_slider">
+        <div class="js-product-slider">
+          <div class="slider-gallery products-slider"
+               data-products-per-slide="1"
+               data-products-limit="2"
+               data-products-available="2">
+
+            {% if handle3 %}
+            <div class="gallery-cell visible-1 one-half column alpha productBlock">
+              {% if feature3 %} 
+              <div class="feature-label">{{ feature3 }}</div>
+              {% endif %}
+              {% if feature_title3 %} 
+              <h3 class="feature-title">{{ feature_title3 }}</h3>
+              {% endif %}
+              {% if feature_text3 %} 
+              <p class="feature-text">{{ feature_text3 }}</p>
+              {% endif %}
+              <div class="image-wrapper">
+                <img src="{{ product3.featured_image | img_url: 'master' }}" alt="{{ product3.title }}">
+                {% if sale_text3 %} 
+                <div class="badge-label">{{ sale_text3 }}</div>
+                {% endif %}
+
+              </div>
+              <div class="price-compare">
+                Starting at 
+                <span>{{ product3.price_min | money }}</span>
+                <span class="compare_price">
+                  {% if product3.price_min < product3.compare_at_price_min %}
+                  <del><span class="money">{{ product3.compare_at_price_min | money }}</span></del>
+                  <span class="money">Save {{ product3.compare_at_price_min | minus:product3.price_min | money }}</span>
+                  {% endif %}
+                </span>
+              </div>
+
+              <a href="/products/{{ product3.handle }}" class="action_button">Shop Now</a>
+            </div>
+            {% endif %}
+
+            {% if handle4 %}
+            <div class="gallery-cell visible-1 one-half column omega productBlock">
+              {% if feature4 %} 
+              <div class="feature-label">{{ feature4 }}</div>
+              {% endif %}
+              {% if feature_title4 %} 
+              <h3 class="feature-title">{{ feature_title4 }}</h3>
+              {% endif %}
+              {% if feature_text4 %} 
+              <p class="feature-text">{{ feature_text4 }}</p>
+              {% endif %}
+              <div class="image-wrapper">
+                <img src="{{ product4.featured_image | img_url: 'master' }}" alt="{{ product4.title }}">
+                {% if sale_text4 %} 
+                <div class="badge-label">{{ sale_text4 }}</div>
+                {% endif %}
+
+              </div>
+              <div class="price-compare">
+                Starting at 
+                <span>{{ product4.price_min | money }}</span>
+                <span class="compare_price">
+                  {% if product4.price_min < product4.compare_at_price_min %}
+                  <del><span class="money">{{ product4.compare_at_price_min | money }}</span></del>
+                  <span class="money">Save {{ product4.compare_at_price_min | minus:product4.price_min | money }}</span>
+                  {% endif %}
+                </span>
+              </div>
+
+              <a href="/products/{{ product4.handle }}" class="action_button">Shop Now</a>
+            </div>
+            {% endif %}
+
+          </div>
+        </div>
+      </div>
+
+      <div class="hide_mobile">
+        {% if handle3 %}
+        <div class="one-half column alpha productBlock">
+          {% if feature3 %} 
+          <div class="feature-label">{{ feature3 }}</div>
+          {% endif %}
+          {% if feature_title3 %} 
+          <h3 class="feature-title">{{ feature_title3 }}</h3>
+          {% endif %}
+          {% if feature_text3 %} 
+          <p class="feature-text">{{ feature_text3 }}</p>
+          {% endif %}
+          <div class="image-wrapper">
+            <img src="{{ product3.featured_image | img_url: 'master' }}" alt="{{ product3.title }}">
+            {% if sale_text3 %} 
+            <div class="badge-label">{{ sale_text3 }}</div>
+            {% endif %}
+
+          </div>
+          <div class="price-compare">
+            Starting at 
+            <span>{{ product3.price_min | money }}</span>
+            <span class="compare_price">
+              {% if product3.price_min < product3.compare_at_price_min %}
+              <del><span class="money">{{ product3.compare_at_price_min | money }}</span></del>
+              <span class="money">Save {{ product3.compare_at_price_min | minus:product3.price_min | money }}</span>
+              {% endif %}
+            </span>
+          </div>
+
+          <a href="/products/{{ product3.handle }}" class="action_button">Shop Now</a>
+        </div>
+        {% endif %}
+
+        {% if handle4 %}
+        <div class="one-half column omega productBlock">
+          {% if feature4 %} 
+          <div class="feature-label">{{ feature4 }}</div>
+          {% endif %}
+          {% if feature_title4 %} 
+          <h3 class="feature-title">{{ feature_title4 }}</h3>
+          {% endif %}
+          {% if feature_text4 %} 
+          <p class="feature-text">{{ feature_text4 }}</p>
+          {% endif %}
+          <div class="image-wrapper">
+            <img src="{{ product4.featured_image | img_url: 'master' }}" alt="{{ product4.title }}">
+            {% if sale_text4 %} 
+            <div class="badge-label">{{ sale_text4 }}</div>
+            {% endif %}
+
+          </div>
+          <div class="price-compare">
+            Starting at 
+            <span>{{ product4.price_min | money }}</span>
+            <span class="compare_price">
+              {% if product4.price_min < product4.compare_at_price_min %}
+              <del><span class="money">{{ product4.compare_at_price_min | money }}</span></del>
+              <span class="money">Save {{ product4.compare_at_price_min | minus:product4.price_min | money }}</span>
+              {% endif %}
+            </span>
+          </div>
+
+          <a href="/products/{{ product4.handle }}" class="action_button">Shop Now</a>
+        </div>
+        {% endif %}
+      </div>
+
+      {%- endif -%}
+
+
+    </div>
+</div>
+
+{% endif %}
+
+
+
+
+<style>
+.full-header {
+    background-color: #f3f6fc;
+    text-align: center;
+    padding: 90px 0px;
+}
+
+.full-header h1 {
+    color: #FFFFFF;
+    font-size: 38px;
+}
+
+.full-header p {
+    font-size: 14px;
+}
+
+.full-header {
+  	background-image: url({{ section.settings.banner | img_url: 'master' }});
+    background-position: center center;
+    background-size: cover;
+  	background-repeat: no-repeat;
+}
+.full-header p {
+ color:  {{ section.settings.text_color }}
+}
+.full-header .top-heading, .full-header h1 {
+ color:  {{ section.settings.heading_color }}
+}
+
+@media only screen and (max-width: 798px) {
+  {% if section.settings.banner_mobile %}
+  .full-header {
+    background-image: url({{ section.settings.banner_mobile | img_url: 'master' }});
+  }
+  {% endif %}
+}
+</style>
+
+{% endif %}
+
+{% schema %}
+  {
+    "name": "Right Mattress Page",
+    "settings": [
+      {
+        "type": "header",
+        "content": "Header"
+      },
+	  {
+        "type": "text",
+        "id": "heading",
+        "label": "Page Heading"
+      },
+	  {
+        "type": "text",
+        "id": "subheading",
+        "label": "Sub Heading"
+      },
+	  {
+        "type": "text",
+        "id": "topheading",
+        "label": "Top Heading"
+      },
+	  {
+        "type": "image_picker",
+        "id": "banner",
+        "label": "Banner"
+      },
+	  {
+        "type": "image_picker",
+        "id": "banner_mobile",
+        "label": "Banner Mobile"
+      },
+	  {
+        "type": "color",
+        "id": "heading_color",
+        "label": "Heading Color"
+      },
+	  {
+        "type": "color",
+        "id": "text_color",
+        "label": "Text Color"
+      },
+	  {
+        "type": "text",
+        "id": "bundle",
+        "label": "Bundle Title"
+      }
+	],
+	"blocks": [
+      {
+        "type": "product",
+        "name": "Product",
+        "settings": [
+          {
+            "type": "product",
+            "id": "product",
+            "label": "Product"
+          },
+		  {
+            "type": "text",
+            "id": "sale_text",
+            "label": "Sale Text"
+          },
+		  {
+            "type": "text",
+            "id": "feature",
+            "label": "Feature"
+          },
+		  {
+            "type": "text",
+            "id": "feature_title",
+            "label": "Featured Title"
+          },
+		  {
+            "type": "textarea",
+            "id": "feature_text",
+            "label": "Featured Text"
+          }
+        ]
+      }
+	],
+    "default": {
+      "blocks": [
+        {
+          "type": "product"
+        },
+        {
+          "type": "product"
+        },
+        {
+          "type": "product"
+        },
+        {
+          "type": "product"
+        }
+      ]
+    }
+  }
+{% endschema %}

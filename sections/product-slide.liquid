@@ -1,0 +1,225 @@
+<!-- Product slideshow section 
+	 Author: timur.tairli@trezoro.com.au
+---- Licence: MIT -->
+
+<div id="CollectionSlider" data-section-id="{{ section.id }}" data-section-type="slideshow-section" data-grid-type="grid">
+  <div class="wrapper">
+    {% if section.settings.title != blank %}
+      <div class="section-header text-center">
+        <h2 class="h1 section-header__title">{{ section.settings.title }}</h2>
+        <hr class="hr--small">
+      </div>
+    {% endif %}
+
+    <div id="slick-{{ section.id }}" 
+         class="product-slider" 
+         style="display:none !important;"
+         data-slick='{
+                  "slidesToShow": {{section.settings.home_slider_slides}},
+                  "slidesToScroll": 1,"autoplay":{{section.settings.home_slider_auto}},
+                  "autoplaySpeed": {{ section.settings.home_slider_auto_speed }}}'
+         >
+      
+      	<style>
+          {% if section.settings.home_slider_hidetext %}
+	          div#slick-{{ section.id }} a.grid-product__meta {display: none;}
+          {% endif %}
+
+          div#slick-{{ section.id }} .grid-product__sold-out,
+          div#slick-{{ section.id }} .grid-product__on-sale { 
+            {% if section.settings.home_slider_hidelables %}
+                  display: none; 
+            {% else %}
+                  top:0;
+                  left:0;
+            {% endif %}
+          }
+        </style>
+      
+
+      {%- if section.settings.home_featured_products == blank or 
+      		collections[section.settings.home_featured_products].empty? or 
+      		collections[section.settings.home_featured_products].products_count == 0 -%}
+
+      	<h4 class="text-center">Please, Select a non-empty collection.</h4>
+      {%- else -%}
+
+          {% assign grid_item_width = 'medium--one-half large--one-third' %}
+          {% for product in collections[section.settings.home_featured_products].products 
+          			limit: section.settings.home_slider_limit %}
+            {% include 'product-grid-item' %}
+          {% endfor %}
+
+      {%- endif -%}
+    </div>
+  </div>
+</div>
+
+<script>
+  
+
+document.addEventListener( 'DOMContentLoaded', function () {
+          $('#slick-{{ section.id }}').slick (
+            {
+              slidesToShow: {{section.settings.home_slider_slides}},
+              slidesToScroll: 1,
+              autoplay: {{section.settings.home_slider_auto}},
+              autoplaySpeed: {{ section.settings.home_slider_auto_speed }},
+              responsive: [ 
+                        {
+                            breakpoint: 480,
+                            settings: {
+                              slidesToShow: 2
+                          }
+                        }
+
+                      ]
+            }
+          ).fadeIn(1500);
+
+    }, false );
+</script>
+
+<script>
+
+function process_slick_event(evt) {
+  var _slick = $( "#" +evt.target.id + " .product-slider");
+  if( _slick.length )
+  {
+    switch ( evt.originalEvent.type ) {
+      case "shopify:section:load" : 
+        console.log('Load ' + _slick.attr("id"));
+        _slick.slick (
+            {
+              slidesToShow: _slick.data('slick').slidesToShow,
+              slidesToScroll: 1,
+              autoplay: _slick.data('slick').autoplay,
+              autoplaySpeed: _slick.data('slick').autoplaySpeed,
+              responsive: [ 
+						{
+                            breakpoint: 480,
+                            settings: {
+                              slidesToShow: 2
+                          }
+                        }
+                      ]
+            }
+          );
+      break; 
+      case "shopify:section:unload" :
+        console.log('Unload ' + _slick.attr("id"));
+        _slick.slick('unslick');
+      break;
+
+     } 
+  }
+}
+    
+document.addEventListener( 'DOMContentLoaded', function () {
+  $(document)
+   .on( 'shopify:section:load shopify:section:unload', process_slick_event );
+}, false );
+</script>
+
+{% schema %}
+  {
+    "name": "Products Slider",
+    "settings": [
+      {
+        "type": "text",
+        "id": "title",
+        "label": "Heading",
+        "default": "Product slideshow"
+      },
+      {
+        "type": "collection",
+        "id": "home_featured_products",
+        "label": "Collection"
+      },
+	 {
+        "type": "checkbox",
+        "id": "home_slider_auto",
+        "label": "Auto rotate between slides",
+        "default": true
+      },
+	  {
+        "type": "select",
+        "id": "home_slider_auto_speed",
+        "label": "Slide changes every",
+        "options": [
+          {
+            "value": "3000",
+            "label": "3 seconds"
+          },
+		  {
+            "value": "5000",
+            "label": "5 seconds"
+          },
+          {
+            "value": "7000",
+            "label": "7 seconds"
+          },
+          {
+            "value": "10000",
+            "label": "10 seconds"
+          }
+        ]
+      },
+	  {
+        "type": "select",
+        "id": "home_slider_slides",
+        "label": "How many slides to show",
+        "options": [
+          {
+            "value": "2",
+            "label": "2"
+          },
+          {
+            "value": "3",
+            "label": "3"
+          },
+          {
+            "value": "4",
+            "label": "4"
+          }
+		  ]
+		},
+	  {
+        "type": "select",
+        "id": "home_slider_limit",
+        "label": "How many products to select for slideshow",
+        "options": [
+          {
+            "value": "6",
+            "label": "6"
+          },
+          {
+            "value": "9",
+            "label": "9"
+          },
+          {
+            "value": "15",
+            "label": "15"
+          }
+		  ]
+		},
+	      {
+    		"type": "checkbox",
+		    "id": "home_slider_hidetext",
+		    "default": false,
+		    "label": "Hide Names and price?"
+		  },
+	      {
+    		"type": "checkbox",
+		    "id": "home_slider_hidelables",
+		    "default": true,
+		    "label": "Hide Sale and Sold Out labels?"
+		  }
+    ],
+    "presets": [{
+      "name": "Products Slideshow",
+      "category": "Collection"
+    }],
+    "blocks" : []
+  }
+{% endschema %}

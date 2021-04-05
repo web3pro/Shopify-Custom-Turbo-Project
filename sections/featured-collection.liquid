@@ -1,0 +1,124 @@
+{% comment %}
+** Single featured collection - homepage partial **
+- Draggable section
+{% endcomment %}
+<style>
+#shopify-section-{{ section.id }}{
+    background-image: url({{section.settings.background_image | img_url: 'master'}});
+    background-repeat: no-repeat;
+    background-position: left top; 
+    padding-top:{{section.settings.padding_top}}px;
+    padding-bottom:{{section.settings.padding_bottom}}px;
+}
+{% if section.settings.hide_mobile == true %}
+    @media screen and (max-width: 720px){
+      #shopify-section-{{ section.id }}{
+        display:none;
+      }
+    }
+{% endif %}
+</style>
+{% include 'include-featured-collection' %}
+
+{% schema %}
+{
+  "name": "Featured collection",
+  "class": "featured-collection-section",
+  "settings": [
+    {
+      "type": "text",
+      "id": "title",
+      "label": "Heading",
+      "default": "Featured collection"
+    },
+    {
+      "type": "checkbox",
+      "id": "collection_description",
+      "label": "Show description",
+      "default": true
+    },
+    {
+      "type": "range",
+      "id": "padding_top",
+      "min": 0,
+      "max": 100,
+      "step": 5,
+      "unit": "px",
+      "label": "Padding Top",
+      "default": 30
+    },
+    {
+      "type": "range",
+      "id": "padding_bottom",
+      "min": 0,
+      "max": 100,
+      "step": 5,
+      "unit": "px",
+      "label": "Padding Bottom",
+      "default": 30
+    },
+    {
+      "type": "image_picker",
+      "id": "background_image",
+      "label": "Background Image",
+      "info": "Left-top image is recommended"
+    },
+    {
+      "type": "collection",
+      "id": "collection",
+      "label": "Collection"
+    },
+    {
+      "type": "radio",
+      "id": "collection_style",
+      "label": "Collection layout",
+      "default": "grid",
+      "options": [
+        {
+          "value": "slider",
+          "label": "Slider"
+        },
+        {
+          "value": "grid",
+          "label": "Grid"
+        }
+      ]
+    },
+    {
+      "type": "checkbox",
+      "id": "hide_mobile",
+      "label": "Hide on Mobile",
+      "default": true
+    },
+    {
+      "type": "header",
+      "content": "Products"
+    },
+    {
+      "type": "range",
+      "id": "products_per",
+      "label": "Products per row",
+      "min": 2,
+      "max": 7,
+      "step": 1,
+      "default": 3
+    },
+    {
+      "type": "range",
+      "id": "products_limit",
+      "label": "Limit products",
+      "min": 2,
+      "max": 50,
+      "step": 1,
+      "default": 9
+    }
+  ],
+  "presets": [{
+    "name": "Featured collection",
+    "category": "Collection",
+    "settings": {
+
+    }
+  }]
+}
+{% endschema %}

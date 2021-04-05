@@ -1,0 +1,96 @@
+{% comment %}
+** Custom HTML - homepage partial **
+- Draggable section
+{% endcomment %}
+{% style %}
+    @media screen and (min-width: 720px){
+      #shopify-section-{{ section.id }}{
+          padding-top:{{section.settings.padding_top}}px;
+          padding-bottom:{{section.settings.padding_bottom}}px;
+      }
+    }
+    @media screen and (max-width: 720px){
+      #shopify-section-{{ section.id }}{
+          padding-bottom:{{section.settings.padding_bottom}}px;
+      }
+    }
+    {% if section.settings.hide_mobile == true %}
+    @media screen and (max-width: 720px){
+        #shopify-section-{{ section.id }}{
+        display:none;
+        }
+    }
+    {% endif %}
+    .custom_home_button{
+        border-radius:{{section.settings.border_radius}}px !important; 
+        {% comment %} background: {{section.settings.button_back_color}} !important; {% endcomment %}
+        {% comment %} color: {{section.settings.button_text_color}} !important; {% endcomment %}
+    }
+{% endstyle %}
+
+<div style="text-align:center; ">
+<a href="{{section.settings.button_link}}" {% if section.settings.highlight == true %} class="action_button continue-button custom_home_button" {% else %} class="action_button custom_home_button" {% endif %}>{{section.settings.button_label}}</a>
+</div>
+
+{% schema %}
+{
+  "name": "Custom Button",
+  "class": "custom-home-button",
+  "settings": [
+    {
+      "type": "checkbox",
+      "id": "highlight",
+      "label": "Button highlight",
+      "default": false
+    },
+    {
+        "type": "text",
+        "id": "button_label",
+        "label": "Button label",
+        "default": "Button"
+      },
+    {
+        "type": "url",
+        "id": "button_link",
+        "label": "Button link"
+      },
+    {
+      "type": "range",
+      "id": "padding_top",
+      "min": 0,
+      "max": 100,
+      "step": 5,
+      "unit": "px",
+      "label": "Padding Top",
+      "default": 30
+    },
+    {
+      "type": "range",
+      "id": "padding_bottom",
+      "min": 0,
+      "max": 100,
+      "step": 5,
+      "unit": "px",
+      "label": "Padding Bottom",
+      "default": 30
+    }, 
+    {
+      "type": "range",
+      "id": "border_radius",
+      "min": 0,
+      "max": 100,
+      "step": 1,
+      "unit": "px",
+      "label": "Border Radius",
+      "default": 30
+    }
+     
+  ],
+  "presets": [{
+    "name": "Custom Button",
+    "category": "Content",
+    "settings": {
+    }
+  }]
+}
+{% endschema %}

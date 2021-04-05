@@ -1,0 +1,249 @@
+{% comment %}
+** Video - homepage partial **
+- Draggable section
+{% endcomment %}
+<style>
+#shopify-section-{{ section.id }}{
+    background-image: url({{section.settings.background_image | img_url: 'master'}});
+    padding-top:{{section.settings.padding_top}}px;
+    padding-bottom:{{section.settings.padding_bottom}}px;
+    background-position:50px top;
+    background-repeat: no-repeat;
+}
+
+</style>
+{% include 'include-video' %}
+
+{% schema %}
+{
+  "name": "Video",
+  "class": "video-section under-menu",
+  "settings": [
+    {
+      "type": "range",
+      "id": "padding_top",
+      "min": 0,
+      "max": 100,
+      "step": 5,
+      "unit": "px",
+      "label": "Padding Top",
+      "default": 30
+    },
+    {
+      "type": "range",
+      "id": "padding_bottom",
+      "min": 0,
+      "max": 100,
+      "step": 5,
+      "unit": "px",
+      "label": "Padding Bottom",
+      "default": 30
+    },
+    {
+      "type": "image_picker",
+      "id": "background_image",
+      "label": "Section Background Image",
+      "info": "300 x 300 px recommended"
+    },
+    {
+      "type": "checkbox",
+      "id": "wide_display",
+      "label": "Wide display",
+      "default": true
+    },
+    {
+      "type": "select",
+      "id": "aspect_ratio",
+      "label": "Aspect ratio",
+      "options": [
+        {
+          "value": "16:9",
+          "label": "16:9"
+        },
+        {
+          "value": "4:3",
+          "label": "4:3"
+        }
+      ],
+      "default": "16:9"
+    },
+    {
+      "type": "checkbox",
+      "id": "autoplay",
+      "label": "Autoplay video",
+      "default": false,
+      "info": "Limited browser support for autoplaying video. [Learn more](https:\/\/help.outofthesandbox.com\/hc\/en-us\/articles\/360000661568-Why-won-t-my-video-autoplay-)"
+    },
+    {
+      "type": "checkbox",
+      "id": "autoloop",
+      "label": "Autoloop video",
+      "default": true
+    },
+    {
+      "type": "checkbox",
+      "id": "mute_video",
+      "label": "Mute video",
+      "default": false
+    },
+    {
+      "type": "checkbox",
+      "id": "show_controls",
+      "label": "Show video controls",
+      "default": true
+    },
+    {
+      "type": "checkbox",
+      "id": "video_dark_overlay",
+      "label": "Darken video"
+    },
+    {
+      "type": "video_url",
+      "id": "iframe_video",
+      "label": "Video link",
+      "accept": ["youtube", "vimeo"],
+      "default": "https://www.youtube.com/watch?v=_9VUPq3SxOc"
+    },
+    {
+      "type": "text",
+      "id": "html5_video",
+      "label": "HTML5 MP4/OGV File URL"
+    },
+    {
+      "type": "header",
+      "content": "Content"
+    },
+    {
+      "type": "image_picker",
+      "id": "image",
+      "label": "Image",
+      "info": "1600 x 900px recommended"
+    },
+    {
+      "type": "checkbox",
+      "id": "display_text_over_video",
+      "label": "Show text when video is playing",
+      "default": false
+    },
+    {
+      "type": "richtext",
+      "id": "pretext",
+      "label": "Preheading"
+    },
+    {
+      "type": "text",
+      "id": "title",
+      "label": "Heading"
+    },
+    {
+      "type": "richtext",
+      "id": "subtitle",
+      "label": "Subheading"
+    },
+    {
+      "type": "checkbox",
+      "id": "caption_background",
+      "label": "Display solid text background"
+    },
+    {
+      "type": "checkbox",
+      "id": "caption_background_transparency",
+      "label": "Enable background transparency"
+    },
+    {
+      "type": "text",
+      "id": "button1_label",
+      "label": "First button label"
+    },
+    {
+      "type": "url",
+      "id": "button1_link",
+      "label": "First button link"
+    },
+    {
+      "type": "checkbox",
+      "id": "button1_highlight",
+      "label": "Highlight first button"
+    },
+    {
+      "type": "text",
+      "id": "button2_label",
+      "label": "Second button label"
+    },
+    {
+      "type": "url",
+      "id": "button2_link",
+      "label": "Second button link"
+    },
+    {
+      "type": "checkbox",
+      "id": "button2_highlight",
+      "label": "Highlight second button"
+    },
+    {
+      "type": "select",
+      "id": "text_position",
+      "label": "Text position",
+      "options": [
+        {
+          "value": "left",
+          "label": "Left"
+        },
+        {
+          "value": "center",
+          "label": "Center"
+        },
+        {
+          "value": "right",
+          "label": "Right"
+        }
+      ],
+      "default": "center"
+    },
+    {
+      "type": "select",
+      "id": "text_align",
+      "label": "Text alignment",
+      "options": [
+        {
+          "value": "left",
+          "label": "Left"
+        },
+        {
+          "value": "center",
+          "label": "Center"
+        },
+        {
+          "value": "right",
+          "label": "Right"
+        }
+      ],
+      "default": "center"
+    },
+    {
+      "type": "header",
+      "content": "Mobile"
+    },
+    {
+      "type": "checkbox",
+      "id": "mobile_text_below_image",
+      "label": "Show text below image",
+      "default": true
+    },
+    {
+      "type": "color",
+      "id": "mobile_text_color",
+      "label": "Text"
+    }
+  ],
+  "presets": [{
+    "name": "Video",
+    "category": "Video",
+    "settings": {
+      "iframe_video": "https://www.youtube.com/watch?v=_9VUPq3SxOc",
+      "button1_label": "Play Video"
+    }
+  }]
+}
+
+{% endschema %}

@@ -1,0 +1,74 @@
+{% if section.settings.title != '' %}
+<div class="section-header" style="text-align:center;">
+  <div class="container">
+    <h1 style="color:#383f69"><u>{{ section.settings.title }}</u></h1>
+  </div>
+</div>
+{% endif %}
+
+<section data-section-type="faq" data-section-id="{{ section.id }}">
+  <div class="container">
+    
+    <div class="inline-flex">
+    
+      <dl class="accordion">
+        {%- for block in section.blocks -%}
+        {% assign even = forloop.index | modulo:2 %}
+        {% if even == 0 %}
+          {% continue %}
+        {% endif %}
+
+        <dt><a href="#"><small class="right">&#9668;</small>{{ block.settings.title | escape }}</a></dt>
+        <dd>{{ block.settings.answer }}</dd>  
+
+        {%- endfor -%}
+      </dl>
+
+      <dl class="accordion">
+        {%- for block in section.blocks -%}
+        {% assign even = forloop.index | modulo:2 %}
+        {% if even != 0 %}
+          {% continue %}
+        {% endif %}
+
+        <dt><a href="#"><small class="right">&#9668;</small>{{ block.settings.title | escape }}</a></dt>
+        <dd>{{ block.settings.answer }}</dd>  
+
+        {%- endfor -%}
+      </dl>
+      
+    </div>
+    
+  </div>
+</section>
+
+{% schema %}
+{
+  "name": "My FAQ",
+  "settings": [
+	{
+      "type": "text",
+      "id": "title",
+      "label": "Title"
+    }
+  ],
+  "blocks": [
+    {
+      "type": "question",
+      "name": "Question",
+      "settings": [
+        {
+          "type": "text",
+          "id": "title",
+          "label": "Question"
+        },
+        {
+          "type": "richtext",
+          "id": "answer",
+          "label": "Answer"
+        }
+      ]
+    }
+  ]
+}
+{% endschema %}

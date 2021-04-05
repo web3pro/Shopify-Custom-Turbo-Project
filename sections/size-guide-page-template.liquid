@@ -1,0 +1,497 @@
+{% comment %}
+** Image with text (half and half view) - homepage partial **
+- Draggable section
+- Uses blocks
+{% endcomment %}
+
+<div class="size-header">
+    <div class="container">
+        <div class="sixteen columns">
+            <h1>{{ section.settings.title }}</h1>
+            <p>{{ section.settings.description }}</p>
+            {% if section.blocks.size > 0 %}
+            <ul class="size-guides">
+              {% for block in section.blocks %}
+              <li>
+                <a href="#{{ block.settings.size_title | handleize  }}">
+                  <img src="{{ block.settings.size_image | img_url: 'master' }}" alt="{{ block.settings.size_title }}">
+                  <h3>{{ block.settings.size_title }}</h3>
+                  <p>{{ block.settings.size_description }}</p>
+                </a>
+              </li>
+              {% endfor %}
+            </ul>
+            {% endif %}
+        </div>
+    </div>
+</div>
+
+  <div class="container">
+    <div class="sixteen columns">
+
+    <div class="image-with-text
+                featured_collections
+                clearfix across-1 image-align--{{ section.settings.frontpage_image_position }}
+                full-width--false
+                ">
+      {% if section.blocks.size > 0 %}
+        {% for block in section.blocks %}
+          <section id="{{ block.settings.size_title | handleize  }}" class="featured-link--section featured-link--image section-{{ forloop.index }}" {{ block.shopify_attributes }}>
+            <div class="featured-link--half featured-link--image-wrapper featured-link--image featured-link--margin image-crop--{{ block.settings.image_crop }}">
+              <div class="featured-link--wrap">
+                <a {% if block.settings.link != blank %}href="{{ block.settings.link }}"{% endif %} title="{{ block.settings.title }}">
+                  {% if block.settings.image %}
+                    {% render 'image-element',
+                            image: block.settings.image,
+                            alt: block.settings.image.alt,
+                            stretch_width: true
+                    %}
+                  {% else %}
+                    {% capture i %}{% cycle "1", "2", "3", "4", "5", "6" %}{% endcapture %}
+                    {{ 'collection-' | append: i | placeholder_svg_tag: 'placeholder-svg placeholder-svg--promotions' }}
+                  {% endif %}
+                </a>
+              </div>
+            </div>
+            <div class="featured-link--half featured-link--text block--{{ block.id }}">
+              <div class="info text-align--{{section.settings.frontpage_text_align}}">
+                <a {% if block.settings.link != blank %}href="{{ block.settings.link }}"{% endif %} class="collection_title">
+                  {{ block.settings.title }}
+                </a>
+                {% if block.settings.icon1 and block.settings.icon2 %}
+                <ul class="icon-image">
+                  <li><img src="{{ block.settings.icon1 | img_url: 'master' }}"><p>{{ block.settings.icon_label1}}</p></li>
+                  <li><img src="{{ block.settings.icon2 | img_url: 'master' }}"><p>{{ block.settings.icon_label2}}</p></li>
+                </ul>
+                {% endif %}
+                
+                {% if block.settings.text != blank %}
+                  <div class="description">{{ block.settings.text }}</div>
+                {% endif %}
+                {% if block.settings.button_label != blank %}
+                  <a {% if block.settings.link != blank %}href="{{ block.settings.link }}"{% endif %} class="button-arrow">
+                    {{ block.settings.button_label }}
+                  </a>
+                {% endif %}
+                {% if block.settings.button_label1 != blank %}
+                  <a {% if block.settings.link1 != blank %}href="{{ block.settings.link1 }}"{% endif %} class="button-arrow">
+                    {{ block.settings.button_label1 }}
+                  </a>
+                {% endif %}
+                {% if block.settings.button_label2 != blank %}
+                  <a {% if block.settings.link2 != blank %}href="{{ block.settings.link2 }}"{% endif %} class="button-arrow">
+                    {{ block.settings.button_label2 }}
+                  </a>
+                {% endif %}
+                {% if block.settings.button_label3 != blank %}
+                  <a {% if block.settings.link3 != blank %}href="{{ block.settings.link3 }}"{% endif %} class="button-arrow">
+                    {{ block.settings.button_label3 }}
+                  </a>
+                {% endif %}
+              </div>
+            </div>
+          </section>
+        {% endfor %}
+      {% endif %}
+    </div>
+    </div>
+  </div>
+
+
+{% comment %} Is the color set to transparent? {% endcomment %}
+{% assign bg_alpha = block.settings.bg_color | color_extract: 'alpha' %}
+
+<style>
+
+  {% for block in section.blocks %}
+    .block--{{ block.id }} {
+      background-color: {{ block.settings.bg_color }};
+    }
+
+    .block--{{ block.id }} .collection_title,
+    .block--{{ block.id }} p {
+      color: {{ block.settings.text_color }};
+    }
+
+    .block--{{ block.id }} a.button {
+      color: {{ block.settings.text_color }};
+      border-color: {{ block.settings.text_color }};
+    }
+
+    .block--{{ block.id }} a.button:hover {
+      color: {% if bg_alpha != 0 %}{{ block.settings.bg_color }}{% else %}{{ settings.shop_bg_color }}{% endif %};
+      border-color: {{ block.settings.text_color }};
+      background-color: {{ block.settings.text_color }};
+    }
+  {% endfor %}
+
+
+      #shopify-section-{{ section.id }} .featured-link--section {
+        margin-bottom: 3%;
+        margin-top: 3%;
+      }
+      @media only screen and (max-width: 480px) {
+        #shopify-section-{{ section.id }} .featured-link--section {
+          margin-bottom: 10%;
+        }
+      }
+
+      #shopify-section-{{ section.id }} .featured-link--text {
+        width: 35%;
+      }
+  
+  	  #shopify-section-{{ section.id }} .featured-link--image-wrapper {
+		width: 55%;
+      }
+
+      #shopify-section-{{ section.id }} .featured-link--margin {
+        {% if section.settings.frontpage_image_position == 'right' %}
+          margin-left: 3%;
+        {% else %}
+          margin-left: 0;
+          margin-right: 3%;
+        {% endif %}
+      }
+
+      #shopify-section-{{ section.id }} .featured-link--section:nth-child(even) .featured-link--margin {
+        {% if section.settings.frontpage_image_position == 'right' %}
+          margin-left: 0;
+          margin-right: 3%;
+        {% else %}
+          margin-left: 3%;
+          margin-right: 0;
+        {% endif %}
+      }
+
+.featured-link--half .info {
+    width: 100%;
+}
+
+ul.icon-image {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+    width: 100%;
+    overflow: hidden;
+}
+
+ul.icon-image li {
+    display: inline-block;
+    float: left;
+    text-align: center;
+    font-size: 12px;
+}
+
+ul.icon-image li img {
+    max-width: 65px;
+    height: auto;
+    width: 100%;
+}
+
+ul.icon-image li:first-child {
+    margin-right: 30px;
+}
+.button-arrow {
+    cursor: pointer;
+    display: block;
+    color: #363f68;
+    font-weight: 500;
+    letter-spacing: .5px;
+    position: relative;
+    margin-bottom: 8px;
+}
+
+.button-arrow:after {
+    content: '';
+    width: 25px;
+    height: 20px;
+    background-image: url(https://cdn.shopify.com/s/files/1/0051/6744/8152/files/next.png);
+    position: absolute;
+    top: 1px;
+    background-size: contain;
+    background-repeat: no-repeat;
+    margin-left: 20px;
+}
+
+.button-arrow:hover:after {
+    margin-left: 22px;
+}
+.size-header {
+    background: #363f68;
+    color: #f3f2f4;
+    padding-top: 60px;
+    padding-bottom: 30px;
+    text-align: center;
+}
+
+.size-header h1 {
+    color: #f3f2f4;
+    text-transform: uppercase;
+    text-align: center;
+    font-size: 36px;
+}
+
+.size-header p {
+    max-width: 650px;
+    margin: 0 auto;
+}
+
+ul.size-guides {
+    list-style: none;
+    margin-top: 85px;
+    padding: 0;
+    display: flex;
+    justify-content: space-evenly;
+    margin-bottom: 0;
+}
+
+ul.size-guides h3 {
+    background: #feffff;
+    font-size: 14px;
+    display: inline-block;
+    text-align: center;
+    padding: 3px 10px;
+    border-radius: 5px;
+    font-weight: 500;
+    color: #363f68;
+    margin-bottom: 10px;
+}
+
+ul.size-guides li {
+    max-width: 170px;
+}
+ul.size-guides li a {
+    overflow: hidden;
+    width: 100%;
+    height: 100%;
+    display: block;
+    cursor: pointer;
+    color: #f3f2f4;
+}
+
+ul.size-guides li img {
+    height: 200px;
+    margin-bottom: 15px;
+    width: auto;
+}
+
+ul.size-guides li p {
+    font-size: 12px;
+    line-height: 1.5;
+}
+
+</style>
+
+{% schema %}
+{
+  "name": "Size Guide",
+  "class": "size-guide-section",
+  "max_blocks": 16,
+  "settings": [
+	{
+      "type": "text",
+      "id": "title",
+      "label": "Page Title"
+    },
+	{
+      "type": "textarea",
+      "id": "description",
+      "label": "Page Description"
+    },
+    {
+      "type": "select",
+      "id": "frontpage_text_align",
+      "label": "Text alignment",
+      "options": [
+        {
+          "value": "left",
+          "label": "Left"
+        },
+        {
+          "value": "center",
+          "label": "Center"
+        },
+        {
+          "value": "right",
+          "label": "Right"
+        }
+      ]
+    },
+    {
+      "type": "select",
+      "id": "frontpage_image_position",
+      "label": "First image position",
+      "info": "Subsequent images will appear staggered",
+      "options": [
+        {
+          "value": "left",
+          "label": "Left"
+        },
+        {
+          "value": "right",
+          "label": "Right"
+        }
+      ]
+    }
+  ],
+  "blocks": [
+    {
+      "type": "image",
+      "name": "Image with text",
+      "settings": [
+        {
+          "type": "image_picker",
+          "id": "size_image",
+          "label": "Size Image"
+        },
+        {
+          "type": "text",
+          "id": "size_title",
+          "label": "Size"
+        },
+        {
+          "type": "textarea",
+          "id": "size_description",
+          "label": "Size Description"
+        },
+		{
+          "type": "image_picker",
+          "id": "image",
+          "label": "Image",
+          "info": "1024 x 1024px recommended"
+        },
+        {
+          "type": "select",
+          "id": "image_crop",
+          "label": "Image cropping",
+          "default": "none",
+          "info": "Only applied when text area is taller than image.",
+          "options": [
+            {
+              "value": "left",
+              "label": "Left"
+            },
+            {
+              "value": "right",
+              "label": "Right"
+            },
+            {
+              "value": "center",
+              "label": "Center"
+            },
+            {
+              "value": "none",
+              "label": "None"
+            }
+          ]
+        },
+        {
+          "type": "text",
+          "id": "title",
+          "label": "Heading",
+          "default": "Your headline"
+        },
+		{
+          "type": "image_picker",
+          "id": "icon1",
+          "label": "Icon"
+        },
+        {
+          "type": "text",
+          "id": "icon_label1",
+          "label": "Text"
+        },
+		{
+          "type": "image_picker",
+          "id": "icon2",
+          "label": "Icon"
+        },
+        {
+          "type": "text",
+          "id": "icon_label2",
+          "label": "Text"
+        },
+        {
+          "type": "richtext",
+          "id": "text",
+          "label": "Text",
+          "default": "<p>Promotion description appears here.</p>"
+        },
+        {
+          "type": "text",
+          "id": "button_label",
+          "label": "Button label",
+          "default": "View all"
+        },
+        {
+          "type": "url",
+          "id": "link",
+          "label": "Button link"
+        },
+        {
+          "type": "text",
+          "id": "button_label1",
+          "label": "Button label",
+          "default": "View all"
+        },
+        {
+          "type": "url",
+          "id": "link1",
+          "label": "Button link"
+        },
+        {
+          "type": "text",
+          "id": "button_label2",
+          "label": "Button label",
+          "default": "View all"
+        },
+        {
+          "type": "url",
+          "id": "link2",
+          "label": "Button link"
+        },
+        {
+          "type": "text",
+          "id": "button_label3",
+          "label": "Button label",
+          "default": "View all"
+        },
+        {
+          "type": "url",
+          "id": "link3",
+          "label": "Button link"
+        },
+        {
+          "type": "header",
+          "content": "Colors"
+        },
+        {
+          "type": "color",
+          "id": "bg_color",
+          "label": "Background"
+        },
+        {
+          "type": "color",
+          "id": "text_color",
+          "label": "Text"
+        }
+      ]
+    }
+  ],
+  "presets": [{
+    "name": "Size Guide",
+    "category": "Image",
+    "settings": {
+      "frontpage_text_align": "left"
+    },
+    "blocks": [
+      {
+        "type": "image"
+      },
+      {
+        "type": "image"
+      }
+    ]
+  }]
+}
+{% endschema %}

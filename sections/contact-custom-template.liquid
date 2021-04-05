@@ -1,0 +1,478 @@
+{% comment %}
+** Custom contact page - custom view **
+- Page template
+{% endcomment %}
+
+{% if section.settings.image != blank %}
+  <header class="banner center page-banner dark-overlay-{{ section.settings.image_darken }}">
+    {% render 'image-element',
+            image: section.settings.image,
+            alt: section.settings.image.alt,
+            stretch_width: true,
+            progressive: true
+    %}
+    <div class="caption captionOverlay--true">
+      <h1 class="headline">{{ section.settings.title }}</h1>
+      <p class="subtitle">{{ section.settings.subtitle }}</p>
+    </div>
+  </header>
+{% endif %}
+
+<a name="pagecontent" id="pagecontent"></a>
+
+<div class="container main content">
+  <div class="sixteen columns">
+    {% if section.settings.image == nil %}
+      <h1>{{ page.title }}</h1>
+      <div class="feature_divider"></div>
+    {% endif %}
+    {{ page.content }}
+  </div>
+  {% include 'include-custom-contact-form' %}
+</div>
+
+{% schema %}
+
+{
+  "name": "Contact",
+  "class": "contact-section",
+  "settings": [
+    {
+      "type": "header",
+      "content": "Banner image"
+    },
+    {
+      "type": "image_picker",
+      "id": "image",
+      "label": "Image",
+      "info": "1800 x 800px recommended"
+    },
+    {
+      "type": "checkbox",
+      "id": "image_darken",
+      "label": "Darken banner image",
+      "default": false
+    },
+    {
+      "type": "text",
+      "id": "title",
+      "label": "Heading",
+      "default": "Get in touch"
+    },
+    {
+      "type": "text",
+      "id": "subtitle",
+      "label": "Subheading",
+      "default": "Subheading"
+    },
+    {
+      "type": "header",
+      "content": "Contact Form"
+    },
+    {
+      "type": "image_picker",
+      "id": "contact_image",
+      "label": "Image",
+      "info": "1024 x 1024px recommended"
+    },
+    {
+      "type": "text",
+      "id": "contact_subheading",
+      "label": "Subheading",
+      "default": "Subheading"
+    },
+    {
+      "type": "richtext",
+      "id": "contact_content",
+      "label": "Text",
+      "default": "<p>Contact form description.</p>"
+    },
+    {
+      "type": "select",
+      "id": "contact_text_position",
+      "label": "Text position",
+      "default": "left",
+      "options": [
+        {
+          "value": "left",
+          "label": "Left"
+        },
+        {
+          "value": "center",
+          "label": "Center"
+        },
+        {
+          "value": "right",
+          "label": "Right"
+        }
+      ]
+    },
+    {
+      "type": "select",
+      "id": "contact_text_alignment",
+      "label": "Text alignment",
+      "default": "left",
+      "options": [
+        {
+          "value": "left",
+          "label": "Left"
+        },
+        {
+          "value": "center",
+          "label": "Center"
+        },
+        {
+          "value": "right",
+          "label": "Right"
+        }
+      ],
+      "default": "left"
+    },
+    {
+      "type": "checkbox",
+      "id": "contact_social_buttons",
+      "label": "Show social media icons"
+    },
+    {
+      "type": "header",
+      "content": "Form"
+    },
+    {
+      "type": "image_picker",
+      "id": "contact_logo",
+      "label": "Logo",
+      "info": "500 x 500px recommended"
+    }
+  ],
+  "blocks": [
+    {
+      "type": "checkbox",
+      "name": "Checkbox",
+      "settings": [
+        {
+          "type": "text",
+          "id": "label",
+          "label": "Title",
+          "default": "Select all that apply"
+        },
+        {
+          "type": "checkbox",
+          "id": "required",
+          "label": "Field is required"
+        },
+        {
+          "type": "text",
+          "id": "options_1",
+          "label": "Option 1",
+          "default": "Option 1"
+        },
+        {
+          "type": "text",
+          "id": "options_2",
+          "label": "Option 2",
+          "default": "Option 2"
+        },
+        {
+          "type": "text",
+          "id": "options_3",
+          "label": "Option 3",
+          "default": "Option 3"
+        },
+        {
+          "type": "text",
+          "id": "options_4",
+          "label": "Option 4"
+        },
+        {
+          "type": "text",
+          "id": "options_5",
+          "label": "Option 5"
+        },
+        {
+          "type": "text",
+          "id": "options_6",
+          "label": "Option 6"
+        },
+        {
+          "type": "text",
+          "id": "options_7",
+          "label": "Option 7"
+        },
+        {
+          "type": "text",
+          "id": "options_8",
+          "label": "Option 8"
+        },
+        {
+          "type": "text",
+          "id": "options_9",
+          "label": "Option 9"
+        },
+        {
+          "type": "text",
+          "id": "options_10",
+          "label": "Option 10"
+        }
+      ]
+    },
+    {
+      "type": "email",
+      "name": "Email (required)",
+      "limit": 1,
+      "settings": [
+        {
+            "type": "paragraph",
+            "content": "Email field must be included."
+        },
+        {
+          "type": "text",
+          "id": "label",
+          "label": "Label",
+          "default": "Email"
+        },
+        {
+          "type": "text",
+          "id": "placeholder",
+          "label": "Placeholder",
+          "default": "Enter your email"
+        }
+      ]
+    },
+    {
+      "type": "dropdown",
+      "name": "Drop-down",
+      "settings": [
+        {
+          "type": "text",
+          "id": "label",
+          "label": "Title",
+          "default": "Title"
+        },
+        {
+          "type": "text",
+          "id": "placeholder",
+          "label": "Placeholder",
+          "default": "Make a selection"
+        },
+        {
+          "type": "checkbox",
+          "id": "required",
+          "label": "Field is required"
+        },
+        {
+          "type": "text",
+          "id": "options_1",
+          "label": "Option 1",
+          "default": "Option 1"
+        },
+        {
+          "type": "text",
+          "id": "options_2",
+          "label": "Option 2",
+          "default": "Option 2"
+        },
+        {
+          "type": "text",
+          "id": "options_3",
+          "label": "Option 3",
+          "default": "Option 3"
+        },
+        {
+          "type": "text",
+          "id": "options_4",
+          "label": "Option 4"
+        },
+        {
+          "type": "text",
+          "id": "options_5",
+          "label": "Option 5"
+        },
+        {
+          "type": "text",
+          "id": "options_6",
+          "label": "Option 6"
+        },
+        {
+          "type": "text",
+          "id": "options_7",
+          "label": "Option 7"
+        },
+        {
+          "type": "text",
+          "id": "options_8",
+          "label": "Option 8"
+        },
+        {
+          "type": "text",
+          "id": "options_9",
+          "label": "Option 9"
+        },
+        {
+          "type": "text",
+          "id": "options_10",
+          "label": "Option 10"
+        }
+      ]
+    },
+    {
+      "type": "paragraph",
+      "name": "Paragraph",
+      "settings": [
+        {
+          "type": "richtext",
+          "id": "text",
+          "label": "Text",
+          "default": "<p>Use this field to display text of any kind, such as standard reply times for inquiries.</p>"
+        }
+      ]
+    },
+    {
+      "type": "radio",
+      "name": "Radio buttons",
+      "settings": [
+        {
+          "type": "text",
+          "id": "label",
+          "label": "Title",
+          "default": "Choose an option"
+        },
+        {
+          "type": "checkbox",
+          "id": "required",
+          "label": "Field is required"
+        },
+        {
+          "type": "text",
+          "id": "options_1",
+          "label": "Option 1",
+          "default": "Option 1"
+        },
+        {
+          "type": "text",
+          "id": "options_2",
+          "label": "Option 2",
+          "default": "Option 2"
+        },
+        {
+          "type": "text",
+          "id": "options_3",
+          "label": "Option 3",
+          "default": "Option 3"
+        },
+        {
+          "type": "text",
+          "id": "options_4",
+          "label": "Option 4"
+        },
+        {
+          "type": "text",
+          "id": "options_5",
+          "label": "Option 5"
+        },
+        {
+          "type": "text",
+          "id": "options_6",
+          "label": "Option 6"
+        },
+        {
+          "type": "text",
+          "id": "options_7",
+          "label": "Option 7"
+        },
+        {
+          "type": "text",
+          "id": "options_8",
+          "label": "Option 8"
+        },
+        {
+          "type": "text",
+          "id": "options_9",
+          "label": "Option 9"
+        },
+        {
+          "type": "text",
+          "id": "options_10",
+          "label": "Option 10"
+        }
+      ]
+    },
+    {
+      "type": "textarea",
+      "name": "Text area",
+      "settings": [
+        {
+          "type": "text",
+          "id": "label",
+          "label": "Title",
+          "default": "Message"
+        },
+        {
+          "type": "text",
+          "id": "placeholder",
+          "label": "Placeholder",
+          "default": "Message"
+        },
+        {
+          "type": "checkbox",
+          "id": "required",
+          "label": "Field is required"
+        }
+      ]
+    },
+    {
+      "type": "textfield",
+      "name": "Text field",
+      "settings": [
+        {
+          "type": "text",
+          "id": "label",
+          "label": "Label",
+          "default": "Title"
+        },
+        {
+          "type": "text",
+          "id": "placeholder",
+          "label": "Placeholder"
+        },
+        {
+          "type": "checkbox",
+          "id": "required",
+          "label": "Field is required"
+        }
+      ]
+    }
+  ],
+  "default": {
+    "settings": {
+      "contact_subheading": "Contact Us Today!",
+      "contact_content": "<p>Customize your contact form to suit your business! Add custom fields like a dropdown menu, checkbox, text fields and more, so that you can gather pertinent info from shoppers right from the get-go, to help answer their inquiries more effectively.</p>"
+    },
+    "blocks": [
+      {
+        "type": "textfield",
+        "settings": {
+          "label": "Name",
+          "placeholder": "Name",
+          "required": true
+        }
+      },
+      {
+        "type": "email",
+        "settings": {
+          "label": "Email",
+          "placeholder": "Email"
+        }
+      },
+      {
+        "type": "textarea",
+        "settings": {
+          "label": "Message",
+          "placeholder": "Message",
+          "required": true
+        }
+      }
+    ]
+  }
+}
+
+{% endschema %}

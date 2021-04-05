@@ -1,0 +1,73 @@
+<div class="page-width container wrapper">
+  {% if section.settings.title_status %}
+    <h3 class="center text-center section-header__title">{{ section.settings.title_heading | escape }}</h3>
+  {% endif %}
+  {% if section.settings.type_ryviu == 'default' %}
+  <ryviu-widget feature="1"></ryviu-widget>
+  {% elsif section.settings.type_ryviu == 'carousel' %}  
+  <ryviu-feature-extend feature="1" carousel="1" id="r--ryviu-widget"></ryviu-feature-extend>
+  {% else %}
+  {% assign product = all_products[section.settings.product] %}
+    <div class="lt-block-reviews"> 
+        <ryviu-widget handle="{{product.handle}}" product_id="{{product.id}}" title_product="{{product.title}}" total_meta="{{ product.metafields.ryviu.r_count }}" image_product="{{ product.featured_image.src | img_url: '100x' }}"></ryviu-widget>
+    </div>
+  {% endif %}
+</div>
+{% schema %}
+  {
+  "name": "Ryviu Section",
+  "class": "index-section",
+    "settings": [
+    {
+        "type": "text",
+        "id": "title_heading",
+        "label": "Title",
+        "default": "Happy Customer"
+      },
+    {
+      "type": "checkbox",
+      "id": "title_status",
+      "label": "Show title",
+      "default": true
+    },
+    {
+        "type": "select",
+        "id": "type_ryviu",
+        "label": "Type reviews",
+        "default": "default",
+    	"info": "Featured reviews supports Ryviu's paid members only",
+        "options": [
+          {
+            "label": "Masonry Featured Reviews",
+            "value": "default"
+          },
+          {
+            "label": "Carousel Featured Reviews",
+            "value": "carousel"
+          },
+          {
+            "label": "Single Product Shop",
+            "value": "product"
+          }
+        ]
+      },
+      {
+        "type": "product",
+        "id": "product",
+    	"info": "For Single Product Shop",
+        "label": "Select Product"
+      }
+  ],
+    "presets": [
+      {
+        "name": "Ryviu Section",
+        "category": "Ryviu App"
+      }
+      
+    ]
+  }
+{% endschema %}
+{% stylesheet %}
+{% endstylesheet %}
+{% javascript %}
+{% endjavascript %}
