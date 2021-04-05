@@ -1,2 +1,2 @@
-# Shopify-Avencohome
-Avencohome website with customized Shopify theme
+# Shopify-Turbo project
+Shopify website with customized Turbo theme
