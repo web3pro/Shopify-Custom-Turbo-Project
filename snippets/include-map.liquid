@@ -1,0 +1,88 @@
+{% comment %}
+  Snippet can be used in section or block
+  eg. {% include 'include-map' %}
+{% endcomment %}
+
+{% comment %}Assign object as block or section{% endcomment %}
+{% if type == 'block' %}
+  {% assign object = block %}
+{% else %}
+  {% assign object = section %}
+{% endif %}
+
+{% assign id = object.id %}
+{% comment %}Map settings{% endcomment %}
+{% assign wide_display = object.settings.wide_display %}
+{% assign map_address = object.settings.map_address %}
+{% assign api_key = object.settings.api_key %}
+{% assign map_style = object.settings.map_style %}
+{% assign map_height = object.settings.map_height %}
+{% assign zoom_level = object.settings.zoom_level %}
+{% assign show_pin = object.settings.show_pin %}
+{% assign map_image = object.settings.map_image %}
+
+<section class="map-section section--draggable map-id--{{id}} full-width--{{ wide_display }}">
+  {% if wide_display == false %}
+    <div class="container">
+      <div class="sixteen columns">
+  {% endif %}
+
+  {% if map_address != blank and api_key != blank %}
+    <div id="map--{{id}}" class="embed-container maps {% if api_key %}js-api-map{% endif %}">
+        {% if api_key != blank %}
+          <div class="map-section__container map" id="map-{{ id }}"
+                data-address="{{ map_address | strip_html }}"
+                data-zoom="{{ zoom_level }}"
+                data-pin="{{ show_pin }}"
+                data-id="map-{{ id }}"
+                data-style="{{ map_style }}"
+                data-api-key="{{ api_key }}"
+                data-directions-address="{{ map_address | strip_html | handleize | replace: '_', '+' | replace: ' ', '+'}}">
+          </div>
+        {% endif %}
+    </div>
+
+  {% elsif map_address != blank and api_key == blank %}
+    <div id="map--{{id}}" class="lazyframe lazymap embed-container maps" data-init="true" data-src="https://maps.google.com/maps?f=q&amp;source=embed&amp;hl=en&amp;geocode=&amp;q={% if map_address != blank %}{{ map_address | strip_html | replace: ' ', '+' }}{% else %}{{ shop.address.street }}{% endif %}&amp;z={{ zoom_level }}&amp;output=embed">
+      <iframe width="100%"  height="{{ map_height }}" frameborder="0" scrolling="no" marginheight="0" marginwidth="0" src="https://maps.google.com/maps?f=q&amp;source=embed&amp;hl=en&amp;geocode=&amp;q={% if map_address != blank %}{{ map_address | strip_html | replace: ' ', '+' }}{% else %}{{ shop.address.street }}{% endif %}&amp;z={{ zoom_level }}&amp;output=embed"></iframe>
+    </div>
+  {% else %}
+    <div id="map--{{id}}" class="map__placeholder maps">
+      {% if map_image %}
+        {% render 'image-element',
+                image: map_image,
+                alt: map_image.alt
+        %}
+      {% else %}
+        {% unless template contains 'page.contact-custom' %}
+          {{ 'lifestyle-1' | placeholder_svg_tag: 'placeholder-svg placeholder-svg--map' }}
+        {% endunless %}
+      {% endif %}
+    </div>
+  {% endif %}
+
+  {% if wide_display == false %}
+      <div>
+    </div>
+  {% endif %}
+</section>
+
+{% unless map_image != blank or map_address == blank %}
+  <style>
+    #map--{{id}}.maps,
+    #map--{{id}}.maps .map,
+    #map--{{id}}.maps iframe,
+    #map--{{id}}.maps .placeholder-svg {
+      height: {{ map_height }}px;
+    }
+
+    #map--{{id}}.map__placeholder img {
+      max-height: {{ map_height }}px;
+    }
+
+    .maps {
+      max-width: 100%;
+      overflow: hidden;
+    }
+  </style>
+{% endunless %}

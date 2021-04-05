@@ -1,0 +1,235 @@
+{% comment %}Assign object as block or section{% endcomment %}
+{% if type == 'block' %}
+  {% assign object = block %}
+{% else %}
+  {% assign object = section %}
+{% endif %}
+
+{% assign id = object.id %}
+
+{% assign contact_heading = object.settings.contact_heading %}
+{% comment %} {% assign left_back_image = object.settings.left_back_image %} {% endcomment %}
+{% assign contact_subheading = object.settings.contact_subheading %}
+{% assign contact_content = object.settings.contact_content %}
+{% assign contact_logo = object.settings.contact_logo %}
+{% assign contact_text_position = object.settings.contact_text_position %}
+{% assign contact_text_alignment = object.settings.contact_text_alignment %}
+{% assign contact_social = object.settings.contact_social_buttons %}
+
+{% if contact_heading != blank %}
+  <div class="sixteen columns">
+    <div class="custom-contact-form__heading">
+      <h2 class="title center">
+        {{ contact_heading | escape }}
+      </h2>
+      <div class="feature_divider"></div>
+    </div>
+  </div>
+{% endif %}
+
+<div class="custom-contact-form custom-contact-form__position--{{ contact_text_position }} {% if contact_text_position == 'left' %}seven{% elsif contact_text_position == 'right' %}seven{% else %}ten offset-by-three{% endif %} columns">
+  {% comment %} {% if left_back_image %}
+    <div class="custom-contact-form__image">
+      {% render 'image-element',
+              image: left_back_image.src,
+              alt: left_back_image.alt
+      %}
+    </div>
+  {% endif %} {% endcomment %}
+  <div class="custom-contact-form__text {% if contact_text_alignment == 'center' %}center{% elsif contact_text_alignment == 'right' %}align_right{% endif %}">
+    {% if contact_subheading != blank %}
+      <h3>{{ contact_subheading}}</h3>
+    {% endif %}
+    {% if contact_content != blank %}
+      <p>{{ contact_content }}</p>
+    {% endif %}
+
+    {% if section.settings.button_label !=blank %}
+    <a href={{section.setting.button_link}}>
+    <button class="button">
+      {{section.settings.button_label}}
+    </button>
+    </a>
+    {% endif %}
+
+    {% if contact_social %}
+      <div class="custom-contact-form__social">
+        {% render 'social-icons' %}
+      </div>
+    {% endif %}
+  </div>
+</div>
+
+<div class="custom-contact-form custom-contact-form__position--{% if contact_text_position == 'left' %}right {% elsif contact_text_position == 'right' %}eight{% else %}ten offset-by-three{% endif %} columns">
+
+  {% if contact_logo %}
+    <div class="custom-contact-form__logo">
+      {% render 'image-element',
+              image: contact_logo.src,
+              alt: contact_logo.alt
+      %}
+    </div>
+  {% endif %}
+
+  {% form 'contact' %}
+
+    {% if form.posted_successfully? %}
+      <p class="quote">{{ 'contact.form.post_success' | t }}</p>
+    {% endif %}
+
+    {% if form.errors %}
+      <p class="quote">{{ 'general.forms.post_error' | t }}</p>
+
+     {% assign message = 'contact.form.message' | t %}
+      <ul class="center">
+        {% for field in form.errors %}
+          {% if field == 'form' %}
+            <li>
+              {{ form.errors.messages[field] }}
+            </li>
+          {% else %}
+            <li>
+              {% assign field_name = field | replace: 'body', message %}
+              {{ 'general.forms.post_field_error_html' | t: field: field_name, error: form.errors.messages[field] }}
+            </li>
+          {% endif %}
+        {% endfor %}
+       </ul>
+    {% endif %}
+
+    {% if section.blocks.size > 0 %}
+      <div class="custom-contact-form__blocks">
+
+        {% for block in section.blocks %}
+
+          <div class="contact-block contact-block--{{ block.type }}" {{ block.shopify_attributes }}>
+
+          {% comment %}Text field{% endcomment %}
+          {% if block.type == 'textfield' %}
+
+            {% if block.settings.label != blank %}
+              {% assign label = block.settings.label %}
+            {% else %}
+              {% assign label = 'Option ' | append: forloop.index %}
+            {% endif %}
+
+            <label for="{{ label | replace: ' ', '_' }}">{{ label }} {% if block.settings.required %}<span class="red">*</span>{% endif %}</label>
+            <input type="text" name="contact[{{ label | replace: ' ', '_' }}]" id="{{ label | replace: ' ', '_' }}" placeholder="{{ block.settings.placeholder }}" {% if block.settings.required %}required="required"{% endif %} />
+
+          {% comment %}Paragraph{% endcomment %}
+          {% elsif block.type == 'paragraph' %}
+
+            {{ block.settings.text }}
+
+          {% comment %}Dropdown{% endcomment %}
+          {% elsif block.type == 'dropdown' %}
+
+            {% if block.settings.label != blank %}
+              {% assign label = block.settings.label %}
+            {% else %}
+              {% assign label = 'Option ' | append: forloop.index %}
+            {% endif %}
+
+            <label for="{{ label | replace: ' ', '_' }}">{{ label }} {% if block.settings.required %}<span class="red">*</span>{% endif %}</label>
+            <select id="contactFormQuestionType" name="contact[{{ label | replace: ' ', '_' }}]" {% if block.settings.required %}required="required"{% endif %}>
+              {% for index in (0..10) %}
+                {%- capture option -%}options_{{index}}{%- endcapture -%}
+                {% if forloop.index0 == 0 %}
+                  {% if label %}
+                    <option value="">
+                      {{ block.settings.placeholder}}
+                    </option>
+                  {% endif %}
+                {% else %}
+                  {% if block.settings[option] != blank %}
+                    <option value="{{ block.settings[option]}}">
+                      {{ block.settings[option] }}
+                    </option>
+                  {% endif %}
+                {% endif %}
+              {% endfor %}
+            </select>
+
+          {% comment %}Radio{% endcomment %}
+          {% elsif block.type == 'radio' %}
+
+            {% if block.settings.label != blank %}
+              {% assign label = block.settings.label %}
+            {% else %}
+              {% assign label = 'Option ' | append: forloop.index %}
+            {% endif %}
+
+            <label>{{ label }} {% if block.settings.required %}<span class="red">*</span>{% endif %}</label>
+            <ul>
+              {% for index in (1..10) %}
+                {%- capture option -%}options_{{index}}{%- endcapture -%}
+                {% if block.settings[option] != blank %}
+                  <li>
+                    <input type="radio" id="radio{{ forloop.index }}" name="contact[{{ label }}]" value="{{ block.settings[option] }}" {% if forloop.first %}checked{% endif %}/>
+                    <label for="radio{{ forloop.index }}">
+                      {{ block.settings[option] }}
+                    </label>
+                  </li>
+                {% endif %}
+              {% endfor %}
+            </ul>
+
+          {% comment %}Checkbox{% endcomment %}
+          {% elsif block.type == 'checkbox' %}
+
+            {% assign options = block.settings.options | split: ';' %}
+
+            {% if block.settings.label != blank %}
+              {% assign label = block.settings.label %}
+            {% else %}
+              {% assign label = 'Option ' | append: forloop.index %}
+            {% endif %}
+
+            <label>{{ label }} {% if block.settings.required %}<span class="red">*</span>{% endif %}</label>
+            <ul {% if block.settings.required %}data-is-required{% endif %}>
+              {% for index in (1..10) %}
+                {%- capture option -%}options_{{index}}{%- endcapture -%}
+                {% if block.settings[option] != blank %}
+                  <li>
+                    <input type="checkbox" id="checkbox{{ forloop.index }}" name="contact[{{ block.settings[option] }}]" value="true" />
+                    <label for="checkbox{{ forloop.index }}">
+                      {{ block.settings[option] }}
+                    </label>
+                  </li>
+                {% endif %}
+              {% endfor %}
+            </ul>
+
+            {% comment %}Textarea{% endcomment %}
+            {% elsif block.type == 'textarea' %}
+
+              {% if block.settings.label != blank %}
+                {% assign label = block.settings.label %}
+              {% else %}
+                {% assign label = 'Option ' | append: forloop.index %}
+              {% endif %}
+
+              <label for="textarea{{ forloop.index }}">{{ label }} {% if block.settings.required %}<span class="red">*</span>{% endif %}</label>
+              <textarea placeholder="{{ block.settings.placeholder }}" rows="7" id="textarea{{ forloop.index }}" name="contact[body]" {% if block.settings.required %}required="required"{% endif %}></textarea>
+
+            {% comment %}Email{% endcomment %}
+            {% elsif block.type == 'email' %}
+
+              {% if block.settings.label != blank %}
+                {% assign label = block.settings.label %}
+              {% else %}
+                {% assign label = 'Option ' | append: forloop.index %}
+              {% endif %}
+
+              <label for="contactFormEmail">{{ label }}</label>
+              <input type="email" id="contactFormEmail" name="contact[email]" placeholder="{{ block.settings.placeholder }}" autocorrect="off" autocapitalize="off" value="{% if form.email %}{{ form.email }}{% elsif customer %}{{ customer.email }}{% endif %}" required="required">
+
+            {% endif %}
+          </div>
+        {% endfor %}
+
+      </div>
+    {% endif %}
+    <input type="submit" class="submit action_button" value="Submit" />
+  {% endform %}
+</div>
