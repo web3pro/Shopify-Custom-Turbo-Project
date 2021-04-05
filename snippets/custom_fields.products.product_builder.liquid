@@ -1,0 +1,13 @@
+{% comment %}
+  DO NOT MODIFY THIS FILE DIRECTLY. THIS FILE WILL BE OVERWRITTEN.
+  YOU CAN MODIFY THE LIQUID CODE FOR THIS CUSTOM FIELD HERE:
+  https://customfields.bonify.io/dashboard/avencos.myshopify.com/products/configure/224248/edit
+{% endcomment %}
+{% if product.metafields.custom_fields["product_builder"] != blank %}
+  <div class="custom-field custom-field__product-builder custom-field__type--embed">
+    <h3 class="custom-field--title">Product Builder</h3>
+    <div class="custom-field--value">
+      {{ product.metafields.custom_fields["product_builder"] }}
+    </div>
+  </div>
+{% endif %}
