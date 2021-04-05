@@ -1,0 +1,1 @@
+jQuery(document).ready(function(r){r(".flickity-slider").css("transform","translateX(0%)")});
